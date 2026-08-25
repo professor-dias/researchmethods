@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+  } catch(e){}
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Home &middot; Stats101 &amp; AI Assisted Analysis</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-root="" data-page-id="home">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-main">
+      <h1>From Research Question<br>to Published Results</h1>
+      <p class="hero-sub">A complete, self-paced walk through public-health research methods for neurodivergent learners, taught briefly and one step at a time.</p>
+      <a class="hero-cta" href="1-philosophical-reasoning/1-1-philosophy-of-science-paradigms.html">Start the Course &rarr;</a>
+    </div>
+    <div class="hero-evidence" aria-label="Why this course is designed this way">
+      <div class="credibility-card">
+        <div class="credibility-number">1 in 6</div>
+        <div class="credibility-label">college students report ADHD &mdash; reading and attention differences are common in research training, not rare.</div>
+        <div class="credibility-source">NCES, <a href="https://nces.ed.gov/programs/coe/indicator/cgg/students-with-disabilities" target="_blank" rel="noopener">Students With Disabilities</a></div>
+      </div>
+      <div class="credibility-card">
+        <div class="credibility-number">Under-disclosed</div>
+        <div class="credibility-label">Graduate researchers use accommodations less often than undergrads &mdash; often with no formal support at all.</div>
+        <div class="credibility-source"><a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1149068/full" target="_blank" rel="noopener">Frontiers in Psychology, 2023</a></div>
+      </div>
+      <div class="credibility-card">
+        <div class="credibility-number">Design problem</div>
+        <div class="credibility-label">Executive-function demands &mdash; planning, starting tasks &mdash; are the most common barrier described. Not an ability problem.</div>
+        <div class="credibility-source"><a href="https://www.tandfonline.com/doi/full/10.1080/03075079.2025.2573209" target="_blank" rel="noopener">Studies in Higher Education, 2025</a></div>
+      </div>
+      <div class="credibility-card">
+        <div class="credibility-number">Proven practice</div>
+        <div class="credibility-label">Clear structure and predictable navigation are established cognitive-accessibility practices.</div>
+        <div class="credibility-source">W3C WAI, <a href="https://www.w3.org/TR/coga-usable/introduction.html" target="_blank" rel="noopener">Making Content Usable for People with Cognitive and Learning Disabilities</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="system-strip" aria-label="How this course is organized">
+  <a class="system-node-compact" href="1-philosophical-reasoning/1-1-philosophy-of-science-paradigms.html">
+    <span class="label">Idea</span>
+    <span class="topics">Topics 1&ndash;2</span>
+  </a>
+  <span class="system-arrow-compact" aria-hidden="true">&rarr;</span>
+  <a class="system-node-compact" href="3-quantitative-methods/3-1-data-collection.html">
+    <span class="label">Analysis</span>
+    <span class="topics">Topics 3&ndash;5</span>
+  </a>
+  <span class="system-arrow-compact" aria-hidden="true">&rarr;</span>
+  <a class="system-node-compact" href="6-critical-writing/6-1-foundations-of-scientific-writing.html">
+    <span class="label">Publication</span>
+    <span class="topics">Topic 6</span>
+  </a>
+  <span class="system-arrow-compact" aria-hidden="true">&rarr;</span>
+  <a class="system-node-compact" href="parking-lot/p-3-grant-writing.html">
+    <span class="label">Funding</span>
+    <span class="topics">Specialized Topics &middot; P.3</span>
+  </a>
+</div>
+
+<p class="sitemap-intro">The full course map &mdash; tap a topic to see its sections.</p>
+<div class="sitemap-groups">
+  <details class="sitemap-group" style="--group-accent:var(--accent-phil)">
+    <summary>
+      <span class="sitemap-group-heading">
+        <h2>Topic 1 &middot; Philosophical Reasoning</h2>
+        <p>How researchers reason, argue, and act ethically.</p>
+      </span>
+      <span class="chevron" aria-hidden="true">&#9660;</span>
+    </summary>
+    <ul class="sitemap-list">
+      <li class=""><a href="1-philosophical-reasoning/1-1-philosophy-of-science-paradigms.html"><span class="nav-num">1.1</span> Philosophy of Science &amp; Paradigms</a></li>
+      <li class=""><a href="1-philosophical-reasoning/1-2-logic-of-scientific-inference.html"><span class="nav-num">1.2</span> The Logic of Scientific Inference — Inductive vs. Deductive Reasoning</a></li>
+      <li class=""><a href="1-philosophical-reasoning/1-3-theory-construction.html"><span class="nav-num">1.3</span> Theory Construction</a></li>
+      <li class=""><a href="1-philosophical-reasoning/1-4-research-ethics-human-subjects.html"><span class="nav-num">1.4</span> Research Ethics &amp; Human Subjects Protection</a></li>
+      <li class=""><a href="1-philosophical-reasoning/1-5-community-ethics-advisory-boards.html"><span class="nav-num">1.5</span> Community Ethics — Advisory Boards &amp; the APHA Code</a></li>
+      <li class=""><a href="1-philosophical-reasoning/1-6-applied-ethics-case-discussion.html"><span class="nav-num">1.6</span> Applied Ethics Case Discussion</a></li>
+    </ul>
+  </details>
+  <details class="sitemap-group" style="--group-accent:var(--accent-design)">
+    <summary>
+      <span class="sitemap-group-heading">
+        <h2>Topic 2 &middot; Research Design</h2>
+        <p>Turn a research gap into a study you can actually run.</p>
+      </span>
+      <span class="chevron" aria-hidden="true">&#9660;</span>
+    </summary>
+    <ul class="sitemap-list">
+      <li class=""><a href="2-research-design/2-1-research-process-roadmap.html"><span class="nav-num">2.1</span> The Research Process — Big-Picture Roadmap</a></li>
+      <li class=""><a href="2-research-design/2-2-types-of-research-designs.html"><span class="nav-num">2.2</span> Types of Research Designs</a></li>
+      <li class=""><a href="2-research-design/2-3-bias-and-threats-to-validity.html"><span class="nav-num">2.3</span> Bias &amp; Threats to Validity</a></li>
+      <li class=""><a href="2-research-design/2-4-literature-review.html"><span class="nav-num">2.4</span> Conducting a Literature Review</a></li>
+      <li class=""><a href="2-research-design/2-5-building-your-research-strategy.html"><span class="nav-num">2.5</span> Building Your Research Strategy</a></li>
+    </ul>
+  </details>
+  <details class="sitemap-group" style="--group-accent:var(--accent-quant)">
+    <summary>
+      <span class="sitemap-group-heading">
+        <h2>Topic 3 &middot; Quantitative Methods</h2>
+        <p>Collect, analyze, and report numeric data, start to finish.</p>
+      </span>
+      <span class="chevron" aria-hidden="true">&#9660;</span>
+    </summary>
+    <ul class="sitemap-list">
+      <li class=""><a href="3-quantitative-methods/3-1-data-collection.html"><span class="nav-num">3.1</span> Data Collection</a></li>
+      <li class=""><a href="3-quantitative-methods/3-2-statistical-tests-and-analysis.html"><span class="nav-num">3.2</span> Statistical Tests &amp; Analysis</a></li>
+      <li class=""><a href="3-quantitative-methods/3-3-explaining-writing-quantitative-results.html"><span class="nav-num">3.3</span> Explaining &amp; Writing Quantitative Results</a></li>
+    </ul>
+  </details>
+  <details class="sitemap-group" style="--group-accent:var(--accent-annex)">
+    <summary>
+      <span class="sitemap-group-heading">
+        <h2>Topic 4 &middot; Statistical Modeling</h2>
+        <p>The full toolkit for turning data into answers, one method at a time.</p>
+      </span>
+      <span class="chevron" aria-hidden="true">&#9660;</span>
+    </summary>
+    <ul class="sitemap-list">
+      <li class=""><a href="4-statistical-modeling/4-1-describe.html"><span class="nav-num">4.1</span> Describe</a></li>
+      <li class=""><a href="4-statistical-modeling/4-2-compare.html"><span class="nav-num">4.2</span> Compare</a></li>
+      <li class=""><a href="4-statistical-modeling/4-3-relate.html"><span class="nav-num">4.3</span> Relate</a></li>
+      <li class=""><a href="4-statistical-modeling/4-4-predict.html"><span class="nav-num">4.4</span> Predict</a></li>
+      <li class=""><a href="4-statistical-modeling/4-5-explain.html"><span class="nav-num">4.5</span> Explain</a></li>
+      <li class=""><a href="4-statistical-modeling/4-6-measure.html"><span class="nav-num">4.6</span> Measure</a></li>
+      <li class=""><a href="4-statistical-modeling/4-7-discover.html"><span class="nav-num">4.7</span> Discover</a></li>
+      <li class=""><a href="4-statistical-modeling/4-8-longitudinal.html"><span class="nav-num">4.8</span> Longitudinal</a></li>
+      <li class=""><a href="4-statistical-modeling/4-9-causal-inference.html"><span class="nav-num">4.9</span> Causal Inference</a></li>
+      <li class=""><a href="4-statistical-modeling/4-10-machine-learning.html"><span class="nav-num">4.10</span> Machine Learning</a></li>
+      <li class=""><a href="4-statistical-modeling/4-11-bayesian.html"><span class="nav-num">4.11</span> Bayesian</a></li>
+      <li class=""><a href="4-statistical-modeling/4-12-diagnostics.html"><span class="nav-num">4.12</span> Diagnostics</a></li>
+      <li class=""><a href="4-statistical-modeling/4-13-missing-data.html"><span class="nav-num">4.13</span> Missing Data</a></li>
+      <li class=""><a href="4-statistical-modeling/4-14-multiple-testing.html"><span class="nav-num">4.14</span> Multiple Testing</a></li>
+    </ul>
+  </details>
+  <details class="sitemap-group" style="--group-accent:var(--accent-qual)">
+    <summary>
+      <span class="sitemap-group-heading">
+        <h2>Topic 5 &middot; Qualitative Methods</h2>
+        <p>Collect and analyze interview, focus-group, and narrative data.</p>
+      </span>
+      <span class="chevron" aria-hidden="true">&#9660;</span>
+    </summary>
+    <ul class="sitemap-list">
+      <li class=""><a href="5-qualitative-methods/5-1-data-collection.html"><span class="nav-num">5.1</span> Data Collection</a></li>
+      <li class=""><a href="5-qualitative-methods/5-2-qualitative-data-analysis.html"><span class="nav-num">5.2</span> Qualitative Data Analysis</a></li>
+      <li class=""><a href="5-qualitative-methods/5-3-explaining-writing-qualitative-results.html"><span class="nav-num">5.3</span> Explaining &amp; Writing Qualitative Results</a></li>
+    </ul>
+  </details>
+  <details class="sitemap-group" style="--group-accent:var(--accent-writing)">
+    <summary>
+      <span class="sitemap-group-heading">
+        <h2>Topic 6 &middot; Critical Writing Skills</h2>
+        <p>Read critically, argue clearly, and write like a researcher.</p>
+      </span>
+      <span class="chevron" aria-hidden="true">&#9660;</span>
+    </summary>
+    <ul class="sitemap-list">
+      <li class=""><a href="6-critical-writing/6-1-foundations-of-scientific-writing.html"><span class="nav-num">6.1</span> Foundations of Scientific Writing</a></li>
+      <li class=""><a href="6-critical-writing/6-2-manuscript-structure-imrad.html"><span class="nav-num">6.2</span> Manuscript Structure — IMRaD</a></li>
+      <li class=""><a href="6-critical-writing/6-3-synthesizing-and-citing-literature.html"><span class="nav-num">6.3</span> Synthesizing &amp; Citing Literature</a></li>
+      <li class=""><a href="6-critical-writing/6-4-critical-reading-constructing-argument.html"><span class="nav-num">6.4</span> Critical Reading &amp; Constructing an Argument</a></li>
+      <li class=""><a href="6-critical-writing/6-5-revision-peer-review-responding-to-reviewers.html"><span class="nav-num">6.5</span> Revision, Peer Review &amp; Responding to Reviewers</a></li>
+    </ul>
+  </details>
+  <details class="sitemap-group" style="--group-accent:var(--accent-special)">
+    <summary>
+      <span class="sitemap-group-heading">
+        <h2>Specialized Topics</h2>
+        <p>Deep-dive modules beyond the core sequence — new topics get added here as they're built.</p>
+      </span>
+      <span class="chevron" aria-hidden="true">&#9660;</span>
+    </summary>
+    <ul class="sitemap-list">
+      <li class=""><a href="parking-lot/p-1-community-based-participatory-research.html"><span class="nav-num">P.1</span> Community-Based Participatory Research</a></li>
+      <li class=""><a href="parking-lot/p-2-program-evaluation.html"><span class="nav-num">P.2</span> Program Evaluation</a></li>
+      <li class=""><a href="parking-lot/p-3-grant-writing.html"><span class="nav-num">P.3</span> Grant Writing</a></li>
+      <li class=""><a href="parking-lot/p-4-potential-projects.html"><span class="nav-num">P.4</span> Potential Projects</a></li>
+    </ul>
+  </details>
+</div>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-links"><a href="mailto:nsing044@fiu.edu">nsing044@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="assets/nav.js"></script>
+</body>
+</html>
