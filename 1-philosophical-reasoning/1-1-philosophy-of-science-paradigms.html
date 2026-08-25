@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Philosophy of Science &amp; Paradigms &middot; Stats101 &amp; AI Assisted Analysis</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="1-1">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+
+<section class="topic topic-first" id="ways-of-knowing">
+  <h2>How Do You Know What You Know?</h2>
+  <div class="recall-prompt">
+    Before we get into the mechanics of research &mdash; designs, statistics, ethics &mdash; it's worth pausing on a more basic question: how do you decide something is <em>true</em> in the first place? That's what this whole page is about, and it's the foundation everything else in this course builds on.
+  </div>
+
+  <p>Humans have been answering that question for thousands of years, long before "the scientific method" existed. Most people still mix all four ways of knowing below without noticing &mdash; tap one to see it in action.</p>
+
+  <div class="wok-grid" id="wokPicker">
+    <div class="wok-card active" data-way="authority" tabindex="0" role="button" aria-pressed="true">
+      <div class="wok-icon">&#128081;</div>
+      <div class="wok-label">Authority</div>
+    </div>
+    <div class="wok-card" data-way="tenacity" tabindex="0" role="button" aria-pressed="false">
+      <div class="wok-icon">&#128220;</div>
+      <div class="wok-label">Tenacity</div>
+    </div>
+    <div class="wok-card" data-way="logic" tabindex="0" role="button" aria-pressed="false">
+      <div class="wok-icon">&#9939;&#65039;</div>
+      <div class="wok-label">Logic &amp; Reason</div>
+    </div>
+    <div class="wok-card" data-way="science" tabindex="0" role="button" aria-pressed="false">
+      <div class="wok-icon">&#128300;</div>
+      <div class="wok-label">Scientific Inquiry</div>
+    </div>
+  </div>
+
+  <div class="flagship-box" id="wokBox">
+    <div class="flagship-title" id="wokTitle"></div>
+    <div class="flagship-row" id="wokDef"></div>
+    <div class="flagship-row" id="wokExample"></div>
+    <div class="flagship-row" id="wokCatch"></div>
+  </div>
+
+  <div class="interpretation-box">
+    Notice the pattern: authority, tenacity, and logic can all hand you an idea worth testing &mdash; but only scientific inquiry insists that the idea survive contact with real, collectable data. That's not a coincidence, and it's not just history. It's what the rest of this page explores &mdash; starting with why authority and tradition still need to be checked, right now, not just in Galileo's time.
+  </div>
+</section>
+
+<section class="topic" id="authority-critique">
+  <h2>Why Authority Still Needs to Be Critiqued &mdash; Even Now</h2>
+  <p>The Galileo story above can feel like ancient history &mdash; surely we're past trusting an idea just because an authority backed it? We aren't. A credentialed expert, a trusted institution, a regulator's approval &mdash; perceived authority still shapes what gets believed and acted on, and it has caused real, well-documented harm well within living memory.</p>
+
+  <div class="threat-grid">
+    <div class="threat-card">
+      <div class="threat-icon">&#128138;</div>
+      <div class="threat-name">The Opioid Crisis</div>
+      <div class="threat-desc">A pharmaceutical company, backed by physicians' prescribing authority and regulatory approval, assured patients and doctors that a powerful opioid carried a low risk of addiction. That reassurance &mdash; resting on authority, not adequate evidence &mdash; helped fuel a public health crisis that has cost hundreds of thousands of lives.</div>
+    </div>
+    <div class="threat-card">
+      <div class="threat-icon">&#129787;</div>
+      <div class="threat-name">Theranos</div>
+      <div class="threat-desc">A company built almost entirely on perceived authority &mdash; a charismatic founder, a board of prominent former officials, glowing press coverage &mdash; claimed its technology could run hundreds of medical tests from a single drop of blood. It couldn't. Patients received inaccurate results about their own health before the fraud was exposed.</div>
+    </div>
+    <div class="threat-card">
+      <div class="threat-icon">&#128137;</div>
+      <div class="threat-name">The 1998 Vaccine&ndash;Autism Study</div>
+      <div class="threat-desc">A single study, published in a respected journal by a credentialed physician, claimed a link between a childhood vaccine and autism. The paper was later retracted and its methods discredited &mdash; but the damage from that borrowed authority persists in vaccination rates today.</div>
+    </div>
+  </div>
+
+  <div class="note-box">Notice what all three have in common: none of them required the underlying claim to survive real scrutiny before people acted on it. The credential, the institution, or the publication did the convincing &mdash; not the evidence.</div>
+
+  <div class="recall-prompt"><strong>What other examples can you think of?</strong> Somewhere between historical and current events, authority &mdash; political, medical, religious, institutional &mdash; has convinced large numbers of people of something that later turned out to be false or harmful. Where have you seen it?</div>
+</section>
+
+<section class="topic" id="tenacity-critique">
+  <h2>Tenacity, Tradition &amp; Critical Thinking</h2>
+  <p>Tenacity is the most invisible way of knowing, because it rarely announces itself as a belief at all &mdash; it just feels like "how things are." That makes it worth examining with the same rigor as any other claim, especially when a tradition causes real harm.</p>
+
+  <div class="statement-box">
+    <strong>Case study: Female genital mutilation (FGM).</strong> FGM &mdash; the partial or total removal of external female genitalia for non-medical reasons &mdash; is still practiced in parts of Africa, the Middle East, and Asia, almost always justified as tradition or a rite of passage. The World Health Organization classifies it as a violation of human rights: it provides no health benefit, causes serious and often lifelong physical and psychological harm, and its persistence rests entirely on social tradition and pressure to conform &mdash; not on any medical or scientific rationale.
+  </div>
+
+  <div class="recall-prompt">If a practice this harmful can persist for generations purely on the strength of "this is how it's always been done," what does that tell you about how carefully that phrase needs to be examined &mdash; even for beliefs that feel far more harmless?</div>
+
+  <p>Apply that same scrutiny to each claim below. Before you reveal the verdict, ask yourself: is this tradition, or is this science?</p>
+
+  <div class="wok-grid" id="mythPicker">
+    <div class="wok-card active" data-myth="a" tabindex="0" role="button" aria-pressed="true">
+      <div class="wok-icon">&#127939;</div>
+      <div class="wok-label">Swim After Eating</div>
+    </div>
+    <div class="wok-card" data-myth="b" tabindex="0" role="button" aria-pressed="false">
+      <div class="wok-icon">&#127783;&#65039;</div>
+      <div class="wok-label">Wet Hair, Cold?</div>
+    </div>
+    <div class="wok-card" data-myth="c" tabindex="0" role="button" aria-pressed="false">
+      <div class="wok-icon">&#129365;</div>
+      <div class="wok-label">Carrots &amp; Eyesight</div>
+    </div>
+    <div class="wok-card" data-myth="d" tabindex="0" role="button" aria-pressed="false">
+      <div class="wok-icon">&#127822;</div>
+      <div class="wok-label">An Apple a Day</div>
+    </div>
+    <div class="wok-card" data-myth="e" tabindex="0" role="button" aria-pressed="false">
+      <div class="wok-icon">&#128026;</div>
+      <div class="wok-label">Oysters</div>
+    </div>
+    <div class="wok-card" data-myth="f" tabindex="0" role="button" aria-pressed="false">
+      <div class="wok-icon">&#127868;</div>
+      <div class="wok-label">Breastfeeding</div>
+    </div>
+    <div class="wok-card" data-myth="g" tabindex="0" role="button" aria-pressed="false">
+      <div class="wok-icon">&#128099;</div>
+      <div class="wok-label">First-Time Pregnancy</div>
+    </div>
+    <div class="wok-card" data-myth="h" tabindex="0" role="button" aria-pressed="false">
+      <div class="wok-icon">&#128137;</div>
+      <div class="wok-label">Flu Shot = Flu?</div>
+    </div>
+  </div>
+
+  <div class="flagship-box" id="mythBox">
+    <div class="flagship-title" id="mythClaim"></div>
+    <div class="flagship-row" id="mythVerdict"></div>
+  </div>
+
+  <div class="interpretation-box">None of this means authority and tradition are always wrong &mdash; a lot of inherited practice survives precisely because it works, even before anyone could explain why. The goal isn't to distrust every expert or every tradition; it's to ask for evidence instead of assuming it. <strong>Do any good examples of authority and tenacity come to mind</strong> &mdash; cases where deferring to an expert or a long-standing practice actually served you well?</div>
+</section>
+
+<section class="topic" id="authority-tenacity-unchecked">
+  <h2>What Happens When Authority and Tenacity Come Together and Remain Unchecked?</h2>
+  <p>Authority and tenacity are each risky enough alone. Combined &mdash; an authority that also has tradition, inertia, and "we've always handled it this way" on its side &mdash; the two can reinforce each other and go unchallenged for far longer than either would on its own. These three videos are worth watching for that exact pattern.</p>
+  <div class="flagship-box">
+    <div class="flagship-row"><a href="https://www.youtube.com/watch?v=Q0FP9lqO6-g" target="_blank" rel="noopener">Some Politicians Are Ignoring Science on Covid-19 &rarr;</a></div>
+    <div class="flagship-row"><a href="https://www.youtube.com/watch?v=lfjs_tN6uiY" target="_blank" rel="noopener">Presidential Disasters &mdash; Ronald Reagan and the Plague He Ignored &rarr;</a></div>
+    <div class="flagship-row"><a href="https://www.youtube.com/watch?v=yAzDn7tE1lU" target="_blank" rel="noopener">Reagan Administration's Chilling Response to the AIDS Crisis &rarr;</a></div>
+  </div>
+</section>
+
+<section class="topic" id="fallacy-game">
+  <h2>Logic &amp; Reasoning and the Fallacy Trap</h2>
+  <p>Logic feels different from authority and tenacity &mdash; it feels earned, not just asserted. But logic has its own blind spot: a <strong>fallacy</strong> is a specific, well-documented flaw in the structure of an argument, one that can make a false conclusion feel just as convincing as a true one. Logic only checks whether a conclusion follows from its premises &mdash; it never checks whether the premises, or the reasoning connecting them, are actually sound.</p>
+  <p>Each statement below sounds like an argument &mdash; but it's a specific, well-documented reasoning trap. Guess which one before revealing the answer.</p>
+
+  <div class="level-game-status" id="fallacyStatus">Round 1 of 5 &middot; 0 correct</div>
+  <div class="level-game-card">
+    <div class="level-game-var" id="fallacyStatement" style="font-size:1.05rem; font-weight:normal; line-height:1.5;"></div>
+    <div class="level-game-options" id="fallacyOptions">
+      <button type="button" data-fallacy="cumhoc">Correlation &ne; Causation<br><span style="font-weight:normal; font-size:0.78rem;">two things happen together, so one "must" cause the other</span></button>
+      <button type="button" data-fallacy="posthoc">Post Hoc<br><span style="font-weight:normal; font-size:0.78rem;">before it, so because of it</span></button>
+      <button type="button" data-fallacy="hasty">Hasty Generalization<br><span style="font-weight:normal; font-size:0.78rem;">few cases &rarr; whole group</span></button>
+      <button type="button" data-fallacy="sweeping">Sweeping Generalization<br><span style="font-weight:normal; font-size:0.78rem;">rule applied with no exceptions</span></button>
+    </div>
+    <div class="level-game-feedback" id="fallacyFeedback" style="display:none;"></div>
+  </div>
+  <div class="duel-controls">
+    <button type="button" id="fallacyNextBtn" style="display:none;">Next statement &rarr;</button>
+    <button type="button" id="fallacyRestartBtn" class="secondary">Shuffle &amp; Restart</button>
+  </div>
+</section>
+
+<section class="topic" id="scientific-inquiry">
+  <h2>What Makes Scientific Inquiry Different?</h2>
+  <p>Scientific inquiry isn't just "being extra careful." It's built from four specific ingredients &mdash; and if any one of them is missing, what you have is closer to logic or tenacity wearing a lab coat.</p>
+
+  <div class="method-compare">
+    <div class="method-panel">
+      <div class="method-panel-title">Empiricism</div>
+      <div class="method-item">Knowledge has to come from <strong>observation</strong>, not just from thinking hard about it. You collect data instead of reasoning your way to an answer from your armchair.</div>
+    </div>
+    <div class="method-panel">
+      <div class="method-panel-title">Data</div>
+      <div class="method-item">Concrete facts collected to answer a specific question &mdash; <strong>qualitative</strong> (differ in kind, like eye color) or <strong>quantitative</strong> (differ in degree, like height).</div>
+    </div>
+    <div class="method-panel">
+      <div class="method-panel-title">Theory</div>
+      <div class="method-item">Not a guess &mdash; an organized explanation of <em>why</em> a set of observations hang together. We build a whole page (1.3) around this one.</div>
+    </div>
+    <div class="method-panel">
+      <div class="method-panel-title">Falsification</div>
+      <div class="method-item">A real scientific claim has to be provably <strong>wrong-able</strong>. If no observation could ever refute it, it isn't a scientific claim &mdash; it's a belief.</div>
+    </div>
+  </div>
+
+  <div class="note-box">Philosopher Karl Popper put it sharply: <strong>"All monkeys like bananas"</strong> is scientific &mdash; you could find one monkey that hates them and disprove it. <strong>"God exists"</strong> is not &mdash; there's no observation that could settle it either way. Falsifiability is the line between the two.</div>
+</section>
+
+<section class="topic" id="paradigms">
+  <div class="recall-prompt">
+    Scientific inquiry just won the comparison &mdash; it's the only way of knowing that requires an idea to survive an actual attempt to disprove it. But "do science" isn't one single instruction. Two researchers can both be rigorously empirical, both demand falsifiable claims, and still disagree completely about what counts as real evidence in the first place. That disagreement has a name.
+  </div>
+  <h2>Paradigms: The Lens Your Field Hands You</h2>
+  <p>Sociologist Thomas Kuhn popularized the word <strong>paradigm</strong> &mdash; from the Greek <em>paradeigma</em>, "model" or "pattern." A paradigm is a discipline's shared worldview: which questions count, which methods are trustworthy, what "good evidence" even looks like. Change the paradigm, and you change what the whole field considers obvious.</p>
+
+  <p>Health research mostly runs on two paradigms, and you'll recognize them immediately &mdash; they're the philosophical roots of Topics 3 and 5 later in this course.</p>
+
+  <table class="compare">
+    <tr><th></th><th>Positivism</th><th>Interpretivism</th></tr>
+    <tr><td><strong>Core belief</strong></td><td>Reality is objective and measurable &mdash; the same fact for everyone</td><td>Reality is socially constructed &mdash; each person experiences it differently</td></tr>
+    <tr><td><strong>Goal</strong></td><td>Test hypotheses, find generalizable facts</td><td>Understand lived experience and meaning</td></tr>
+    <tr><td><strong>Typical data</strong></td><td>Numbers, scales, counts</td><td>Words, narratives, observations</td></tr>
+    <tr><td><strong>Feeds into</strong></td><td>Quantitative Methods (Topic 3)</td><td>Qualitative Methods (Topic 5)</td></tr>
+  </table>
+
+  <div class="interpretation-box">Neither paradigm is "more scientific" than the other &mdash; they answer different kinds of questions. "Does the drug lower blood pressure?" needs positivism. "Why do patients stop taking it?" needs interpretivism. Most real health research eventually needs both, which is exactly what Mixed Methods is for.</div>
+
+  <details class="content-accordion">
+    <summary>Two more worldviews you'll see in the literature<span class="accordion-progress" style="visibility:hidden;">&nbsp;</span></summary>
+    <div class="accordion-body">
+      <p>Later researchers split these two further. <strong>Postpositivism</strong> softens strict positivism &mdash; it admits that even careful measurement is never perfectly objective, so we can only approximate truth, never prove it outright. <strong>Pragmatism</strong> sits deliberately in between: instead of starting from a worldview and picking methods to match, it starts from the research question and uses whatever combination of methods actually answers it &mdash; the philosophical backbone of mixed-methods research.</p>
+    </div>
+  </details>
+</section>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Stats101 &amp; AI Assisted Analysis &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsing044@fiu.edu">nsing044@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+/* ================================================================
+   WAYS OF KNOWING — segmented picker
+   ================================================================ */
+const WOK_CONTENT = {
+  authority: {
+    title: 'Authority — trusting an expert or someone in power',
+    def: '<strong>What it is:</strong> Accepting something as true because a trusted source said so — a doctor, a professor, an institution.',
+    example: '<strong>Historical example:</strong> For centuries, the Catholic Church backed Aristotle\'s claim that the Earth sat at the center of the universe. Galileo\'s telescope observations contradicted it — and he was tried for disagreeing with the authority of his time.',
+    catch: '<strong>The catch:</strong> Authorities can be wrong, and "an expert said so" isn\'t itself evidence. As Einstein put it, "A foolish faith in authority is the worst enemy of truth."'
+  },
+  tenacity: {
+    title: 'Tenacity — believing it because it\'s always been believed',
+    def: '<strong>What it is:</strong> Holding onto an idea simply because it\'s familiar, traditional, or widely repeated — sometimes called "tradition."',
+    example: '<strong>Everyday example:</strong> "Drink eight 8-oz glasses of water a day." It\'s repeated constantly — but a full review of the science literature never found where that number came from, or evidence it\'s actually necessary.',
+    catch: '<strong>The catch:</strong> Repetition isn\'t verification. A belief can survive for generations purely because it\'s comforting or culturally reinforced, whether or not it\'s true.'
+  },
+  logic: {
+    title: 'Logic &amp; Reason — deriving conclusions from premises',
+    def: '<strong>What it is:</strong> Using structured reasoning (like a syllogism: premise, premise, conclusion) to arrive at new knowledge without collecting new data.',
+    example: '<strong>Historical example:</strong> Aristotle logically reasoned his way to "the Earth is at the center of the universe" — the argument\'s structure was sound, but it started from a false premise.',
+    catch: '<strong>The catch:</strong> Logic only tests whether a conclusion follows from its premises — not whether the premises are true. Flawed logic feels just as convincing as valid logic. (Try the fallacy game further down.)'
+  },
+  science: {
+    title: 'Scientific Inquiry — testing ideas against collectable data',
+    def: '<strong>What it is:</strong> Generating knowledge by proposing testable ideas and deliberately trying to prove them wrong with observation.',
+    example: '<strong>Historical example:</strong> In the early 1980s, researchers had only guesses about what caused AIDS — a virus? drug use? an existing infection? Each guess was narrowed down only once it was tested against real patient data.',
+    catch: '<strong>Why it wins:</strong> It\'s the only way of knowing on this list that requires a claim to survive an actual attempt to disprove it — which is exactly what makes it more reliable than the other three.'
+  }
+};
+function selectWok(card){
+  document.querySelectorAll('#wokPicker .wok-card').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+  card.classList.add('active');
+  card.setAttribute('aria-pressed', 'true');
+  renderWok(card.dataset.way);
+}
+document.querySelectorAll('#wokPicker .wok-card').forEach(card => {
+  card.addEventListener('click', () => selectWok(card));
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      selectWok(card);
+    }
+  });
+});
+function renderWok(way){
+  const c = WOK_CONTENT[way];
+  document.getElementById('wokTitle').innerHTML = c.title;
+  document.getElementById('wokDef').innerHTML = c.def;
+  document.getElementById('wokExample').innerHTML = c.example;
+  document.getElementById('wokCatch').innerHTML = c.catch;
+}
+renderWok('authority');
+
+/* ================================================================
+   TENACITY MYTH PICKER
+   ================================================================ */
+const MYTH_CONTENT = {
+  a: {
+    claim: 'Claim: "Wait at least an hour after eating before swimming, or you\'ll get cramps and drown."',
+    verdict: '<strong>Myth.</strong> There\'s no scientific evidence that swimming on a full stomach causes dangerous cramping. Mild digestive discomfort is possible, but the drowning-risk version of this rule has never been demonstrated — it persists mostly because it sounds like careful, responsible advice.'
+  },
+  b: {
+    claim: 'Claim: "Going outside with wet hair will give you a cold."',
+    verdict: '<strong>Myth, as claimed.</strong> Colds are caused by viruses, not by temperature or wet hair — you have to be exposed to the virus to catch it. Being cold may modestly affect immune response in some studies, but wet hair alone doesn\'t cause illness.'
+  },
+  c: {
+    claim: 'Claim: "Eating carrots will improve your eyesight."',
+    verdict: '<strong>Overstated.</strong> Vitamin A (which carrots provide) supports normal eye function, and a genuine deficiency can harm vision — but if you\'re already getting enough vitamin A, eating more carrots won\'t sharpen your eyesight. This myth partly traces to WWII British propaganda that credited carrots for pilots\' night-vision success, to avoid revealing early radar technology.'
+  },
+  d: {
+    claim: 'Claim: "An apple a day keeps the doctor away."',
+    verdict: '<strong>A folk rhyme, not a finding.</strong> It\'s a reasonable nudge toward eating more fruit, but no study has shown that one apple daily meaningfully reduces doctor visits — the appeal is the rhyme, not the evidence.'
+  },
+  e: {
+    claim: 'Claim: "Oysters are an aphrodisiac."',
+    verdict: '<strong>Mostly folklore.</strong> Oysters are genuinely high in zinc, a nutrient involved in reproductive health, but there\'s no strong evidence they produce an acute aphrodisiac effect. The reputation likely owes more to romantic association than to biology.'
+  },
+  f: {
+    claim: 'Claim: "Breastfeeding prevents pregnancy."',
+    verdict: '<strong>True only under specific, narrow conditions</strong> — exclusive breastfeeding, before six months postpartum, with no return of menstruation (the "Lactational Amenorrhea Method"). Outside those conditions it\'s unreliable. Treating it as general contraception, which is how the belief usually gets applied, isn\'t supported.'
+  },
+  g: {
+    claim: 'Claim: "You can\'t get pregnant the first time you have vaginal intercourse."',
+    verdict: '<strong>False.</strong> Pregnancy is possible any time ovulation coincides with intercourse — including the first time. This belief likely persists because it\'s reassuring, not because it\'s accurate.'
+  },
+  h: {
+    claim: 'Claim: "The flu vaccine can give you the flu."',
+    verdict: '<strong>False.</strong> Flu vaccines use an inactivated virus or a single viral protein that cannot cause infection (the nasal-spray version uses a weakened virus that isn\'t meant to replicate significantly). Soreness or a mild low-grade fever afterward is the immune system responding to the vaccine, not an active flu infection.'
+  }
+};
+function selectMyth(card){
+  document.querySelectorAll('#mythPicker .wok-card').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+  card.classList.add('active');
+  card.setAttribute('aria-pressed', 'true');
+  renderMyth(card.dataset.myth);
+}
+document.querySelectorAll('#mythPicker .wok-card').forEach(card => {
+  card.addEventListener('click', () => selectMyth(card));
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      selectMyth(card);
+    }
+  });
+});
+function renderMyth(myth){
+  const m = MYTH_CONTENT[myth];
+  document.getElementById('mythClaim').innerHTML = m.claim;
+  document.getElementById('mythVerdict').innerHTML = m.verdict;
+}
+renderMyth('a');
+
+/* ================================================================
+   FALLACY-SPOTTING GAME
+   ================================================================ */
+function shuffleArray(arr){
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+const FALLACY_BANK = [
+  { statement: '"Roosters crow right when the sun comes up — so the crowing must cause the sunrise."', fallacy: 'cumhoc', reason: 'Two things happening together doesn\'t mean one causes the other. The sun and the rooster both respond to dawn — independently.' },
+  { statement: '"Teenagers eat a lot of chocolate, and teenagers tend to get acne. So chocolate must cause acne."', fallacy: 'cumhoc', reason: 'Both are just common in teenagers — the actual driver (puberty hormones) was never tested.' },
+  { statement: '"Rick got his flu shot, and three days later he came down with the flu. The shot must have caused it."', fallacy: 'posthoc', reason: 'Rick was likely already exposed before the shot took effect — timing alone doesn\'t prove causation.' },
+  { statement: '"Professor Dincus is eccentric. Therefore, all professors must be eccentric."', fallacy: 'hasty', reason: 'One example — or a small, unrepresentative handful — is being stretched into a claim about an entire group.' },
+  { statement: '"College students generally like junk food. You\'re a college student, so you must like junk food."', fallacy: 'sweeping', reason: 'A general trend is being applied to one specific person with no room for exceptions — that\'s backwards from a hasty generalization.' },
+];
+let fallacyOrder = [], fallacyIndex = 0, fallacyCorrect = 0, fallacyAnswered = false;
+const FALLACY_LABELS = { cumhoc:'Correlation ≠ Causation', posthoc:'Post Hoc', hasty:'Hasty Generalization', sweeping:'Sweeping Generalization' };
+
+function renderFallacyRound(){
+  fallacyAnswered = false;
+  const item = fallacyOrder[fallacyIndex];
+  document.getElementById('fallacyStatus').textContent = `Round ${fallacyIndex + 1} of ${fallacyOrder.length} · ${fallacyCorrect} correct`;
+  document.getElementById('fallacyStatement').textContent = item.statement;
+  document.getElementById('fallacyFeedback').style.display = 'none';
+  document.getElementById('fallacyNextBtn').style.display = 'none';
+  document.querySelectorAll('#fallacyOptions button').forEach(b => { b.disabled = false; b.className = ''; });
+}
+function shuffleFallacyGame(){
+  fallacyOrder = shuffleArray(FALLACY_BANK);
+  fallacyIndex = 0;
+  fallacyCorrect = 0;
+  renderFallacyRound();
+}
+document.getElementById('fallacyOptions').addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if (!btn || fallacyAnswered) return;
+  fallacyAnswered = true;
+  const item = fallacyOrder[fallacyIndex];
+  const picked = btn.dataset.fallacy;
+  const correct = picked === item.fallacy;
+  if (correct) fallacyCorrect++;
+  document.querySelectorAll('#fallacyOptions button').forEach(b => {
+    b.disabled = true;
+    if (b.dataset.fallacy === item.fallacy) b.classList.add('reveal-correct');
+    else if (b.dataset.fallacy === picked) b.classList.add('picked-wrong');
+  });
+  const fb = document.getElementById('fallacyFeedback');
+  fb.className = 'level-game-feedback ' + (correct ? 'correct' : 'wrong');
+  fb.innerHTML = `<strong>${correct ? 'Correct!' : `Not quite — it's ${FALLACY_LABELS[item.fallacy]}.`}</strong>${item.reason}`;
+  fb.style.display = 'block';
+  document.getElementById('fallacyStatus').textContent = `Round ${fallacyIndex + 1} of ${fallacyOrder.length} · ${fallacyCorrect} correct`;
+  const isLast = fallacyIndex === fallacyOrder.length - 1;
+  document.getElementById('fallacyNextBtn').style.display = isLast ? 'none' : 'inline-block';
+});
+document.getElementById('fallacyNextBtn').addEventListener('click', () => {
+  fallacyIndex++;
+  renderFallacyRound();
+});
+document.getElementById('fallacyRestartBtn').addEventListener('click', shuffleFallacyGame);
+shuffleFallacyGame();
+</script>
+</body>
+</html>

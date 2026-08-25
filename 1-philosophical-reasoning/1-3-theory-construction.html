@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Theory Construction &middot; Stats101 &amp; AI Assisted Analysis</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="1-3">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+
+<section class="topic topic-first" id="what-is-theory">
+  <h2>If Science Were a Movie, Theory Would Be the Screenplay</h2>
+  <div class="recall-prompt">
+    Even the best actors need a script to make their performance mean something. In research, your data are the actors &mdash; theory is what turns their performance into a coherent story.
+  </div>
+
+  <p>People often use <strong>theory</strong> and <strong>hypothesis</strong> as if they were the same thing. They are not.</p>
+
+  <table class="compare">
+    <tr><th></th><th>Hypothesis</th><th>Theory</th></tr>
+    <tr><td><strong>Scope</strong></td><td>One specific, testable statement</td><td>An organized set of relationships that explains a whole pattern</td></tr>
+    <tr><td><strong>Example</strong></td><td>"Obesity is related to higher breast cancer risk in postmenopausal women"</td><td>A framework describing <em>how</em> physiological, environmental, and psychological factors interact to produce that risk</td></tr>
+    <tr><td><strong>Job</strong></td><td>Gets tested and either supported or rejected</td><td>Guides which hypotheses are worth testing in the first place</td></tr>
+  </table>
+
+  <div class="interpretation-box">A single hypothesis is one sentence. A theory is the reason that sentence made sense to write down at all.</div>
+</section>
+
+<section class="topic" id="concept-ladder">
+  <h2>From Fuzzy Idea to Measurable Number</h2>
+  <p>Every theory is built out of things you cannot directly touch &mdash; "stress," "motivation," "trust." Turning a fuzzy idea into something you can actually collect data on takes three steps.</p>
+
+  <div class="flow-chart">
+    <div class="flow-node">Concept<br><span style="font-weight:normal; font-size:0.82rem;">"Stress" &mdash; a broad, abstract idea</span></div>
+    <div class="flow-arrow-down"></div>
+    <div class="flow-node">Construct<br><span style="font-weight:normal; font-size:0.82rem;">"Perceived stress" &mdash; the concept, narrowed to something a theory can use</span></div>
+    <div class="flow-arrow-down"></div>
+    <div class="flow-node">Variable<br><span style="font-weight:normal; font-size:0.82rem;">Score on the 10-item Perceived Stress Scale &mdash; something you can actually measure</span></div>
+  </div>
+
+  <div class="note-box">This is the same ladder you will climb yourself in Topic 2, when you build your own research strategy: every variable you ever measure started out as somebody's fuzzy idea.</div>
+</section>
+
+<section class="topic" id="building-theories">
+  <h2>Two Ways to Build a Theory</h2>
+  <p>Long before "the scientific method" was a phrase, two competing strategies emerged for building theory &mdash; and researchers still use both today, often without naming them.</p>
+
+  <div class="method-compare">
+    <div class="method-panel">
+      <div class="method-panel-title">Baconian Inductivism <span style="font-weight:normal; font-size:0.8rem; color:var(--ink-soft);">(Francis Bacon, 1600s)</span></div>
+      <div class="method-item"><strong>1.</strong> Observe and classify relevant facts</div>
+      <div class="method-item"><strong>2.</strong> Generalize using inductive reasoning</div>
+      <div class="method-item"><strong>3.</strong> Build a framework that lets you deduce predictions</div>
+      <div class="method-item"><strong>4.</strong> Verify the predictions</div>
+      <div class="method-item" style="color:var(--ink-soft); font-size:0.85rem;">Weakness: needs a large number of observations, and cannot theorize about things nobody can observe.</div>
+    </div>
+    <div class="method-panel">
+      <div class="method-panel-title">Hypothetico-Deductivism <span style="font-weight:normal; font-size:0.8rem; color:var(--ink-soft);">(Isaac Newton, 1600s)</span></div>
+      <div class="method-item"><strong>1.</strong> Start from a hypothesis or general principle</div>
+      <div class="method-item"><strong>2.</strong> Deduce a specific, testable prediction from it</div>
+      <div class="method-item"><strong>3.</strong> Test the prediction against real observation</div>
+      <div class="method-item"><strong>4.</strong> Verify, revise, or reject the hypothesis</div>
+      <div class="method-item" style="color:var(--ink-soft); font-size:0.85rem;">Weakness: the same data can sometimes support more than one competing theory.</div>
+    </div>
+  </div>
+
+  <details class="content-accordion">
+    <summary>Which one did early AIDS research actually use?<span class="accordion-progress" style="visibility:hidden;">&nbsp;</span></summary>
+    <div class="accordion-body">
+      <p>In the early 1980s, physicians in several cities independently noticed rare infections appearing in young gay men. There was no existing theory to deduce from &mdash; so researchers had no choice but to start with Baconian inductivism: observe the pattern first, then generalize. That produced a flood of competing early hypotheses (a virus, drug use, an existing infection, even swine fever) that were only narrowed down once each one was tested against new patient data &mdash; at which point the process shifted into hypothetico-deductivism.</p>
+    </div>
+  </details>
+</section>
+
+<section class="topic" id="wheel-of-science">
+  <h2>The Wheel of Science</h2>
+  <p>Sociologist Walter Wallace pictured the entire research process as a wheel with four stops. Spin it to uncover each one &mdash; you cannot skip ahead, only discover them one at a time.</p>
+
+  <div class="wheel-game">
+    <div class="wheel-wrap">
+      <div class="wheel-pointer" aria-hidden="true">&#9660;</div>
+      <svg viewBox="0 0 220 220" class="wheel-svg" aria-hidden="true">
+        <g id="wheelGroup">
+          <path id="wedge-theory" class="wedge" d="M110,110 L110,10 A100,100 0 0,1 210,110 Z"></path>
+          <path id="wedge-hypothesis" class="wedge" d="M110,110 L210,110 A100,100 0 0,1 110,210 Z"></path>
+          <path id="wedge-observation" class="wedge" d="M110,110 L110,210 A100,100 0 0,1 10,110 Z"></path>
+          <path id="wedge-generalization" class="wedge" d="M110,110 L10,110 A100,100 0 0,1 110,10 Z"></path>
+          <circle cx="110" cy="110" r="100" fill="none" stroke="var(--ink)" stroke-width="2"></circle>
+          <text id="label-theory" class="wedge-label" x="156" y="68" text-anchor="middle">?</text>
+          <text id="label-hypothesis" class="wedge-label" x="156" y="156" text-anchor="middle">?</text>
+          <text id="label-observation" class="wedge-label" x="64" y="156" text-anchor="middle">?</text>
+          <text id="label-generalization" class="wedge-label" x="64" y="68" text-anchor="middle">?</text>
+          <circle cx="110" cy="110" r="16" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"></circle>
+        </g>
+      </svg>
+    </div>
+    <div class="wheel-controls">
+      <button type="button" id="spinBtn">Spin the Wheel</button>
+      <div class="wheel-status" id="wheelStatus">0 of 4 stops discovered</div>
+    </div>
+    <div class="flagship-box" id="wheelReveal" style="display:none;">
+      <div class="flagship-title">What You've Found So Far</div>
+    </div>
+  </div>
+
+  <p id="wheelExplain" style="display:none; text-align:center; color:var(--ink-soft); font-size:0.92rem;">Moving Theory &rarr; Hypothesis &rarr; Observation is <strong>deduction</strong>. Moving Observation &rarr; Generalization &rarr; back to Theory is <strong>induction</strong>. This is exactly the same inductive/deductive split from Topic 1.2 &mdash; just zoomed out to the scale of an entire research program.</p>
+
+  <div class="interpretation-box" id="wheelInterpretation" style="display:none;">The wheel has no official starting point. A researcher can enter at Theory (deductive) or enter at Observation (inductive) &mdash; and if a study gets stuck, sometimes the fix is to travel the wheel backward instead of forward.</div>
+</section>
+
+<section class="topic" id="theory-types">
+  <h2>What Kind of Explanation Is It?</h2>
+  <p>Not every theory tries to answer the same question. Most health-behavior theories are phenomenological &mdash; and that is a deliberate, practical choice, not a weaker one.</p>
+
+  <div class="method-compare">
+    <div class="method-panel">
+      <div class="method-panel-title">Phenomenological</div>
+      <div class="method-item">Describes and generalizes a pattern <strong>without</strong> claiming to explain the underlying cause.</div>
+      <div class="method-item"><strong>Example:</strong> The Health Belief Model &mdash; it describes how perceived risk and perceived benefit relate to health behavior, without claiming to explain the deep psychological mechanism behind perception itself.</div>
+    </div>
+    <div class="method-panel">
+      <div class="method-panel-title">Explanatory</div>
+      <div class="method-item">Identifies the actual causal mechanism &mdash; the <em>why</em>, not just the pattern.</div>
+      <div class="method-item"><strong>Example:</strong> General relativity does not just describe that objects fall &mdash; it explains gravity as a distortion in space-time itself.</div>
+    </div>
+  </div>
+</section>
+
+<section class="topic" id="falsifiability-game">
+  <h2>Could This Theory Ever Be Proven Wrong?</h2>
+  <p>Recall from 1.1: Karl Popper argued a claim only counts as scientific if it is falsifiable &mdash; if some possible observation could, in principle, disprove it. Test your instinct on five claims below.</p>
+
+  <div class="level-game-status" id="falsGameStatus">Round 1 of 5 &middot; 0 correct</div>
+  <div class="level-game-card">
+    <div class="level-game-var" id="falsGameClaim" style="font-size:1.05rem; font-weight:normal; line-height:1.5;"></div>
+    <div class="level-game-options" id="falsGameOptions">
+      <button type="button" data-answer="yes">Falsifiable</button>
+      <button type="button" data-answer="no">Not Falsifiable</button>
+    </div>
+    <div class="level-game-feedback" id="falsGameFeedback" style="display:none;"></div>
+  </div>
+  <div class="duel-controls">
+    <button type="button" id="falsGameNextBtn" style="display:none;">Next claim &rarr;</button>
+    <button type="button" id="falsGameRestartBtn" class="secondary">Shuffle &amp; Restart</button>
+  </div>
+</section>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Stats101 &amp; AI Assisted Analysis &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsing044@fiu.edu">nsing044@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+function shuffleArray(arr){
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+const FALS_BANK = [
+  { claim: "All monkeys like to eat bananas.", answer: "yes", reason: "You could, in principle, find one monkey that refuses bananas — that single observation would disprove it." },
+  { claim: "This new counseling program reduces relapse rates.", answer: "yes", reason: "You can measure relapse rates in a treatment group versus a control group — the claim could fail that test." },
+  { claim: "Everything happens for a spiritual reason beyond human understanding.", answer: "no", reason: "There is no observation that could ever contradict this — any outcome can be explained by it, which is exactly why it is not scientific." },
+  { claim: "People who exercise regularly report better mood, on average.", answer: "yes", reason: "This predicts a measurable pattern across people — a study could easily find no difference and disprove it." },
+  { claim: "A higher power ensures everything works out as it should.", answer: "no", reason: "No possible outcome could ever be shown to violate this claim, so there is nothing to test." },
+];
+let falsOrder = [], falsIndex = 0, falsCorrect = 0, falsAnswered = false;
+function renderFalsRound(){
+  falsAnswered = false;
+  const item = falsOrder[falsIndex];
+  document.getElementById('falsGameStatus').textContent = `Round ${falsIndex + 1} of ${falsOrder.length} · ${falsCorrect} correct`;
+  document.getElementById('falsGameClaim').textContent = item.claim;
+  document.getElementById('falsGameFeedback').style.display = 'none';
+  document.getElementById('falsGameNextBtn').style.display = 'none';
+  document.querySelectorAll('#falsGameOptions button').forEach(b => { b.disabled = false; b.className = ''; });
+}
+function shuffleFalsGame(){
+  falsOrder = shuffleArray(FALS_BANK);
+  falsIndex = 0;
+  falsCorrect = 0;
+  renderFalsRound();
+}
+document.getElementById('falsGameOptions').addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if (!btn || falsAnswered) return;
+  falsAnswered = true;
+  const item = falsOrder[falsIndex];
+  const picked = btn.dataset.answer;
+  const correct = picked === item.answer;
+  if (correct) falsCorrect++;
+  document.querySelectorAll('#falsGameOptions button').forEach(b => {
+    b.disabled = true;
+    if (b.dataset.answer === item.answer) b.classList.add('reveal-correct');
+    else if (b.dataset.answer === picked) b.classList.add('picked-wrong');
+  });
+  const fb = document.getElementById('falsGameFeedback');
+  fb.className = 'level-game-feedback ' + (correct ? 'correct' : 'wrong');
+  fb.innerHTML = '<strong>' + (correct ? 'Correct!' : 'Not quite.') + '</strong>' + item.reason;
+  fb.style.display = 'block';
+  document.getElementById('falsGameStatus').textContent = `Round ${falsIndex + 1} of ${falsOrder.length} · ${falsCorrect} correct`;
+  const isLast = falsIndex === falsOrder.length - 1;
+  document.getElementById('falsGameNextBtn').style.display = isLast ? 'none' : 'inline-block';
+});
+document.getElementById('falsGameNextBtn').addEventListener('click', () => {
+  falsIndex++;
+  renderFalsRound();
+});
+document.getElementById('falsGameRestartBtn').addEventListener('click', shuffleFalsGame);
+shuffleFalsGame();
+
+/* ================================================================
+   WHEEL OF SCIENCE — spin-to-reveal game. Four wedges start hidden
+   ("?"); each spin lands on one (weighted toward stops not yet
+   found) and reveals it. Once all four are found, the deduction /
+   induction explanation appears as the payoff.
+   ================================================================ */
+const WHEEL_STOPS = [
+  { id: "theory", angle: 45, label: "Theory", color: "var(--teal)",
+    title: "Theory", text: "An organized explanation of how a set of relationships works — the framework you deduce a hypothesis from." },
+  { id: "hypothesis", angle: 135, label: "Hypothesis", color: "var(--clay)",
+    title: "Hypothesis", text: "A single, specific, testable prediction derived from the theory." },
+  { id: "observation", angle: 225, label: "Observation", color: "var(--navy)",
+    title: "Observation", text: "The actual data you collect to test that prediction — measurement meets reality." },
+  { id: "generalization", angle: 315, label: "Gen.", color: "var(--green)",
+    title: "Empirical Generalization", text: "A pattern found across many observations — solid enough to feed back into, or revise, the theory." },
+];
+const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let wheelRotation = 0;
+const wheelRevealed = new Set();
+
+function pickWheelTarget(){
+  const remaining = WHEEL_STOPS.filter(s => !wheelRevealed.has(s.id));
+  const pool = remaining.length ? remaining : WHEEL_STOPS;
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+document.getElementById("spinBtn").addEventListener("click", () => {
+  if (wheelRevealed.size >= WHEEL_STOPS.length) return;
+  const btn = document.getElementById("spinBtn");
+  btn.disabled = true;
+  const target = pickWheelTarget();
+  const extraSpins = 4 + Math.floor(Math.random() * 3);
+  const currentOffset = ((wheelRotation % 360) + 360) % 360;
+  const stopCurrentAngle = (target.angle + currentOffset) % 360;
+  const inc = ((360 - stopCurrentAngle) % 360) + extraSpins * 360;
+  wheelRotation += inc;
+  document.getElementById("wheelGroup").style.transform = `rotate(${wheelRotation}deg)`;
+  setTimeout(() => revealWheelStop(target), REDUCED_MOTION ? 60 : 1900);
+});
+
+function revealWheelStop(stop){
+  wheelRevealed.add(stop.id);
+  const path = document.getElementById("wedge-" + stop.id);
+  const label = document.getElementById("label-" + stop.id);
+  path.style.fill = stop.color;
+  path.classList.add("revealed");
+  label.textContent = stop.label;
+  label.classList.add("revealed");
+
+  const box = document.getElementById("wheelReveal");
+  box.style.display = "block";
+  const row = document.createElement("div");
+  row.className = "flagship-row";
+  row.innerHTML = `<strong>${stop.title}:</strong> ${stop.text}`;
+  box.appendChild(row);
+
+  document.getElementById("wheelStatus").textContent = `${wheelRevealed.size} of ${WHEEL_STOPS.length} stops discovered`;
+
+  const btn = document.getElementById("spinBtn");
+  if (wheelRevealed.size >= WHEEL_STOPS.length){
+    btn.textContent = "All Stops Discovered";
+    btn.disabled = true;
+    document.getElementById("wheelExplain").style.display = "block";
+    document.getElementById("wheelInterpretation").style.display = "block";
+  } else {
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>

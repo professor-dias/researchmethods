@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>The Logic of Scientific Inference — Inductive vs. Deductive Reasoning &middot; Stats101 &amp; AI Assisted Analysis</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="1-2">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+
+<section class="topic topic-first" id="reasoning">
+  <h2>Two Ways of Scientific Inquiry</h2>
+  <div class="recall-prompt">
+    1.1 ended with scientific inquiry winning the comparison &mdash; the one way of knowing that requires an idea to survive an attempt to disprove it. But "doing science" splits into two distinct directions of travel. Watch these two pictures come into focus &mdash; they'll show you the difference better than any definition can.
+  </div>
+
+  <h3>Inductive: watching the picture reveal itself</h3>
+  <div class="blur-demo">
+    <div class="blur-frame">
+      <img id="dogImg" src="../dog.png" alt="" style="filter:blur(22px)">
+    </div>
+    <div class="blur-demo-body">
+      <p id="dogPrompt">What do you think this is? Bring it into focus a little at a time.</p>
+      <div class="blur-controls">
+        <button id="dogRevealBtn">Reveal a bit more</button>
+        <button id="dogResetBtn" class="secondary">Reset</button>
+      </div>
+      <p class="demo-answer" id="dogAnswer" style="display:none;">It's a dog! At what point did you know?</p>
+    </div>
+  </div>
+  <div class="interpretation-box">
+    That's exploratory analysis. You revealed information gradually and formed an understanding &mdash; without testing any specific claim.
+  </div>
+
+  <h3 style="margin-top:32px;">Deductive: naming your guess before the picture clears</h3>
+  <div class="blur-demo">
+    <div class="blur-frame">
+      <img id="wolfImg" src="../wolf.png" alt="" style="filter:blur(11px)">
+    </div>
+    <div class="blur-demo-body">
+      <div class="hypothesis-toggle">
+        <button id="wolfHypBtn">Reveal the hypothesis being tested</button>
+        <div class="reveal-text" id="wolfHypText" style="display:none;">H1: This animal is a dog.</div>
+      </div>
+      <p id="wolfPrompt">State the hypothesis first — then we'll gather evidence.</p>
+      <div class="blur-controls">
+        <button id="wolfRevealBtn" disabled>Reveal a bit more</button>
+        <button id="wolfResetBtn" class="secondary">Reset</button>
+      </div>
+      <p class="demo-verdict" id="wolfVerdict" style="display:none;"></p>
+    </div>
+  </div>
+  <div class="interpretation-box">
+    That's deductive reasoning. You named your best guess before all the evidence was in, then let the evidence confirm or reject it &mdash; this time, it didn't survive.
+  </div>
+
+  <h3 style="margin-top:32px;">Putting words to what you just saw</h3>
+  <p>Both approaches can involve a hypothesis. The real difference is <strong>direction</strong> (data-first vs. theory-first) and <strong>when</strong> the hypothesis shows up.</p>
+
+  <table class="compare">
+    <tr><th></th><th>Inductive (bottom-up)</th><th>Deductive (top-down)</th></tr>
+    <tr><td><strong>Starting point</strong></td><td>Specific observations / data</td><td>A theory, prior knowledge, or a specific hypothesis</td></tr>
+    <tr><td><strong>Typical question</strong></td><td>"What patterns exist in this data?"</td><td>"Does the data support this specific claim?"</td></tr>
+    <tr><td><strong>Role of a hypothesis</strong></td><td>May <em>generate</em> a hypothesis as an output (hypothesis-generating)</td><td>Starts from a hypothesis and <em>tests</em> it against new data (hypothesis-testing)</td></tr>
+    <tr><td><strong>Goal</strong></td><td>Discover / describe</td><td>Confirm / evaluate</td></tr>
+    <tr><td><strong>Typical outputs</strong></td><td>Probabilities, summaries, patterns</td><td>Effect size, confidence interval, p-value, significance decision</td></tr>
+  </table>
+</section>
+
+<section class="topic" id="marble-lab">
+  <h2>The Mystery Jar</h2>
+  <p>Time to actually <em>do</em> both kinds of reasoning, not just watch them. Somewhere behind the scenes sits a jar of blue and gold marbles in a fixed, hidden ratio. Pick a mode below and try it yourself.</p>
+
+  <div class="segmented" id="marbleModeToggle">
+    <button type="button" class="active" data-mode="inductive">Inductive Mode</button>
+    <button type="button" data-mode="deductive">Deductive Mode</button>
+  </div>
+
+  <div id="inductivePanel" style="margin-top:18px;">
+    <h3>Draw First, Conclude Later</h3>
+    <p>No hypothesis yet &mdash; just start drawing marbles (one at a time, replaced each time) and watch the pattern build. When you feel confident, reveal the jar's true makeup and see how close your read was.</p>
+    <div class="marble-tray" id="inductiveTray"></div>
+    <div class="duel-controls">
+      <button type="button" id="drawInductiveBtn">Draw a Marble</button>
+      <button type="button" id="resetInductiveBtn" class="secondary">Reset Jar</button>
+    </div>
+    <p class="worksheet-note" id="inductiveCount">0 marbles drawn</p>
+    <div class="bar-chart" id="inductiveBar"></div>
+    <div class="duel-controls" style="margin-top:14px;">
+      <button type="button" id="revealInductiveBtn" disabled>Reveal the Jar's True Makeup</button>
+    </div>
+    <p class="demo-verdict" id="inductiveVerdict" style="display:none;"></p>
+    <div class="interpretation-box" id="inductiveExplain" style="display:none;">That's inductive reasoning: you had no hypothesis going in &mdash; you let the data build a generalization for you, one draw at a time.</div>
+  </div>
+
+  <div id="deductivePanel" style="display:none; margin-top:18px;">
+    <h3>Hypothesis First, Test It Against Data</h3>
+    <div class="hypothesis-toggle">
+      <button type="button" id="deductiveHypBtn">Reveal the hypothesis being tested</button>
+      <div class="reveal-text" id="deductiveHypText" style="display:none;">H1: This jar is mostly blue &mdash; about 70% blue, 30% gold.</div>
+    </div>
+    <p id="deductivePrompt">State the hypothesis first, predict what it implies, then gather evidence.</p>
+    <div class="duel-controls">
+      <button type="button" id="predictBtn" disabled>See what H1 predicts for 10 draws</button>
+    </div>
+    <p class="worksheet-note" id="predictText" style="display:none;"></p>
+    <div class="marble-tray" id="deductiveTray"></div>
+    <div class="duel-controls">
+      <button type="button" id="drawDeductiveBtn" disabled>Draw the next marble (0 / 10)</button>
+      <button type="button" id="resetDeductiveBtn" class="secondary">Reset Jar</button>
+    </div>
+    <div class="bar-chart" id="deductiveBar"></div>
+    <p class="demo-verdict" id="deductiveVerdict" style="display:none;"></p>
+    <div class="interpretation-box" id="deductiveExplain" style="display:none;"></div>
+  </div>
+
+  <div class="note-box" style="margin-top:18px;">Notice the two panels used the <em>same kind</em> of evidence &mdash; drawn marbles, tallied and charted &mdash; but arrived at it from opposite directions. That back-and-forth between observation and theory is exactly what 1.3's Wheel of Science is built around.</div>
+</section>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Stats101 &amp; AI Assisted Analysis &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsing044@fiu.edu">nsing044@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+/* ================================================================
+   BLURRY-REVEAL DEMOS (Two Ways of Scientific Inquiry section)
+   Inductive: a picture that simply comes into focus — no claim
+   being tested, just gradual understanding.
+   Deductive: a named hypothesis is locked in first, then the
+   picture comes into focus and the hypothesis is confirmed or
+   rejected by the evidence.
+   ================================================================ */
+const BLUR_STAGES = [22, 16, 11, 7, 3, 0];
+const WOLF_BLUR_STAGES = [11, 7, 3, 0]; // starts less blurry so the class can actually hypothesize
+
+let dogStage = 0;
+function updateDogFrame(){
+  document.getElementById('dogImg').style.filter = `blur(${BLUR_STAGES[dogStage]}px)`;
+  if (dogStage >= BLUR_STAGES.length - 1){
+    document.getElementById('dogRevealBtn').disabled = true;
+    document.getElementById('dogAnswer').style.display = 'block';
+  }
+}
+document.getElementById('dogRevealBtn').addEventListener('click', () => {
+  dogStage = Math.min(BLUR_STAGES.length - 1, dogStage + 1);
+  updateDogFrame();
+});
+document.getElementById('dogResetBtn').addEventListener('click', () => {
+  dogStage = 0;
+  document.getElementById('dogRevealBtn').disabled = false;
+  document.getElementById('dogAnswer').style.display = 'none';
+  updateDogFrame();
+});
+updateDogFrame();
+
+let wolfStage = 0;
+function updateWolfFrame(){
+  document.getElementById('wolfImg').style.filter = `blur(${WOLF_BLUR_STAGES[wolfStage]}px)`;
+  if (wolfStage >= WOLF_BLUR_STAGES.length - 1){
+    document.getElementById('wolfRevealBtn').disabled = true;
+    const verdict = document.getElementById('wolfVerdict');
+    verdict.style.display = 'block';
+    verdict.textContent = "The evidence doesn't support the hypothesis — this is a wolf, not a dog. H1 is rejected.";
+  }
+}
+document.getElementById('wolfHypBtn').addEventListener('click', () => {
+  document.getElementById('wolfHypText').style.display = 'block';
+  document.getElementById('wolfRevealBtn').disabled = false;
+  document.getElementById('wolfPrompt').textContent = "Hypothesis locked in. Now let's gather evidence and see if it holds up.";
+});
+document.getElementById('wolfRevealBtn').addEventListener('click', () => {
+  wolfStage = Math.min(WOLF_BLUR_STAGES.length - 1, wolfStage + 1);
+  updateWolfFrame();
+});
+document.getElementById('wolfResetBtn').addEventListener('click', () => {
+  wolfStage = 0;
+  document.getElementById('wolfHypText').style.display = 'none';
+  document.getElementById('wolfRevealBtn').disabled = true;
+  document.getElementById('wolfVerdict').style.display = 'none';
+  document.getElementById('wolfPrompt').textContent = 'State the hypothesis first — then we\'ll gather evidence.';
+  updateWolfFrame();
+});
+updateWolfFrame();
+
+/* ================================================================
+   THE MYSTERY JAR — hands-on inductive vs. deductive practice
+   Two separate hidden jars. Inductive mode has no stated ratio —
+   you draw freely and estimate. Deductive mode states a specific
+   hypothesis (70% blue) up front against a jar deliberately set
+   far from it (20% blue), so the fixed 10-draw sample reliably
+   rejects H1 — mirroring the wolf demo's rejection above.
+   ================================================================ */
+const INDUCTIVE_TRUE_BLUE = 0.7;
+const DEDUCTIVE_TRUE_BLUE = 0.2;
+
+document.querySelectorAll('#marbleModeToggle button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#marbleModeToggle button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const mode = btn.dataset.mode;
+    document.getElementById('inductivePanel').style.display = mode === 'inductive' ? '' : 'none';
+    document.getElementById('deductivePanel').style.display = mode === 'deductive' ? '' : 'none';
+  });
+});
+
+function renderMarbleBar(containerId, counts){
+  const total = counts.blue + counts.gold;
+  const bluePct = total ? Math.round(counts.blue / total * 100) : 0;
+  const goldPct = total ? 100 - bluePct : 0;
+  document.getElementById(containerId).innerHTML = `
+    <div class="bar-row"><div class="bar-label">Blue</div><div class="bar-track"><div class="bar-fill" style="width:${bluePct}%"></div></div><div class="bar-pct">${counts.blue} (${bluePct}%)</div></div>
+    <div class="bar-row"><div class="bar-label">Gold</div><div class="bar-track"><div class="bar-fill" style="width:${goldPct}%"></div></div><div class="bar-pct">${counts.gold} (${goldPct}%)</div></div>
+  `;
+}
+
+/* ---- Inductive ---- */
+let inductiveCounts = { blue: 0, gold: 0 };
+function drawInductiveMarble(){
+  const isBlue = Math.random() < INDUCTIVE_TRUE_BLUE;
+  inductiveCounts[isBlue ? 'blue' : 'gold']++;
+  const chip = document.createElement('div');
+  chip.className = 'marble ' + (isBlue ? 'blue' : 'gold');
+  document.getElementById('inductiveTray').appendChild(chip);
+  const total = inductiveCounts.blue + inductiveCounts.gold;
+  document.getElementById('inductiveCount').textContent = `${total} marble${total === 1 ? '' : 's'} drawn`;
+  renderMarbleBar('inductiveBar', inductiveCounts);
+  if (total >= 5) document.getElementById('revealInductiveBtn').disabled = false;
+}
+document.getElementById('drawInductiveBtn').addEventListener('click', drawInductiveMarble);
+document.getElementById('resetInductiveBtn').addEventListener('click', () => {
+  inductiveCounts = { blue: 0, gold: 0 };
+  document.getElementById('inductiveTray').innerHTML = '';
+  document.getElementById('inductiveCount').textContent = '0 marbles drawn';
+  renderMarbleBar('inductiveBar', inductiveCounts);
+  document.getElementById('revealInductiveBtn').disabled = true;
+  document.getElementById('inductiveVerdict').style.display = 'none';
+  document.getElementById('inductiveExplain').style.display = 'none';
+});
+document.getElementById('revealInductiveBtn').addEventListener('click', () => {
+  const total = inductiveCounts.blue + inductiveCounts.gold;
+  const observedPct = Math.round(inductiveCounts.blue / total * 100);
+  const truePct = Math.round(INDUCTIVE_TRUE_BLUE * 100);
+  const close = Math.abs(observedPct - truePct) <= 10;
+  const verdict = document.getElementById('inductiveVerdict');
+  verdict.style.display = 'block';
+  verdict.textContent = `You observed ${observedPct}% blue across ${total} draws. The jar's true makeup is ${truePct}% blue, ${100 - truePct}% gold — ${close ? 'your read was close!' : 'further off than you might expect from a small sample, which is exactly why induction from limited data is an estimate, not a guarantee.'}`;
+  document.getElementById('inductiveExplain').style.display = 'block';
+});
+renderMarbleBar('inductiveBar', inductiveCounts);
+
+/* ---- Deductive ---- */
+let deductiveCounts = { blue: 0, gold: 0 };
+let deductiveDraws = 0;
+document.getElementById('deductiveHypBtn').addEventListener('click', () => {
+  document.getElementById('deductiveHypText').style.display = 'block';
+  document.getElementById('predictBtn').disabled = false;
+  document.getElementById('deductivePrompt').textContent = 'Hypothesis locked in. Now predict what it implies before you gather any evidence.';
+});
+document.getElementById('predictBtn').addEventListener('click', () => {
+  const p = document.getElementById('predictText');
+  p.style.display = 'block';
+  p.textContent = 'If H1 is true, about 7 of the next 10 marbles drawn should be blue, and about 3 gold.';
+  document.getElementById('drawDeductiveBtn').disabled = false;
+});
+function drawDeductiveMarble(){
+  if (deductiveDraws >= 10) return;
+  const isBlue = Math.random() < DEDUCTIVE_TRUE_BLUE;
+  deductiveCounts[isBlue ? 'blue' : 'gold']++;
+  deductiveDraws++;
+  const chip = document.createElement('div');
+  chip.className = 'marble ' + (isBlue ? 'blue' : 'gold');
+  document.getElementById('deductiveTray').appendChild(chip);
+  renderMarbleBar('deductiveBar', deductiveCounts);
+  const btn = document.getElementById('drawDeductiveBtn');
+  btn.textContent = `Draw the next marble (${deductiveDraws} / 10)`;
+  if (deductiveDraws >= 10){
+    btn.disabled = true;
+    const rejected = deductiveCounts.blue <= 4;
+    const verdict = document.getElementById('deductiveVerdict');
+    verdict.style.display = 'block';
+    verdict.textContent = `Observed: ${deductiveCounts.blue} blue, ${deductiveCounts.gold} gold — versus the ~7 blue / 3 gold H1 predicted. ${rejected ? "That's a long way off. The evidence doesn't support H1 — it's rejected." : "Close enough to what H1 predicted — the evidence is consistent with H1, at least for now."}`;
+    const explain = document.getElementById('deductiveExplain');
+    explain.style.display = 'block';
+    explain.textContent = "That's deductive reasoning: you named a specific, falsifiable prediction before collecting any data, then let the data confirm or reject it — this time, it didn't survive.";
+  }
+}
+document.getElementById('drawDeductiveBtn').addEventListener('click', drawDeductiveMarble);
+document.getElementById('resetDeductiveBtn').addEventListener('click', () => {
+  deductiveCounts = { blue: 0, gold: 0 };
+  deductiveDraws = 0;
+  document.getElementById('deductiveTray').innerHTML = '';
+  renderMarbleBar('deductiveBar', deductiveCounts);
+  document.getElementById('deductiveHypText').style.display = 'none';
+  document.getElementById('predictBtn').disabled = true;
+  document.getElementById('predictText').style.display = 'none';
+  document.getElementById('drawDeductiveBtn').disabled = true;
+  document.getElementById('drawDeductiveBtn').textContent = 'Draw the next marble (0 / 10)';
+  document.getElementById('deductivePrompt').textContent = 'State the hypothesis first, predict what it implies, then gather evidence.';
+  document.getElementById('deductiveVerdict').style.display = 'none';
+  document.getElementById('deductiveExplain').style.display = 'none';
+});
+renderMarbleBar('deductiveBar', deductiveCounts);
+</script>
+</body>
+</html>
