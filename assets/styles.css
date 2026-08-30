@@ -238,7 +238,7 @@
     margin-left: 250px;
     flex:1;
     transition: margin-left 0.25s ease;
-    padding-bottom: 60px;
+    padding-bottom: 12px;
   }
   body.nav-closed main.content{ margin-left:0; }
   body.nav-closed #quickNav{ transform: translateX(-100%); }
@@ -871,7 +871,15 @@
   .reflect-card ul{ margin:10px 0 0; padding-left:22px; }
   .reflect-card li{ margin-bottom:6px; font-weight:bold; color:var(--plum-dark); }
 
-  footer{ text-align:center; padding:34px 20px; color:var(--ink-soft); font-size:0.85rem; line-height:1.8; border-top:1px solid var(--line); }
+  /* ---- Page references / further reading — small print, deliberately
+     de-emphasized, sits between the last content section and the footer ---- */
+  .page-references{ max-width:900px; margin:28px auto 0; padding-top:14px; border-top:1px dashed var(--line); }
+  .page-references-title{ font-size:0.78rem; font-weight:bold; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-soft); margin-bottom:6px; }
+  .page-references ul{ list-style:none; margin:0; padding:0; }
+  .page-references li{ font-size:0.8rem; color:var(--ink-soft); line-height:1.5; margin-bottom:3px; }
+  .page-references a{ color:var(--ink-soft); }
+
+  footer{ text-align:center; padding:10px 20px; color:var(--ink-soft); font-size:0.85rem; line-height:1.4; border-top:1px solid var(--line); }
   footer .footer-byline{ color:var(--maroon-dark); font-weight:bold; }
   footer .footer-links a{ color:var(--ink-soft); text-decoration:underline; }
   footer .footer-links a:hover{ color:var(--maroon); }
@@ -1050,7 +1058,7 @@
     display:flex; align-items:center; flex-wrap:wrap; gap:4px;
     background: var(--paper);
     border-bottom: 2px solid var(--line);
-    padding: 10px 18px;
+    padding: 5px 18px;
   }
   .topbar-home{
     font-family: var(--serif); font-weight:bold; color:var(--maroon-dark);
@@ -1061,7 +1069,7 @@
   .topbar-group{ position:relative; }
   .topbar-btn{
     background:none; border:none; color:var(--ink); font-family:var(--sans);
-    font-size:0.9rem; font-weight:bold; padding:9px 12px; border-radius:8px;
+    font-size:0.9rem; font-weight:bold; padding:5px 10px; border-radius:8px;
     cursor:pointer;
   }
   .topbar-btn:hover, .topbar-group.open .topbar-btn{ background:var(--cream); color:var(--maroon-dark); }
@@ -1071,10 +1079,18 @@
     background:var(--paper); border:1px solid var(--line); border-radius:10px;
     box-shadow: var(--shadow);
     opacity:0; visibility:hidden; transform:translateY(-4px);
+    max-height:0; overflow:hidden;
     transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
     z-index:90;
   }
-  .topbar-group.open .topbar-dropdown{ opacity:1; visibility:visible; transform:translateY(0); }
+  /* max-height:0 + overflow:hidden (not just visibility:hidden) is required —
+     an absolutely positioned element with only visibility:hidden still
+     occupies real layout space and was inflating every page's scrollable
+     height by the height of its tallest dropdown (Topic 3's ~21 items). */
+  .topbar-group.open .topbar-dropdown{
+    opacity:1; visibility:visible; transform:translateY(0);
+    max-height:80vh; overflow-y:auto;
+  }
   .topbar-dropdown li.indent{ margin-left:14px; }
   .topbar-dropdown a{
     display:flex; align-items:baseline; gap:8px;
@@ -1091,6 +1107,8 @@
   .breadcrumb a{ color:var(--ink-soft); text-decoration:underline; }
   .breadcrumb .sep{ margin:0 6px; opacity:0.6; }
   .breadcrumb strong{ color:var(--maroon-dark); }
+  /* Homepage breadcrumb is just a self-link to Home — not useful, pure vertical space */
+  body[data-page-id="home"] #breadcrumbMount{ display:none; }
 
   .placeholder-page{
     max-width:700px; margin:60px auto; text-align:center;
@@ -1141,6 +1159,16 @@
     max-width:42ch; margin:0 0 28px; color:var(--ink-soft);
     font-size:1.08rem; line-height:1.55;
   }
+
+  /* ---- Compact hero variant (homepage): text-only, no evidence
+     column, so the hero + system strip + full map all fit on one
+     screen without scrolling on desktop. ---- */
+  .hero-compact{ padding:6px 24px 4px; }
+  .hero-compact .hero-inner{ display:block; max-width:720px; text-align:center; }
+  .hero-compact .hero-main{ text-align:center; }
+  .hero-compact h1{ font-size:1.5rem; margin:0 0 3px; }
+  .hero-compact .hero-sub{ max-width:62ch; margin:0 auto 8px; font-size:0.88rem; line-height:1.3; }
+  .hero-compact .hero-cta{ padding:10px 24px; font-size:0.95rem; }
   .hero-cta{
     display:inline-block; font-family:var(--sans); font-weight:bold; font-size:1.02rem;
     padding:14px 30px; border-radius:30px; text-decoration:none;
@@ -1169,27 +1197,20 @@
     .topbar-theme-toggle{ margin-left:0; order:2; }
   }
 
-  /* ---- Hero evidence column (right side, stacked stat cards, each
-     with its own citation directly underneath) ---- */
-  .hero-evidence{ display:flex; flex-direction:column; gap:14px; }
-  .credibility-card{
-    background:var(--paper); border-radius:var(--radius); box-shadow:var(--shadow);
-    border-top:3px solid var(--teal); padding:16px 20px; text-align:left;
+  /* ---- Footnote evidence strip (homepage bottom): the same four
+     citations that used to be hero cards, now a small-print row so
+     the hero + system strip + full map fit on one screen. ---- */
+  .footnote-evidence{
+    max-width:980px; margin:0 auto 4px; padding:4px 24px;
+    font-size:0.72rem; color:var(--ink-soft); line-height:1.5; text-align:center;
   }
-  .credibility-number{
-    font-family:var(--serif); font-size:1.15rem; font-weight:bold; color:var(--maroon-dark);
-    line-height:1.25; margin-bottom:5px;
-  }
-  .credibility-label{ font-size:0.86rem; color:var(--ink-soft); line-height:1.4; }
-  .credibility-source{
-    font-size:0.74rem; color:var(--ink-soft); margin-top:8px;
-    padding-top:8px; border-top:1px solid var(--line);
-  }
-  .credibility-source a{ color:var(--ink-soft); }
+  .footnote-evidence-label{ font-weight:bold; color:var(--ink); margin-right:4px; }
+  .footnote-item{ margin-right:8px; }
+  .footnote-item a{ color:var(--ink-soft); }
 
   /* ---- System / philosophy strip ---- */
   .system-strip{
-    max-width:960px; margin:0 auto 60px; padding:22px 28px;
+    max-width:960px; margin:0 auto 6px; padding:6px 24px;
     background:var(--paper); border-radius:var(--radius); box-shadow:var(--shadow);
     display:flex; align-items:flex-start; justify-content:center; flex-wrap:wrap; gap:0 6px;
   }
@@ -1203,17 +1224,17 @@
 
   /* ---- Sitemap: collapsed group cards (native <details>/<summary>,
      same interaction pattern as .nav-topic — no custom JS) ---- */
-  .sitemap-intro{ max-width:1100px; margin:0 auto 16px; padding:0 24px; text-align:center; color:var(--ink-soft); font-size:0.95rem; }
+  .sitemap-intro{ max-width:1100px; margin:0 auto 2px; padding:0 24px; text-align:center; color:var(--ink-soft); font-size:0.85rem; }
   .sitemap-groups{
-    max-width:1100px; margin:0 auto 60px; padding:0 24px;
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:16px;
+    max-width:1160px; margin:0 auto 4px; padding:0 24px;
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:6px;
   }
   .sitemap-group{
     background:var(--paper); border:1px solid var(--line); border-left:4px solid var(--group-accent, var(--teal));
     border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;
   }
   .sitemap-group summary{
-    cursor:pointer; list-style:none; padding:18px 20px;
+    cursor:pointer; list-style:none; padding:9px 16px;
     display:flex; align-items:center; justify-content:space-between; gap:12px;
   }
   .sitemap-group summary::-webkit-details-marker{ display:none; }
@@ -1222,9 +1243,10 @@
     font-size:0.75rem; color:var(--ink-soft); transition:transform 0.2s ease; flex-shrink:0;
   }
   .sitemap-group[open] summary .chevron{ transform:rotate(180deg); }
-  .sitemap-group-heading h2{ font-size:1.05rem; margin-bottom:3px; color:var(--group-accent, var(--maroon-dark)); }
-  .sitemap-group-heading p{ font-size:0.85rem; color:var(--ink-soft); margin:0; }
+  .sitemap-group-heading h2{ font-size:0.98rem; margin-bottom:2px; color:var(--group-accent, var(--maroon-dark)); }
+  .sitemap-group-heading p{ font-size:0.78rem; color:var(--ink-soft); margin:0; line-height:1.3; }
   .sitemap-list{ list-style:none; margin:0; padding:6px 12px 14px; }
+  .sitemap-group:not([open]) .sitemap-list{ display:none; }
   .sitemap-list li{ margin-bottom:2px; }
   .sitemap-list li.indent{ margin-left:16px; }
   .sitemap-list a{

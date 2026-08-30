@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Diagnostics &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="4-12">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic" id="diagnostics">
+  <h2>Diagnostics</h2>
+  <div class="statement-box"><strong>The question:</strong> Can I actually trust the model I just built?</div>
+  <p>Building a model is easy. Checking whether it's honest is the part people skip &mdash; and shouldn't.</p>
+
+  <div class="flagship-box">
+    <div class="flagship-title">Flagship tool: Residual Plot</div>
+    <div class="flagship-row"><strong>Why we do this:</strong> Every prediction is a little bit wrong. Those little errors (residuals) should look like random noise, not a hidden pattern.</div>
+    <div class="flagship-row"><strong>The logic:</strong> Plot every prediction error against its predicted value. If the model is doing its job, the errors should scatter randomly around zero with no shape.</div>
+    <div class="flagship-row"><strong>What to look for:</strong> A random cloud of dots vs. a curve, a funnel, or a slope in the errors.</div>
+    <div class="flagship-row"><strong>What it means:</strong> A shape in the residuals means the model is missing something real. A random cloud means it captured what it needed to.</div>
+  </div>
+
+  <div class="duel-controls" style="justify-content:flex-start;">
+    <button id="residGoodBtn">Good Fit</button>
+    <button id="residBadBtn" class="secondary">Bad Fit</button>
+  </div>
+  <svg id="residDemo" width="100%" height="200" viewBox="0 0 300 200"></svg>
+  <p class="caption" id="residCaption"></p>
+
+  <h3 style="margin-top:26px;">What to check, and with what</h3>
+  <table class="compare">
+    <tr><th>Assumption</th><th>What it means in plain words</th></tr>
+    <tr><td>Normality</td><td>The errors should roughly follow a bell curve</td></tr>
+    <tr><td>Homoscedasticity</td><td>The errors should stay about the same size across all predictions, not grow or shrink</td></tr>
+    <tr><td>Linearity</td><td>The true relationship should actually be a straight line, if that's the model you used</td></tr>
+    <tr><td>Independence</td><td>One person's error shouldn't be able to predict another's</td></tr>
+    <tr><td>Multicollinearity</td><td>Your predictor variables shouldn't be secretly measuring the same thing</td></tr>
+    <tr><td>Influential observations</td><td>No single extreme data point should be able to flip your whole conclusion</td></tr>
+  </table>
+
+  <h3 style="margin-top:26px;">How good is the fit, overall?</h3>
+  <table class="compare">
+    <tr><th>Number</th><th>In plain words</th></tr>
+    <tr><td>R&sup2; / Adjusted R&sup2;</td><td>What share of the pattern your model actually explains, from 0 to 1</td></tr>
+    <tr><td>RMSE / MAE</td><td>On average, how far off the predictions are, in the original units</td></tr>
+    <tr><td>AIC / BIC</td><td>Scorecards for comparing models &mdash; lower is better, and they penalize needless complexity</td></tr>
+    <tr><td>Hosmer-Lemeshow</td><td>Checks whether a yes/no model's predicted odds match what actually happened</td></tr>
+    <tr><td>ROC Curve / AUC</td><td>How well a yes/no model separates the two outcomes, from 0.5 (no better than guessing) to 1 (perfect)</td></tr>
+    <tr><td>Calibration plots</td><td>Checks whether "70% predicted" events really do happen about 70% of the time</td></tr>
+  </table>
+
+  <a class="back-link" href="../3-quantitative-methods/3-2-2-statistical-framework.html#framework">&uarr; Back to the Framework</a>
+</section>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+/* ---- 3.13 Diagnostics: residual plot toggle ---- */
+function renderResiduals(good, caption){
+  let pts = [];
+  for (let i=0; i<40; i++){
+    const x = 15 + i*6.6;
+    let y;
+    if (good) y = 100 + (Math.random()-0.5)*60;
+    else y = 100 - Math.pow((x-150)/40,2)*15 + (Math.random()-0.5)*20;
+    pts.push([x,y]);
+  }
+  document.getElementById('residDemo').innerHTML = `<line x1="10" y1="100" x2="290" y2="100" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="4,3"/>` +
+    pts.map(p => `<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="var(--maroon)" opacity="0.65"/>`).join('');
+  document.getElementById('residCaption').textContent = caption;
+}
+document.getElementById('residGoodBtn').addEventListener('click', () => renderResiduals(true, "Random scatter around zero — the model isn't missing an obvious pattern."));
+document.getElementById('residBadBtn').addEventListener('click', () => renderResiduals(false, "A clear curve in the errors — the model is missing something real, like a bend a straight line can't capture."));
+renderResiduals(true, "Random scatter around zero — the model isn't missing an obvious pattern.");
+</script>
+</body>
+</html>

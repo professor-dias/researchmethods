@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Question Construction — Closed-Ended Formats &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="3-1-2">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic" id="question-construction">
+  <h2>Question Construction</h2>
+  <p>The format of a survey question determines the type of variable you will work with. Try each one below.</p>
+
+  <h3>Closed-Ended Question Formats</h3>
+
+  <div class="question-card">
+    <div class="question-text">Have you ever been diagnosed with depression?</div>
+    <div class="question-widget">
+      <label class="radio-pill"><input type="radio" name="q-binary" checked> Yes</label>
+      <label class="radio-pill"><input type="radio" name="q-binary"> No</label>
+    </div>
+    <div class="variable-badge binary">Produces: Binary</div>
+  </div>
+
+  <div class="question-card">
+    <div class="question-text">Which best describes your employment status?</div>
+    <div class="question-widget">
+      <select>
+        <option>Employed full-time</option>
+        <option>Employed part-time</option>
+        <option>Unemployed</option>
+        <option>Retired</option>
+        <option>Student</option>
+      </select>
+    </div>
+    <div class="variable-badge nominal">Produces: Nominal (unordered)</div>
+  </div>
+
+  <div class="question-card">
+    <div class="question-text">Rate your satisfaction from 1 to 5.</div>
+    <div class="question-widget">
+      <div class="rating-row">
+        <button type="button" class="rating-btn" data-val="1">1</button>
+        <button type="button" class="rating-btn" data-val="2">2</button>
+        <button type="button" class="rating-btn selected" data-val="3">3</button>
+        <button type="button" class="rating-btn" data-val="4">4</button>
+        <button type="button" class="rating-btn" data-val="5">5</button>
+      </div>
+    </div>
+    <div class="variable-badge ordinal">Produces: Ordinal (ordered)</div>
+  </div>
+
+  <div class="question-card">
+    <div class="question-text">I feel anxious about public speaking.</div>
+    <div class="question-widget">
+      <div class="likert-widget" data-mode="severity" data-labels="Strongly Disagree|Disagree|Neutral|Agree|Strongly Agree">
+        <input type="range" min="1" max="5" step="1" value="3" class="likert-slider">
+        <div class="likert-scale-labels"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
+        <div class="likert-readout"></div>
+      </div>
+    </div>
+    <div class="variable-badge ordinal">Produces: Ordinal (Likert item)</div>
+  </div>
+
+  <div class="question-card">
+    <div class="question-text">How would you describe this product?</div>
+    <div class="question-widget">
+      <div class="likert-widget" data-mode="neutral" data-labels="Weak|Somewhat Weak|Neutral|Somewhat Strong|Strong">
+        <input type="range" min="1" max="5" step="1" value="3" class="likert-slider">
+        <div class="likert-scale-labels"><span>Weak</span><span>Strong</span></div>
+        <div class="likert-readout"></div>
+      </div>
+    </div>
+    <div class="variable-badge ordinal">Produces: Ordinal (semantic differential)</div>
+  </div>
+
+  <div class="question-card">
+    <div class="question-text">How many cigarettes did you smoke in the past 7 days?</div>
+    <div class="question-widget">
+      <input type="number" min="0" class="numeric-entry" placeholder="0">
+    </div>
+    <div class="variable-badge count">Produces: Discrete / Count</div>
+  </div>
+</section>
+
+<div class="page-references">
+  <div class="page-references-title">References &amp; Further Reading</div>
+  <ul>
+    <li>Salazar, L. F., Crosby, R. A., &amp; DiClemente, R. J. (2015). <em>Research methods in health promotion</em> (2nd ed.), Ch. 13. Jossey-Bass.</li>
+  </ul>
+</div>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script src="../assets/likert-widget.js"></script>
+<script>
+/* ---- Rate-your-satisfaction (1–5 button row) ---- */
+document.querySelectorAll('.rating-row').forEach(row => {
+  row.addEventListener('click', e => {
+    if (!e.target.classList.contains('rating-btn')) return;
+    row.querySelectorAll('.rating-btn').forEach(b => b.classList.remove('selected'));
+    e.target.classList.add('selected');
+  });
+});
+</script>
+</body>
+</html>

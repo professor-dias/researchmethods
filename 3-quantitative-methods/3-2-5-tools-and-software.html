@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Tools &amp; Software &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="3-2-5">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic topic-first" id="ecosystem">
+  <h2>The Ecosystem</h2>
+  <p>Four tools dominate quantitative analysis. None of them is "correct" &mdash; each trades off cost, flexibility, and how much code you need to write.</p>
+
+  <div class="tool-compare-grid">
+    <div class="tool-card">
+      <img src="../SPSSVariableView.png" alt="SPSS Variable View">
+      <div class="tool-card-body">
+        <div class="tool-card-title">SPSS</div>
+        <div class="pros-cons">
+          <div class="pros-cons-col pros"><div class="pc-label">Pros</div><ul>
+            <li>Menu-driven &mdash; no coding to get started</li>
+            <li>Standard in many health &amp; social science programs</li>
+            <li>Readable, ready-made output tables</li>
+          </ul></div>
+          <div class="pros-cons-col cons"><div class="pc-label">Cons</div><ul>
+            <li>Expensive license</li>
+            <li>Less flexible for custom analyses</li>
+            <li>Point-and-click steps are easy to forget or misremember</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <img src="../sas.avif" alt="SAS interface">
+      <div class="tool-card-body">
+        <div class="tool-card-title">SAS</div>
+        <div class="pros-cons">
+          <div class="pros-cons-col pros"><div class="pc-label">Pros</div><ul>
+            <li>Industry standard for pharma &amp; clinical trials</li>
+            <li>Extremely stable, validated, audit-friendly</li>
+            <li>Handles very large datasets well</li>
+          </ul></div>
+          <div class="pros-cons-col cons"><div class="pc-label">Cons</div><ul>
+            <li>Steep learning curve</li>
+            <li>Expensive</li>
+            <li>Smaller free community than R or Python</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <img src="../rstudio.png" alt="RStudio interface">
+      <div class="tool-card-body">
+        <div class="tool-card-title">R / RStudio</div>
+        <div class="pros-cons">
+          <div class="pros-cons-col pros"><div class="pc-label">Pros</div><ul>
+            <li>Free and open-source</li>
+            <li>Built by statisticians, for statistics</li>
+            <li>ggplot2 makes publication-quality graphics</li>
+          </ul></div>
+          <div class="pros-cons-col cons"><div class="pc-label">Cons</div><ul>
+            <li>Steeper learning curve than SPSS</li>
+            <li>Syntax can feel inconsistent across packages</li>
+            <li>Memory-heavy on very large datasets</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <img src="../vscode.png" alt="VS Code with Python">
+      <div class="tool-card-body">
+        <div class="tool-card-title">Python</div>
+        <div class="pros-cons">
+          <div class="pros-cons-col pros"><div class="pc-label">Pros</div><ul>
+            <li>Free and open-source</li>
+            <li>General-purpose &mdash; stats, ML, automation, all in one</li>
+            <li>Most popular language, so AI tools assist it best</li>
+          </ul></div>
+          <div class="pros-cons-col cons"><div class="pc-label">Cons</div><ul>
+            <li>Statistical modeling tools are less mature than R's</li>
+            <li>Steeper learning curve than SPSS</li>
+            <li>More setup overhead (environments, packages)</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="interpretation-box">There's no wrong choice here. This workshop uses Python and R because they're free, transparent, and pair well with AI assistance &mdash; but everything you learn about <em>thinking</em> through an analysis transfers to any of these four.</div>
+</section>
+<section class="topic" id="coding-languages">
+  <h2>Coding Languages</h2>
+  <p>We'll use two languages side by side. You don't need to master both &mdash; pick one to start, and borrow from the other when it has something the first doesn't.</p>
+
+  <div class="tool-compare-grid">
+    <div class="tool-card">
+      <div class="tool-card-body">
+        <div class="tool-card-title">Python</div>
+        <p style="font-size:0.92rem; color:var(--ink-soft); margin-bottom:10px;">A general-purpose language widely used for data analysis, machine learning, and scientific computing. Valued for readable syntax and a huge package ecosystem.</p>
+        <p style="font-size:0.92rem; color:var(--ink-soft); margin-bottom:10px;"><strong style="color:var(--navy);">Jupyter Notebooks &amp; VS Code</strong> &mdash; Jupyter combines code, output, and narrative text in one document; ideal for exploring data and sharing reproducible work. VS Code is a lighter, more general editor many people use for the same job.</p>
+        <div class="pc-label" style="color:var(--navy); margin-bottom:6px;">Key packages</div>
+        <span class="pkg-tag">pandas</span><span class="pkg-tag">numpy</span><span class="pkg-tag">matplotlib</span><span class="pkg-tag">seaborn</span><span class="pkg-tag">statsmodels</span><span class="pkg-tag">scikit-learn</span>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-card-body">
+        <div class="tool-card-title">R</div>
+        <p style="font-size:0.92rem; color:var(--ink-soft); margin-bottom:10px;">A statistical programming language built specifically for data analysis. The preferred language in many social, health, and behavioral science fields.</p>
+        <p style="font-size:0.92rem; color:var(--ink-soft); margin-bottom:10px;"><strong style="color:var(--navy);">RStudio</strong> &mdash; the most widely used R editor. One window gives you a script editor, console, environment viewer, and plot pane together.</p>
+        <div class="pc-label" style="color:var(--navy); margin-bottom:6px;">Key packages</div>
+        <span class="pkg-tag">tidyverse</span><span class="pkg-tag">dplyr</span><span class="pkg-tag">ggplot2</span><span class="pkg-tag">psych</span><span class="pkg-tag">lme4</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="topic" id="ai-assisted">
+  <h2>AI-Assisted Analysis</h2>
+  <p>This whole workshop leans on AI-assisted coding: describing what you want in plain language and letting a model like Claude or ChatGPT write the Python or R code for you. No prior programming experience is required &mdash; but you do need to stay in the driver's seat.</p>
+
+  <details class="content-accordion" open>
+    <summary>What is AI-assisted coding?<span class="accordion-progress" style="visibility:hidden;">&nbsp;</span></summary>
+    <div class="accordion-body">
+      <p>Large language models &mdash; Claude, ChatGPT, GitHub Copilot &mdash; can write, explain, debug, and improve code. Instead of writing every line yourself, you describe what you want, and the model generates the corresponding code.</p>
+    </div>
+  </details>
+
+  <details class="content-accordion" open>
+    <summary>Benefits and limitations<span class="accordion-progress" style="visibility:hidden;">&nbsp;</span></summary>
+    <div class="accordion-body">
+      <div class="pros-cons">
+        <div class="pros-cons-col pros"><div class="pc-label">Benefits</div><ul>
+          <li>Lowers the barrier to entry for coding</li>
+          <li>Speeds up repetitive tasks like cleaning and reshaping</li>
+          <li>Explains code and statistical concepts instantly</li>
+          <li>Helps non-programmers get unstuck quickly</li>
+        </ul></div>
+        <div class="pros-cons-col cons"><div class="pc-label">Limitations</div><ul>
+          <li>Can produce plausible-looking but wrong code</li>
+          <li>Doesn't understand your research question &mdash; you do</li>
+          <li>May suggest the wrong method with incomplete context</li>
+          <li>Can't replace methodological judgment</li>
+        </ul></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="content-accordion" open>
+    <summary>When AI helps &mdash; and when it fails<span class="accordion-progress" style="visibility:hidden;">&nbsp;</span></summary>
+    <div class="accordion-body">
+      <div class="flagship-row">✔ Helps most with syntax, boilerplate, formatting, and routine operations.</div>
+      <div class="flagship-row">✘ Fails most when a task needs deep context about your data, field, or theory.</div>
+      <div class="flagship-row"><strong>Always</strong> check AI-generated output against what you already know about your data.</div>
+    </div>
+  </details>
+
+  <div class="note-box"><strong>Human-in-the-loop:</strong> throughout this workshop, AI is a collaborator, never an authority. Every step needs a human to verify the output, interpret the results, and take responsibility for the conclusions.</div>
+
+  <h3 style="margin-top:28px;">Responsible use: four things to keep in mind</h3>
+  <div class="disclaimer-card">
+    <div class="disclaimer-card-title">Learning to code is like learning a language</div>
+    Becoming fluent in Python or R takes time, repetition, and real practice &mdash; the same as Mandarin or Spanish. AI can accelerate learning, but it doesn't replace building the foundation.
+  </div>
+  <div class="disclaimer-card">
+    <div class="disclaimer-card-title">AI is a collaborator, not an analyst</div>
+    Every AI-generated line of code, interpretation, or output must be reviewed and approved by someone with real methodological expertise before it goes into academic work, policy, or publication.
+  </div>
+  <div class="disclaimer-card">
+    <div class="disclaimer-card-title">Transparency and attribution matter</div>
+    Disclose substantive AI use in your research process, following your journal's, institution's, and funder's guidelines. You remain fully responsible for the accuracy and integrity of your work regardless of AI involvement.
+  </div>
+  <div class="disclaimer-card">
+    <div class="disclaimer-card-title">Garbage in, garbage out</div>
+    AI can only work with what it's given. A messy prompt, an inaccurate codebook, or an uncleaned dataset produces confident-sounding, wrong results. Understanding your data matters more than understanding the software.
+  </div>
+
+  <h3 style="margin-top:28px;">Meet the tools</h3>
+  <div class="tool-compare-grid">
+    <div class="tool-card">
+      <img src="../claudeAI.jpg" alt="Claude AI">
+      <div class="tool-card-body"><p style="font-size:0.9rem; color:var(--ink-soft);">Claude (Anthropic) &mdash; a general AI assistant. Claude Code is its terminal-based coding agent, good at writing and explaining full analysis scripts.</p></div>
+    </div>
+    <div class="tool-card">
+      <img src="../openai_codex.png" alt="OpenAI Codex">
+      <div class="tool-card-body"><p style="font-size:0.9rem; color:var(--ink-soft);">OpenAI Codex &mdash; OpenAI's coding agent, built on top of ChatGPT-family models, for writing and running code from plain-language instructions.</p></div>
+    </div>
+  </div>
+</section>
+<section class="topic" id="prereqs-workflow">
+  <h2>Prerequisites &amp; Workflow</h2>
+
+  <details class="content-accordion" open>
+    <summary>Before you start, make sure you have<span class="accordion-progress" id="prereqProgress"></span></summary>
+    <div class="accordion-body" id="prereqList">
+      <div class="checklist-item"><input type="checkbox" id="pre1"><label for="pre1">A problem statement</label></div>
+      <div class="checklist-item"><input type="checkbox" id="pre2"><label for="pre2">A research question</label></div>
+      <div class="checklist-item"><input type="checkbox" id="pre3"><label for="pre3">A hypothesis (if your project needs one)</label></div>
+      <div class="checklist-item"><input type="checkbox" id="pre4"><label for="pre4">A tentative analysis plan</label></div>
+      <div class="checklist-item"><input type="checkbox" id="pre5"><label for="pre5">Your codebook / survey instrument</label></div>
+      <div class="checklist-item"><input type="checkbox" id="pre6"><label for="pre6">Your data &mdash; and confirmation it's de-identified</label></div>
+      <div class="checklist-item"><input type="checkbox" id="pre7"><label for="pre7">Access to an AI model (Claude, ChatGPT, etc.)</label></div>
+      <div class="checklist-item"><input type="checkbox" id="pre8"><label for="pre8">RStudio or VS Code installed</label></div>
+    </div>
+  </details>
+
+  <div class="note-box">Always confirm you're working with <strong>de-identified data</strong> before it ever touches an AI tool.</div>
+
+  <h3 style="margin-top:28px;">The workflow loop</h3>
+  <div class="workflow-loop">
+    <div class="workflow-loop-step">Share your prerequisites with ChatGPT</div>
+    <div class="workflow-loop-arrow">&rarr;</div>
+    <div class="workflow-loop-step">ChatGPT drafts the plan &amp; prompts</div>
+    <div class="workflow-loop-arrow">&rarr;</div>
+    <div class="workflow-loop-step">Claude Code / Codex writes &amp; runs the code</div>
+    <div class="workflow-loop-arrow">&rarr;</div>
+    <div class="workflow-loop-step">You verify every result</div>
+  </div>
+  <p style="text-align:center; color:var(--ink-soft); font-size:0.92rem;">With enough repetitions, you'll get comfortable prompting AI yourself &mdash; the way a seasoned PhD does it. 🎓 You'll also get comfortable with the software itself, and start writing more of the code by hand.</p>
+</section>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+function updatePrereqProgress(){
+  const boxes = document.querySelectorAll('#prereqList input[type="checkbox"]');
+  const checked = Array.from(boxes).filter(b => b.checked).length;
+  document.getElementById('prereqProgress').textContent = `${checked} of ${boxes.length}`;
+}
+document.querySelectorAll('#prereqList input[type="checkbox"]').forEach(cb => {
+  cb.addEventListener('change', () => {
+    cb.closest('.checklist-item').classList.toggle('checked', cb.checked);
+    updatePrereqProgress();
+  });
+});
+updatePrereqProgress();
+</script>
+</body>
+</html>

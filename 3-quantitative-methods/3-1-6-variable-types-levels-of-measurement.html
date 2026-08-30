@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Variable Types &amp; Levels of Measurement &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="3-1-6">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic" id="variable-types">
+  <h2>Variable Types</h2>
+
+  <h3>&#128273; The Four Levels, At a Glance</h3>
+  <p>In 1946, Harvard psychologist <strong>Stanley Smith (S.S.) Stevens</strong> argued that all measurement falls into one of four levels. They're not arbitrary labels &mdash; each one tells you exactly which math is safe to do with the numbers:</p>
+
+  <div class="level-visual-grid">
+    <div class="level-visual-card nominal">
+      <div class="level-visual-name">Nominal</div>
+      <svg viewBox="0 0 140 70">
+        <circle cx="25" cy="38" r="10" fill="var(--maroon)"/>
+        <circle cx="58" cy="20" r="10" fill="var(--navy)"/>
+        <circle cx="90" cy="48" r="10" fill="var(--gold)"/>
+        <circle cx="120" cy="24" r="10" fill="var(--green)"/>
+      </svg>
+      <div class="level-visual-def">Floating, no line at all &mdash; just categories</div>
+    </div>
+    <div class="level-visual-card ordinal">
+      <div class="level-visual-name">Ordinal</div>
+      <svg viewBox="0 0 140 70">
+        <line x1="10" y1="50" x2="130" y2="50" stroke="var(--line)" stroke-width="3"/>
+        <circle cx="20" cy="50" r="8" fill="var(--gold)"/>
+        <circle cx="45" cy="50" r="8" fill="var(--gold)"/>
+        <circle cx="95" cy="50" r="8" fill="var(--gold)"/>
+        <circle cx="125" cy="50" r="8" fill="var(--gold)"/>
+      </svg>
+      <div class="level-visual-def">On a line, in order &mdash; but gaps are uneven</div>
+    </div>
+    <div class="level-visual-card interval">
+      <div class="level-visual-name">Interval</div>
+      <svg viewBox="0 0 140 70">
+        <line x1="5" y1="50" x2="135" y2="50" stroke="var(--line)" stroke-width="3"/>
+        <circle cx="25" cy="50" r="8" fill="var(--navy)"/>
+        <circle cx="58" cy="50" r="8" fill="var(--navy)"/>
+        <circle cx="91" cy="50" r="8" fill="var(--navy)"/>
+        <circle cx="124" cy="50" r="8" fill="var(--navy)"/>
+        <line x1="58" y1="42" x2="58" y2="58" stroke="var(--ink-soft)" stroke-width="2"/>
+        <text x="58" y="34" text-anchor="middle" font-size="12" fill="var(--ink-soft)">0</text>
+      </svg>
+      <div class="level-visual-def">Evenly spaced &mdash; but "0" just floats mid-line</div>
+    </div>
+    <div class="level-visual-card ratio">
+      <div class="level-visual-name">Ratio</div>
+      <svg viewBox="0 0 140 70">
+        <line x1="15" y1="50" x2="135" y2="50" stroke="var(--line)" stroke-width="3"/>
+        <circle cx="15" cy="50" r="8" fill="var(--green)"/>
+        <circle cx="55" cy="50" r="8" fill="var(--green)"/>
+        <circle cx="95" cy="50" r="8" fill="var(--green)"/>
+        <circle cx="135" cy="50" r="8" fill="var(--green)"/>
+        <line x1="15" y1="42" x2="15" y2="58" stroke="var(--ink-soft)" stroke-width="2"/>
+        <text x="15" y="34" text-anchor="middle" font-size="12" fill="var(--ink-soft)">0</text>
+      </svg>
+      <div class="level-visual-def">Evenly spaced &mdash; and "0" is the true start</div>
+    </div>
+  </div>
+
+  <p class="caption"><strong>Nominal:</strong> blood type, Pok&eacute;mon color &nbsp;&middot;&nbsp; <strong>Ordinal:</strong> pain scale, evolution stage &nbsp;&middot;&nbsp; <strong>Interval:</strong> temperature, battle stat levels (Attack/CP can read 0, but that's a baseline, not "zero power") &nbsp;&middot;&nbsp; <strong>Ratio:</strong> height/weight, ER visits.</p>
+
+  <div class="note-box">Notice the last two look almost the same &mdash; both evenly spaced &mdash; but interval's line keeps going past "0," while ratio's line <em>starts</em> there. That's the whole difference between "0&deg;C" (not "no temperature") and "0 siblings" (really none).</div>
+
+  <h3 style="margin-top:34px;">&#127919; Check Yourself</h3>
+  <p>Now that you've seen the four levels, try spotting them in the wild &mdash; pick one, get instant feedback.</p>
+
+  <div class="level-game-status" id="levelGameStatus">Round 1 of 8 &middot; 0 correct</div>
+  <div class="level-game-card">
+    <div class="level-game-var" id="levelGameVar"></div>
+    <div class="level-game-example" id="levelGameExample"></div>
+    <div class="level-game-options" id="levelGameOptions">
+      <button type="button" data-level="nominal">Nominal</button>
+      <button type="button" data-level="ordinal">Ordinal</button>
+      <button type="button" data-level="interval">Interval</button>
+      <button type="button" data-level="ratio">Ratio</button>
+    </div>
+    <div class="level-game-feedback" id="levelGameFeedback" style="display:none;"></div>
+  </div>
+  <div class="duel-controls">
+    <button type="button" id="levelGameNextBtn" style="display:none;">Next example &rarr;</button>
+    <button type="button" id="levelGameRestartBtn" class="secondary">Shuffle &amp; Restart</button>
+  </div>
+
+  <h3 style="margin-top:30px;">&#128257; What Is It Now?</h3>
+  <p>Stevens' framework is great for theory, but modern data work chooses charts and statistical tests based on a slightly different, more practical split. Here's how the same variables get re-sorted:</p>
+
+  <div class="bridge-table">
+    <div class="bridge-head"><div>Stevens (1946)</div><div></div><div>Modern practice</div></div>
+    <div class="bridge-row"><div class="bridge-chip stevens">Nominal</div><div class="bridge-arrow">&rarr;</div><div class="bridge-chip modern">Nominal <span>(3+ categories)</span></div></div>
+    <div class="bridge-row split"><div></div><div class="bridge-arrow">&#8618;</div><div class="bridge-chip modern binary">Binary <span>(2 categories)</span></div></div>
+    <div class="bridge-row"><div class="bridge-chip stevens">Ordinal</div><div class="bridge-arrow">&rarr;</div><div class="bridge-chip modern">Ordinal <span>(3+ ordered categories)</span></div></div>
+    <div class="bridge-row"><div class="bridge-chip stevens">Interval</div><div class="bridge-arrow">&rarr;</div><div class="bridge-chip modern">Continuous <span>(measured on a continuum)</span></div></div>
+    <div class="bridge-row"><div class="bridge-chip stevens">Ratio</div><div class="bridge-arrow">&rarr;</div><div class="bridge-chip modern count">Discrete / Count <span>(whole numbers only)</span></div></div>
+    <div class="bridge-row split"><div></div><div class="bridge-arrow curve-up">&#10548;</div><div class="bridge-chip modern ghost">Continuous <span>(when measured, not counted)</span></div></div>
+  </div>
+
+  <div class="mnemonic-box">
+    <p class="mnemonic-caption"><strong>What actually changed, in three notes:</strong></p>
+    <p class="mnemonic-caption">1. <strong>Interval mostly disappears.</strong> Whether a variable has a true zero rarely changes which chart or test you'd use, so interval and ratio both just become "Continuous."</p>
+    <p class="mnemonic-caption">2. <strong>Binary earns its own category.</strong> A yes/no variable is technically 2-level nominal &mdash; but it powers so much of health research (disease vs. no disease) that it gets its own toolkit: proportions, odds ratios, logistic regression.</p>
+    <p class="mnemonic-caption">3. <strong>Count breaks off from Ratio.</strong> Whole-number counts (visits, siblings, symptoms) are often skewed and can't go below zero &mdash; they need their own models (like Poisson regression) and their own visuals.</p>
+  </div>
+
+  <h3 style="margin-top:30px;">&#129513; Match the Following: Variable &harr; Visualization</h3>
+  <p>Every variable type has a chart that fits it best. Click a variable on the left, then click the visualization on the right that pairs with it.</p>
+
+  <div class="match-status" id="matchStatus">0 of 5 matched</div>
+  <div class="match-game" id="matchGame"></div>
+  <div class="duel-controls">
+    <button id="shuffleMatchBtn" class="secondary">Shuffle &amp; Play Again</button>
+  </div>
+
+  <div class="interpretation-box" id="matchComplete" style="display:none;">
+    Nice work &mdash; every variable type now has a visual home. Notice that count and continuous data both often use histograms, but they're built differently: count bars sit at whole numbers, continuous bars can split anywhere.
+  </div>
+
+  <h3 style="margin-top:28px;">Answer key</h3>
+  <table class="compare">
+    <tr><th>Variable type</th><th>Best-fit visualization</th><th>Why</th></tr>
+    <tr><td>Nominal</td><td>Bar chart</td><td>Unordered categories &mdash; compare frequencies, bars can be reordered freely</td></tr>
+    <tr><td>Ordinal</td><td>Ordered / stacked bar</td><td>Categories keep their natural rank &mdash; order matters, so bars stay fixed</td></tr>
+    <tr><td>Binary</td><td>Donut / proportion chart</td><td>Shows the split between exactly two states as parts of a whole</td></tr>
+    <tr><td>Discrete / Count</td><td>Dot plot</td><td>Distribution of whole-number counts &mdash; each dot stacks at a whole number, often skewed</td></tr>
+    <tr><td>Continuous</td><td>Density / bell curve</td><td>Smooth distribution shape &mdash; shows center, spread, and skew</td></tr>
+  </table>
+</section>
+
+<div class="page-references">
+  <div class="page-references-title">References &amp; Further Reading</div>
+  <ul>
+    <li>Salazar, L. F., Crosby, R. A., &amp; DiClemente, R. J. (2015). <em>Research methods in health promotion</em> (2nd ed.), Ch. 7. Jossey-Bass.</li>
+  </ul>
+</div>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+/* ================================================================
+   TOPIC 2.8 — MATCH THE FOLLOWING GAME
+   Click a variable-type card, then a visualization card. A
+   correct pair locks in green; a wrong pair shakes and clears.
+   ================================================================ */
+const VARIABLE_TYPES = [
+  { id:'nominal',    label:'Nominal',            example:'Pokémon color (Pikachu–yellow, Charmander–orange…)' },
+  { id:'ordinal',    label:'Ordinal',             example:'Evolution stage (Basic → Stage 1 → Stage 2)' },
+  { id:'binary',     label:'Binary',              example:'Legendary? (Yes / No)' },
+  { id:'count',      label:'Discrete / Count',    example:'Number of evolutions' },
+  { id:'continuous', label:'Continuous',          example:'Height (m)' },
+];
+
+const VISUALIZATIONS = [
+  { id:'nominal', label:'Bar Chart', svg:
+    '<svg viewBox="0 0 56 40"><rect x="2" y="18" width="9" height="20" fill="var(--maroon)" opacity="0.7"/><rect x="16" y="8" width="9" height="30" fill="var(--maroon)" opacity="0.7"/><rect x="30" y="22" width="9" height="16" fill="var(--maroon)" opacity="0.7"/><rect x="44" y="14" width="9" height="24" fill="var(--maroon)" opacity="0.7"/></svg>' },
+  { id:'ordinal', label:'Ordered / Stacked Bar', svg:
+    '<svg viewBox="0 0 56 40"><rect x="2" y="28" width="9" height="10" fill="var(--gold)" opacity="0.85"/><rect x="16" y="20" width="9" height="18" fill="var(--gold)" opacity="0.85"/><rect x="30" y="12" width="9" height="26" fill="var(--gold)" opacity="0.85"/><rect x="44" y="4" width="9" height="34" fill="var(--gold)" opacity="0.85"/></svg>' },
+  { id:'binary', label:'Donut Chart', svg:
+    '<svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="var(--track)" stroke-width="8"/><circle cx="20" cy="20" r="15" fill="none" stroke="var(--green)" stroke-width="8" stroke-dasharray="66 28" transform="rotate(-90 20 20)"/></svg>' },
+  { id:'count', label:'Dot Plot (whole-number counts)', svg:
+    '<svg viewBox="0 0 56 40"><circle cx="7" cy="10" r="2.3" fill="var(--navy)" opacity="0.75"/><circle cx="7" cy="16" r="2.3" fill="var(--navy)" opacity="0.75"/><circle cx="7" cy="22" r="2.3" fill="var(--navy)" opacity="0.75"/><circle cx="7" cy="28" r="2.3" fill="var(--navy)" opacity="0.75"/><circle cx="7" cy="34" r="2.3" fill="var(--navy)" opacity="0.75"/><circle cx="19" cy="22" r="2.3" fill="var(--navy)" opacity="0.75"/><circle cx="19" cy="28" r="2.3" fill="var(--navy)" opacity="0.75"/><circle cx="19" cy="34" r="2.3" fill="var(--navy)" opacity="0.75"/><circle cx="31" cy="28" r="2.3" fill="var(--navy)" opacity="0.75"/><circle cx="31" cy="34" r="2.3" fill="var(--navy)" opacity="0.75"/><circle cx="43" cy="34" r="2.3" fill="var(--navy)" opacity="0.75"/><circle cx="55" cy="34" r="2.3" fill="var(--navy)" opacity="0.75"/><line x1="2" y1="37" x2="56" y2="37" stroke="var(--ink)" stroke-width="1"/></svg>' },
+  { id:'continuous', label:'Density / Bell Curve', svg:
+    '<svg viewBox="0 0 56 40"><path d="M2,36 C10,36 16,4 28,4 C40,4 46,36 54,36" fill="none" stroke="var(--maroon)" stroke-width="2.5"/></svg>' },
+];
+
+function shuffleArray(arr){
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/* ================================================================
+   "GUESS THE LEVEL" GAME (2.6 Variable Types)
+   Active recall before the rule is ever stated: the player sees a
+   real variable, picks a level, and gets instant feedback with the
+   reasoning — then "The Four Levels, Decoded" names the pattern.
+   ================================================================ */
+const LEVEL_GAME_BANK = [
+  { name:'Blood type', example:'A, B, AB, O', level:'nominal', reason:'Categories with no natural order — O isn’t "more" than A.' },
+  { name:'Pokémon type', example:'Fire, Water, Grass, Electric', level:'nominal', reason:'Just labels — Water isn’t ranked above Fire.' },
+  { name:'Cancer stage', example:'Stage I, II, III, IV', level:'ordinal', reason:'Clearly ordered, but the gap between I and II isn’t necessarily the same size as III to IV.' },
+  { name:'Pokémon evolution stage', example:'Basic → Stage 1 → Stage 2', level:'ordinal', reason:'Ordered progression, but the stages aren’t equally spaced in any measurable sense.' },
+  { name:'Body temperature', example:'36°C, 37°C, 38°C', level:'interval', reason:'Equally spaced (1° is 1° anywhere on the scale) — but 0°C isn’t "no temperature," so ratios don’t make sense.' },
+  { name:'Pokémon battle stat level', example:'Attack IV: 0–31', level:'interval', reason:'An IV of 0 doesn’t mean "zero attack power" — the Pokémon still has its base stat. It’s a baseline reference point, not a true zero.' },
+  { name:'Number of ER visits', example:'0, 1, 2, 5', level:'ratio', reason:'Equal spacing and a true zero — 0 visits really is none, and 4 visits really is twice 2.' },
+  { name:'Pokémon height', example:'Bulbasaur 0.7m, Charizard 1.7m', level:'ratio', reason:'A true zero exists (0m = no height), so it’s meaningful to say one is twice as tall.' },
+];
+const LEVEL_LABELS = { nominal:'Nominal', ordinal:'Ordinal', interval:'Interval', ratio:'Ratio' };
+
+let levelGameOrder = [];
+let levelGameIndex = 0;
+let levelGameCorrect = 0;
+let levelGameAnswered = false;
+
+function renderLevelGameRound(){
+  levelGameAnswered = false;
+  const item = levelGameOrder[levelGameIndex];
+  document.getElementById('levelGameStatus').textContent = `Round ${levelGameIndex + 1} of ${levelGameOrder.length} · ${levelGameCorrect} correct`;
+  document.getElementById('levelGameVar').textContent = item.name;
+  document.getElementById('levelGameExample').textContent = item.example;
+  document.getElementById('levelGameFeedback').style.display = 'none';
+  document.getElementById('levelGameNextBtn').style.display = 'none';
+  document.querySelectorAll('#levelGameOptions button').forEach(b => {
+    b.disabled = false;
+    b.className = '';
+  });
+}
+function shuffleLevelGame(){
+  levelGameOrder = shuffleArray(LEVEL_GAME_BANK);
+  levelGameIndex = 0;
+  levelGameCorrect = 0;
+  renderLevelGameRound();
+}
+document.getElementById('levelGameOptions').addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if (!btn || levelGameAnswered) return;
+  levelGameAnswered = true;
+  const item = levelGameOrder[levelGameIndex];
+  const picked = btn.dataset.level;
+  const correct = picked === item.level;
+  if (correct) levelGameCorrect++;
+  document.querySelectorAll('#levelGameOptions button').forEach(b => {
+    b.disabled = true;
+    if (b.dataset.level === item.level) b.classList.add('reveal-correct');
+    else if (b.dataset.level === picked) b.classList.add('picked-wrong');
+  });
+  const fb = document.getElementById('levelGameFeedback');
+  fb.className = 'level-game-feedback ' + (correct ? 'correct' : 'wrong');
+  fb.innerHTML = `<strong>${correct ? 'Correct!' : `Not quite — it's ${LEVEL_LABELS[item.level]}.`}</strong>${item.reason}`;
+  fb.style.display = 'block';
+  document.getElementById('levelGameStatus').textContent = `Round ${levelGameIndex + 1} of ${levelGameOrder.length} · ${levelGameCorrect} correct`;
+  const isLast = levelGameIndex === levelGameOrder.length - 1;
+  document.getElementById('levelGameNextBtn').style.display = isLast ? 'none' : 'inline-block';
+});
+document.getElementById('levelGameNextBtn').addEventListener('click', () => {
+  levelGameIndex++;
+  renderLevelGameRound();
+});
+document.getElementById('levelGameRestartBtn').addEventListener('click', shuffleLevelGame);
+shuffleLevelGame();
+
+let selectedVarCard = null, selectedVizCard = null, matchGameCount = 0;
+
+function handleMatchClick(card){
+  if (card.classList.contains('matched')) return;
+  if (card.dataset.kind === 'var'){
+    if (selectedVarCard) selectedVarCard.classList.remove('selected');
+    selectedVarCard = card;
+  } else {
+    if (selectedVizCard) selectedVizCard.classList.remove('selected');
+    selectedVizCard = card;
+  }
+  card.classList.add('selected');
+
+  if (selectedVarCard && selectedVizCard){
+    const a = selectedVarCard, b = selectedVizCard;
+    if (a.dataset.id === b.dataset.id){
+      a.classList.add('matched'); a.classList.remove('selected');
+      b.classList.add('matched'); b.classList.remove('selected');
+      matchGameCount++;
+      document.getElementById('matchStatus').textContent = `${matchGameCount} of ${VARIABLE_TYPES.length} matched`;
+      if (matchGameCount === VARIABLE_TYPES.length){
+        document.getElementById('matchComplete').style.display = 'block';
+      }
+    } else {
+      a.classList.add('shake'); b.classList.add('shake');
+      setTimeout(() => { a.classList.remove('selected','shake'); b.classList.remove('selected','shake'); }, 450);
+    }
+    selectedVarCard = null; selectedVizCard = null;
+  }
+}
+
+function renderMatchGame(){
+  matchGameCount = 0;
+  selectedVarCard = null; selectedVizCard = null;
+  document.getElementById('matchComplete').style.display = 'none';
+  document.getElementById('matchStatus').textContent = `0 of ${VARIABLE_TYPES.length} matched`;
+
+  const container = document.getElementById('matchGame');
+  container.innerHTML = '';
+
+  const varCol = document.createElement('div');
+  VARIABLE_TYPES.forEach(v => {
+    const card = document.createElement('div');
+    card.className = 'match-card';
+    card.dataset.id = v.id;
+    card.dataset.kind = 'var';
+    card.innerHTML = `<div><div class="match-card-title">${v.label}</div><div class="match-card-sub">${v.example}</div></div>`;
+    card.addEventListener('click', () => handleMatchClick(card));
+    varCol.appendChild(card);
+  });
+
+  const vizCol = document.createElement('div');
+  shuffleArray(VISUALIZATIONS).forEach(v => {
+    const card = document.createElement('div');
+    card.className = 'match-card';
+    card.dataset.id = v.id;
+    card.dataset.kind = 'viz';
+    card.innerHTML = `<div class="match-mini-chart">${v.svg}</div><div class="match-card-title">${v.label}</div>`;
+    card.addEventListener('click', () => handleMatchClick(card));
+    vizCol.appendChild(card);
+  });
+
+  container.appendChild(varCol);
+  container.appendChild(vizCol);
+}
+document.getElementById('shuffleMatchBtn').addEventListener('click', renderMatchGame);
+renderMatchGame();
+</script>
+</body>
+</html>

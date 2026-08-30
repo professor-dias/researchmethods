@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Why Survey Design Matters &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="3-1-1">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic topic-first" id="why-variables">
+  <h2>Why Survey Design Matters for Analysis</h2>
+  <p>Before we can analyze anything, we need to describe it. A <strong>variable</strong> is simply a property that varies from person to person, case to case. Let's see that happen live &mdash; with Pok&eacute;mon.</p>
+
+  <h3>Gotta catch 'em all</h3>
+  <p>Let's catch some Pok&eacute;mon! As the video plays, make a note of every Pok&eacute;mon you catch (hear named). Who caught the most?</p>
+
+  <div class="video-embed">
+    <iframe src="https://www.youtube.com/embed/xMk8wuw7nek" title="Pok&eacute;rap" allowfullscreen loading="lazy"></iframe>
+  </div>
+  <p class="video-disclaimer">No copyright intended &mdash; video belongs to its original creator/owner, used here for classroom, educational purposes only. If it doesn't load, <a href="https://www.youtube.com/watch?v=xMk8wuw7nek" target="_blank" rel="noopener">watch it directly on YouTube &rarr;</a></p>
+
+  <div class="recall-prompt">
+    <strong>Reflective Questions</strong>
+    <ul>
+      <li>How many water-type Pok&eacute;mon were there?</li>
+      <li>What was the 31st Pok&eacute;mon named in the video?</li>
+      <li>How many were yellow in color?</li>
+    </ul>
+  </div>
+
+  <div class="interpretation-box">
+    Wouldn't it be nice if there was a system or workflow to capture data in a structured format so we could make some meaningful analysis? Thankfully, it does exist &mdash; in <strong>surveys and variables</strong>.
+  </div>
+
+  <h3 style="margin-top:28px;">A Pok&eacute;dex field survey</h3>
+  <p>Imagine a team of researchers went around Pok&eacute;land and asked every Pok&eacute;mon a short questionnaire:</p>
+
+  <form class="survey-form" id="pokeSurveyForm">
+    <div class="survey-field">
+      <label for="surveyName">What's your name?</label>
+      <input type="text" id="surveyName" placeholder="e.g., Eevee">
+    </div>
+    <div class="survey-field">
+      <label for="surveyType">What's your type? <span class="survey-hint">(dropdown)</span></label>
+      <select id="surveyType">
+        <option>Electric</option><option>Fire</option><option>Water</option><option>Grass</option>
+        <option>Psychic</option><option>Normal</option><option>Rock</option><option>Ghost</option>
+      </select>
+    </div>
+    <div class="survey-field">
+      <label for="surveyColor">What's your color? <span class="survey-hint">(dropdown)</span></label>
+      <select id="surveyColor">
+        <option>Yellow</option><option>Orange</option><option>Blue</option><option>Green</option>
+        <option>Purple</option><option>Red</option><option>Brown</option><option>White</option>
+      </select>
+    </div>
+    <div class="survey-field">
+      <label>What's your evolution stage? <span class="survey-hint">(rating scale)</span></label>
+      <div class="survey-scale">
+        <label><input type="radio" name="surveyStage" value="Basic" checked> Basic</label>
+        <label><input type="radio" name="surveyStage" value="Stage 1"> Stage 1</label>
+        <label><input type="radio" name="surveyStage" value="Stage 2"> Stage 2</label>
+      </div>
+    </div>
+    <div class="survey-field">
+      <label>Are you Legendary? <span class="survey-hint">(yes / no)</span></label>
+      <div class="survey-scale">
+        <label><input type="radio" name="surveyLegendary" value="Yes"> Yes</label>
+        <label><input type="radio" name="surveyLegendary" value="No" checked> No</label>
+      </div>
+    </div>
+    <div class="survey-field">
+      <label for="surveyEvolutions">How many times do you evolve? <span class="survey-hint">(number)</span></label>
+      <input type="number" id="surveyEvolutions" min="0" max="2" value="1">
+    </div>
+    <div class="survey-field">
+      <label for="surveyHeight">How tall are you, in meters? <span class="survey-hint">(number)</span></label>
+      <input type="number" id="surveyHeight" min="0" step="0.1" value="0.5">
+    </div>
+    <button type="button" id="submitSurveyBtn">Submit Survey Response &rarr;</button>
+  </form>
+  <p class="caption">Map the questionnaire and rating scale to the table below &mdash; a dropdown, a rating scale, a yes/no, a number... every question is a variable waiting to happen.</p>
+
+  <div class="interpretation-box">
+    Now imagine they are collecting all this information, and it's getting stored in the database below. Try it &mdash; fill out the form above and submit a response.
+  </div>
+
+  <div style="overflow-x:auto;">
+    <table class="volunteer-table" id="volunteerTable">
+      <thead>
+        <tr><th>Pok&eacute;mon</th><th>Type</th><th>Color</th><th>Evolution Stage</th><th>Legendary?</th><th>Evolutions</th><th>Height (m)</th><th></th></tr>
+      </thead>
+      <tbody id="volunteerBody">
+        <tr>
+          <td contenteditable="true">Pikachu</td>
+          <td contenteditable="true">Electric</td>
+          <td contenteditable="true">Yellow</td>
+          <td contenteditable="true">Stage 1</td>
+          <td contenteditable="true">No</td>
+          <td contenteditable="true">1</td>
+          <td contenteditable="true">0.4</td>
+          <td><button class="row-remove" title="Remove row">&times;</button></td>
+        </tr>
+        <tr>
+          <td contenteditable="true">Charmander</td>
+          <td contenteditable="true">Fire</td>
+          <td contenteditable="true">Orange</td>
+          <td contenteditable="true">Basic</td>
+          <td contenteditable="true">No</td>
+          <td contenteditable="true">2</td>
+          <td contenteditable="true">0.6</td>
+          <td><button class="row-remove" title="Remove row">&times;</button></td>
+        </tr>
+        <tr>
+          <td contenteditable="true">Squirtle</td>
+          <td contenteditable="true">Water</td>
+          <td contenteditable="true">Blue</td>
+          <td contenteditable="true">Basic</td>
+          <td contenteditable="true">No</td>
+          <td contenteditable="true">2</td>
+          <td contenteditable="true">0.5</td>
+          <td><button class="row-remove" title="Remove row">&times;</button></td>
+        </tr>
+        <tr>
+          <td contenteditable="true">Bulbasaur</td>
+          <td contenteditable="true">Grass</td>
+          <td contenteditable="true">Green</td>
+          <td contenteditable="true">Basic</td>
+          <td contenteditable="true">No</td>
+          <td contenteditable="true">2</td>
+          <td contenteditable="true">0.7</td>
+          <td><button class="row-remove" title="Remove row">&times;</button></td>
+        </tr>
+        <tr>
+          <td contenteditable="true">Mewtwo</td>
+          <td contenteditable="true">Psychic</td>
+          <td contenteditable="true">Purple</td>
+          <td contenteditable="true">Basic</td>
+          <td contenteditable="true">Yes</td>
+          <td contenteditable="true">0</td>
+          <td contenteditable="true">2.0</td>
+          <td><button class="row-remove" title="Remove row">&times;</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="duel-controls" style="justify-content:flex-start;">
+    <button id="addVolunteerBtn">Add Blank Row</button>
+    <button id="clearVolunteersBtn" class="secondary">Clear Table</button>
+  </div>
+
+  <div class="interpretation-box">
+    Every column above is a different variable &mdash; but they clearly don't all behave the same way. Some are words, some are numbers, some have a natural order and some don't. That's exactly why counting "how many water-type" only worked once the data was structured this way. To pick the right chart or the right test, we first need to know exactly what <em>kind</em> of variable each column is. That's the rest of this topic.
+  </div>
+</section>
+
+<div class="page-references">
+  <div class="page-references-title">References &amp; Further Reading</div>
+  <ul>
+    <li>Salazar, L. F., Crosby, R. A., &amp; DiClemente, R. J. (2015). <em>Research methods in health promotion</em> (2nd ed.), Ch. 13. Jossey-Bass.</li>
+    <li><em>Pok&eacute;rap</em> [Video]. <a href="https://www.youtube.com/watch?v=xMk8wuw7nek" target="_blank" rel="noopener">YouTube</a>.</li>
+  </ul>
+</div>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+/* ================================================================
+   TOPIC 2.1 — LIVE VOLUNTEER TABLE
+   A real editable table the instructor fills in with the class
+   during the live activity. Purely a classroom prop — nothing
+   here feeds the later theory sections, which use their own
+   fixed illustrative examples.
+   ================================================================ */
+function blankVolunteerRow(){
+  return `
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td><button class="row-remove" title="Remove row">&times;</button></td>
+  `;
+}
+document.getElementById('addVolunteerBtn').addEventListener('click', () => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = blankVolunteerRow();
+  document.getElementById('volunteerBody').appendChild(tr);
+});
+document.getElementById('volunteerBody').addEventListener('click', (e) => {
+  if (e.target.classList.contains('row-remove')) e.target.closest('tr').remove();
+});
+document.getElementById('clearVolunteersBtn').addEventListener('click', () => {
+  document.getElementById('volunteerBody').innerHTML = '';
+});
+
+/* ---- Mock survey form: "submitting" it appends a real row,
+   so the class can see a questionnaire turn into a database row ---- */
+document.getElementById('submitSurveyBtn').addEventListener('click', () => {
+  const values = [
+    document.getElementById('surveyName').value.trim() || 'Missingno',
+    document.getElementById('surveyType').value,
+    document.getElementById('surveyColor').value,
+    document.querySelector('input[name="surveyStage"]:checked').value,
+    document.querySelector('input[name="surveyLegendary"]:checked').value,
+    document.getElementById('surveyEvolutions').value,
+    document.getElementById('surveyHeight').value,
+  ];
+
+  const tr = document.createElement('tr');
+  values.forEach(v => {
+    const td = document.createElement('td');
+    td.contentEditable = 'true';
+    td.textContent = v; // textContent, not innerHTML — safe even if a field contains markup
+    tr.appendChild(td);
+  });
+  const actionTd = document.createElement('td');
+  actionTd.innerHTML = '<button class="row-remove" title="Remove row">&times;</button>';
+  tr.appendChild(actionTd);
+
+  document.getElementById('volunteerBody').appendChild(tr);
+  document.getElementById('surveyName').value = '';
+});
+</script>
+</body>
+</html>

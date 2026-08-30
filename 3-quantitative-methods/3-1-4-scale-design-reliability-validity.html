@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Scale Design, Composite Scores, Reliability &amp; Validity &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="3-1-4">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic" id="scale-design">
+  <h2>Scale Design</h2>
+  <p>Many constructs of interest &mdash; anxiety, resilience, job satisfaction &mdash; are latent (unobservable directly). Researchers measure them using multi-item scales: multiple related questions whose responses are combined into a composite score.</p>
+
+  <ul style="line-height:1.8;">
+    <li>Each item should measure one facet of the construct (<strong>unidimensionality</strong>)</li>
+    <li>Item responses are typically summed or averaged to create a scale score</li>
+    <li>Some items must be <strong>reverse-scored</strong> before combining (e.g., "I never feel anxious" in an anxiety scale)</li>
+    <li>Report reliability (e.g., <strong>Cronbach's alpha</strong>) and validity (e.g., factor structure)</li>
+  </ul>
+
+  <h3 style="margin-top:26px;">Try building a composite score</h3>
+  <p>Here's a 4-item anxiety scale. Move each slider as if you were the respondent &mdash; watch the composite score update live.</p>
+
+  <div class="scale-builder" id="scaleBuilder">
+    <div class="scale-item" data-reverse="false">
+      <div class="scale-item-text">1. I feel anxious before speaking in public.</div>
+      <div class="likert-widget" data-mode="severity" data-labels="Strongly Disagree|Disagree|Neutral|Agree|Strongly Agree">
+        <input type="range" min="1" max="5" step="1" value="3" class="likert-slider scale-slider">
+        <div class="likert-scale-labels"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
+        <div class="likert-readout"></div>
+      </div>
+    </div>
+    <div class="scale-item" data-reverse="false">
+      <div class="scale-item-text">2. My heart races when I have to present.</div>
+      <div class="likert-widget" data-mode="severity" data-labels="Strongly Disagree|Disagree|Neutral|Agree|Strongly Agree">
+        <input type="range" min="1" max="5" step="1" value="3" class="likert-slider scale-slider">
+        <div class="likert-scale-labels"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
+        <div class="likert-readout"></div>
+      </div>
+    </div>
+    <div class="scale-item" data-reverse="false">
+      <div class="scale-item-text">3. I avoid opportunities to speak publicly.</div>
+      <div class="likert-widget" data-mode="severity" data-labels="Strongly Disagree|Disagree|Neutral|Agree|Strongly Agree">
+        <input type="range" min="1" max="5" step="1" value="3" class="likert-slider scale-slider">
+        <div class="likert-scale-labels"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
+        <div class="likert-readout"></div>
+      </div>
+    </div>
+    <div class="scale-item" data-reverse="true">
+      <div class="scale-item-text">4. I feel calm and confident about public speaking. <span class="reverse-tag">reverse-scored</span></div>
+      <div class="likert-widget" data-mode="severity" data-labels="Strongly Disagree|Disagree|Neutral|Agree|Strongly Agree">
+        <input type="range" min="1" max="5" step="1" value="3" class="likert-slider scale-slider">
+        <div class="likert-scale-labels"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
+        <div class="likert-readout"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="composite-box">
+    <div class="composite-label">Composite Anxiety Score</div>
+    <div class="composite-bar-wrap"><div class="composite-bar-fill" id="compositeBarFill"></div></div>
+    <div class="composite-value" id="compositeValue">3.00 / 5</div>
+    <p class="caption">Item 4 is reverse-scored before averaging (a 5 on "I feel calm" counts as a 1 toward anxiety) &mdash; otherwise it would cancel out the other three items instead of confirming them.</p>
+  </div>
+
+  <div class="note-box">
+    <strong>Likert scales &mdash; a common source of confusion:</strong> individual Likert items are ordinal. Composite scale scores (the sum or mean of multiple Likert items) are commonly treated as interval-level in practice, particularly in psychology and social science. This is a debated convention &mdash; be explicit about your decision.
+  </div>
+</section>
+
+<div class="page-references">
+  <div class="page-references-title">References &amp; Further Reading</div>
+  <ul>
+    <li>Salazar, L. F., Crosby, R. A., &amp; DiClemente, R. J. (2015). <em>Research methods in health promotion</em> (2nd ed.), Ch. 7. Jossey-Bass.</li>
+  </ul>
+</div>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script src="../assets/likert-widget.js"></script>
+<script>
+/* ================================================================
+   TOPIC 2.4 — SCALE DESIGN: composite-score builder
+   Averages the 4 items live, reverse-scoring item 4 first, and
+   color-codes the composite bar the same way a single Likert
+   item is color-coded.
+   ================================================================ */
+function updateComposite(){
+  const items = document.querySelectorAll('#scaleBuilder .scale-item');
+  if (!items.length) return;
+  let total = 0;
+  items.forEach(item => {
+    const slider = item.querySelector('.scale-slider');
+    let v = parseInt(slider.value, 10);
+    if (item.dataset.reverse === 'true') v = 6 - v;
+    total += v;
+  });
+  const avg = total / items.length;
+  document.getElementById('compositeValue').textContent = `${avg.toFixed(2)} / 5`;
+  const t = (avg - 1) / 4;
+  document.getElementById('compositeBarFill').style.width = (t * 100) + '%';
+  const c = likertColor('severity', t);
+  document.getElementById('compositeBarFill').style.background = `rgb(${c[0]},${c[1]},${c[2]})`;
+}
+document.querySelectorAll('#scaleBuilder .scale-slider').forEach(s => s.addEventListener('input', updateComposite));
+updateComposite();
+</script>
+</body>
+</html>

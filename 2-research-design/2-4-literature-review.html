@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Conducting a Literature Review &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="2-4">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+
+<section class="topic topic-first" id="why-review">
+  <h2>Go Find the Pixels That Already Exist</h2>
+  <div class="recall-prompt">
+    In 2.1, you watched a full picture emerge from a hundred small, independent pixels. A literature review is how you deliberately go look at the pixels other researchers have already published &mdash; before you spend a year producing one of your own.
+  </div>
+  <p>Skipping this step has a real cost: you risk re-answering a question that's already answered, missing a measurement tool that already exists, or worse &mdash; falling for the <a href="../1-philosophical-reasoning/1-1-philosophy-of-science-paradigms.html">hasty generalization</a> from 1.1 by treating one small study as if it settled something big.</p>
+</section>
+
+<section class="topic" id="scope-the-search">
+  <h2>Step 1: Scope It Before You Search</h2>
+  <p>Recall Step 2 from the 2.1 roadmap: narrow beats broad. The same rule applies here &mdash; a vague search returns thousands of barely-relevant results, while a precise one returns a manageable, genuinely useful set.</p>
+  <div class="flagship-box">
+    <div class="flagship-row"><strong>Write your question down first.</strong> "What affects diabetes?" is unsearchable. "Does perceived social support predict medication adherence in adults with type 2 diabetes?" is.</div>
+    <div class="flagship-row"><strong>Decide your inclusion/exclusion criteria in advance.</strong> Population, time frame, language, study type &mdash; decide before you search, not after you've already seen the results (deciding afterward invites you to cherry-pick).</div>
+  </div>
+</section>
+
+<section class="topic" id="search-strategically">
+  <h2>Step 2: Search Strategically</h2>
+  <p>A good search is systematic, not a single Google query.</p>
+  <div class="method-compare">
+    <div class="method-panel">
+      <div class="method-panel-title">Where to Search</div>
+      <div class="method-item"><strong>PubMed / MEDLINE</strong> &mdash; the standard for biomedical &amp; health literature</div>
+      <div class="method-item"><strong>PsycINFO</strong> &mdash; behavioral &amp; psychological research</div>
+      <div class="method-item"><strong>CINAHL</strong> &mdash; nursing &amp; allied health</div>
+      <div class="method-item"><strong>Google Scholar</strong> &mdash; broad coverage, useful for cross-checking</div>
+    </div>
+    <div class="method-panel">
+      <div class="method-panel-title">How to Search</div>
+      <div class="method-item">Combine keywords with <strong>AND</strong> (narrows), <strong>OR</strong> (broadens synonyms), <strong>NOT</strong> (excludes) &mdash; e.g., <code>(adolescent OR teen) AND vaping AND (cessation OR quitting)</code></div>
+      <div class="method-item">Many researchers focus on the last 5 years for currency &mdash; but always include the older, foundational studies a topic is actually built on.</div>
+    </div>
+  </div>
+</section>
+
+<section class="topic" id="screen-and-snowball">
+  <h2>Step 3: Screen It Down, Then Snowball</h2>
+  <p>A real search casts a wide net and then narrows deliberately. Here's what that narrowing typically looks like:</p>
+  <div class="bar-chart">
+    <div class="bar-row"><div class="bar-label wide">Found in databases</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-pct">842</div></div>
+    <div class="bar-row"><div class="bar-label wide">After removing duplicates</div><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><div class="bar-pct">610</div></div>
+    <div class="bar-row"><div class="bar-label wide">After title/abstract screening</div><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div><div class="bar-pct">96</div></div>
+    <div class="bar-row selected"><div class="bar-label wide">Included after full-text review</div><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><div class="bar-pct">23</div></div>
+  </div>
+  <p class="worksheet-note">This is the logic behind PRISMA, the reporting standard used for formal systematic reviews &mdash; you don't need a full systematic review for a class paper, but tracking your own numbers this way keeps your process honest and reproducible.</p>
+
+  <details class="content-accordion">
+    <summary>Then snowball: chase citations in both directions<span class="accordion-progress" style="visibility:hidden;">&nbsp;</span></summary>
+    <div class="accordion-body">
+      <p><strong>Backward snowballing:</strong> Once you find one strong, relevant paper, check its reference list &mdash; it just did a chunk of your literature search for you.</p>
+      <p><strong>Forward snowballing:</strong> Use "cited by" (Google Scholar, PubMed) to see who has cited that paper <em>since</em> it was published &mdash; this is often how you find the newest, most relevant work.</p>
+    </div>
+  </details>
+</section>
+
+<section class="topic" id="critique-checklist">
+  <h2>Step 4: Critique What You Read</h2>
+  <p>Not every published paper earns a place in your review. Before a study goes into your synthesis matrix, run it through a systematic critique &mdash; the same handful of questions, asked of every paper, so your judgment is consistent instead of based on a gut feeling about how convincing it sounded.</p>
+
+  <details class="content-accordion">
+    <summary>Open the critique checklist<span class="accordion-progress" style="visibility:hidden;">&nbsp;</span></summary>
+    <div class="accordion-body">
+      <p>Pick the checklist that matches the paper in front of you &mdash; a quantitative study and a qualitative study earn very different questions.</p>
+      <div class="segmented" id="critiqueToggle" style="margin-bottom:16px;">
+        <button type="button" class="active" data-critique="quant">Quantitative Critique</button>
+        <button type="button" data-critique="qual">Qualitative Critique</button>
+      </div>
+
+      <div class="flagship-box" id="critique-quant">
+        <div class="flagship-title">Reading a Quantitative Study</div>
+        <div class="checklist-item"><input type="checkbox" id="cq1"><label for="cq1"><strong>What are the variables?</strong> Independent and dependent variables are clearly named, and you can tell exactly how each one was measured.</label></div>
+        <div class="checklist-item"><input type="checkbox" id="cq2"><label for="cq2"><strong>What's the population?</strong> Who was actually sampled &mdash; and does that match who the paper claims its findings apply to?</label></div>
+        <div class="checklist-item"><input type="checkbox" id="cq3"><label for="cq3"><strong>Confounders?</strong> Did the researchers identify plausible confounders, and either control for them statistically or rule them out by design?</label></div>
+        <div class="checklist-item"><input type="checkbox" id="cq4"><label for="cq4"><strong>Was the sample powered?</strong> Does the paper report a power or sample-size calculation, or is the sample plausibly large enough to detect the effect it claims to have found?</label></div>
+        <div class="checklist-item"><input type="checkbox" id="cq5"><label for="cq5"><strong>Does the design support the claim?</strong> (2.2) A cross-sectional study claiming a design it can't support &mdash; like "causes" &mdash; is a red flag. Check the design actually supports the strength of the conclusion.</label></div>
+        <div class="checklist-item"><input type="checkbox" id="cq6"><label for="cq6"><strong>Any threats to validity?</strong> (2.3) Run quickly through the nine threats &mdash; does one plausibly explain the result instead of the treatment or exposure?</label></div>
+        <div class="checklist-item"><input type="checkbox" id="cq7"><label for="cq7"><strong>Effect size, not just significance.</strong> A "statistically significant" result with a tiny effect size may not matter practically &mdash; look for the effect size, not just the p-value.</label></div>
+        <div class="checklist-item"><input type="checkbox" id="cq8"><label for="cq8"><strong>Funding &amp; conflicts of interest.</strong> Who paid for this study, and is there a disclosed conflict of interest that could shape the conclusions?</label></div>
+      </div>
+
+      <div class="flagship-box" id="critique-qual" style="display:none;">
+        <div class="flagship-title">Reading a Qualitative Study</div>
+        <div class="checklist-item"><input type="checkbox" id="cl1"><label for="cl1"><strong>Does the method fit the question?</strong> Interviews, focus groups, ethnography &mdash; check that the chosen method actually fits what the researchers wanted to understand.</label></div>
+        <div class="checklist-item"><input type="checkbox" id="cl2"><label for="cl2"><strong>Who was sampled, and how?</strong> Purposive, snowball, theoretical &mdash; the sampling logic should be explained, not just the final count.</label></div>
+        <div class="checklist-item"><input type="checkbox" id="cl3"><label for="cl3"><strong>Reflexivity.</strong> Does the researcher acknowledge their own position or perspective, and how it might have shaped what they noticed and how they interpreted it?</label></div>
+        <div class="checklist-item"><input type="checkbox" id="cl4"><label for="cl4"><strong>Saturation.</strong> Did the researchers describe reaching data saturation (new interviews stopped producing new themes), or explain why they stopped collecting data when they did?</label></div>
+        <div class="checklist-item"><input type="checkbox" id="cl5"><label for="cl5"><strong>Trustworthiness.</strong> Look for the four pillars &mdash; credibility, transferability, dependability, confirmability &mdash; even if the paper doesn't use those exact words.</label></div>
+        <div class="checklist-item"><input type="checkbox" id="cl6"><label for="cl6"><strong>Triangulation.</strong> Did the researchers check their interpretation against multiple data sources, methods, or coders &mdash; rather than relying on one researcher's read of one data source?</label></div>
+        <div class="checklist-item"><input type="checkbox" id="cl7"><label for="cl7"><strong>Thick description.</strong> Are actual quotes and examples included, so you can judge the interpretation yourself instead of taking the author's summary on faith?</label></div>
+        <div class="checklist-item"><input type="checkbox" id="cl8"><label for="cl8"><strong>Ethical handling.</strong> Especially for sensitive topics &mdash; informed consent, confidentiality, and care in how participants' own words are used.</label></div>
+      </div>
+    </div>
+  </details>
+</section>
+
+<section class="topic" id="synthesize">
+  <h2>Step 5: Synthesize, Don't Just Summarize</h2>
+  <p>The single most common mistake in a student literature review: a list of paragraphs that each say "Smith (2019) found X. Jones (2021) found Y." That's a summary, not a review. A real review is organized by <strong>theme</strong>, not by paper.</p>
+
+  <table class="compare">
+    <tr><th></th><th>Study 1</th><th>Study 2</th><th>Study 3</th></tr>
+    <tr><td><strong>Population</strong></td><td>Adults, type 2 diabetes</td><td>Adults, type 2 diabetes</td><td>Older adults, type 2 diabetes</td></tr>
+    <tr><td><strong>Design</strong></td><td>Cross-sectional</td><td>Cohort</td><td>Cross-sectional</td></tr>
+    <tr><td><strong>Key finding</strong></td><td>Support &uarr; associated with adherence &uarr;</td><td>Support at baseline predicted adherence 1 year later</td><td>No significant association found</td></tr>
+  </table>
+  <p class="worksheet-note">A <strong>synthesis matrix</strong> like this &mdash; studies as columns, key features as rows &mdash; lets you literally see the pattern (and the disagreement in Study 3) across studies at a glance, instead of buried in three separate paragraphs.</p>
+
+  <div class="interpretation-box">This table is also your best defense against the hasty-generalization fallacy from 1.1: laid out side by side, it's obvious that Study 3 disagrees with the other two &mdash; a pattern you'd likely miss if you read and summarized each study in isolation.</div>
+</section>
+
+<section class="topic" id="find-the-gap">
+  <h2>Step 6: Find the Gap</h2>
+  <p>Every well-run literature review ends with the same question: <strong>given everything above, what still isn't known?</strong> That gap &mdash; a population nobody's studied, a relationship nobody's tested, findings that disagree with each other &mdash; is exactly the raw material 2.5 asks you to turn into a problem statement.</p>
+  <div class="interpretation-box">You now have everything you need to start building: a well-scoped question, a synthesized picture of what's already known, and a genuine gap. 2.5 is where you turn that gap into a problem statement, a purpose, a research question, and a hypothesis &mdash; one continuous worksheet.</div>
+</section>
+
+<div class="page-references">
+  <div class="page-references-title">References &amp; Further Reading</div>
+  <ul>
+    <li>Salazar, L. F., Crosby, R. A., &amp; DiClemente, R. J. (2015). <em>Research methods in health promotion</em> (2nd ed.), Ch. 1. Jossey-Bass.</li>
+  </ul>
+</div>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+document.getElementById("critiqueToggle").addEventListener("click", (e) => {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+  document.querySelectorAll("#critiqueToggle button").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  const which = btn.dataset.critique;
+  document.getElementById("critique-quant").style.display = which === "quant" ? "" : "none";
+  document.getElementById("critique-qual").style.display = which === "qual" ? "" : "none";
+});
+document.querySelectorAll(".checklist-item input[type=\"checkbox\"]").forEach(cb => {
+  cb.addEventListener("change", () => cb.closest(".checklist-item").classList.toggle("checked", cb.checked));
+});
+</script>
+</body>
+</html>

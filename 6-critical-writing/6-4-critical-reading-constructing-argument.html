@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Critical Reading &amp; Constructing an Argument &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="6-4">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+
+<section class="topic topic-first" id="reading-with-a-purpose">
+  <h2>Don't Read Start to Finish &mdash; Read to Interrogate</h2>
+  <div class="recall-prompt">
+    This page is where 1.2's inductive/deductive reasoning and 1.1's fallacies stop being abstract philosophy and become a working reading habit.
+  </div>
+  <p>Reading a paper front-to-back, in order, is usually the slowest and least effective way to evaluate it. Experienced readers jump around on purpose:</p>
+  <div class="flagship-box">
+    <div class="flagship-row"><strong>1. Abstract first.</strong> What's the claim? Is it something you'd expect to care about?</div>
+    <div class="flagship-row"><strong>2. Then the Discussion's conclusion.</strong> What does the author actually claim to have shown &mdash; and does it match the abstract?</div>
+    <div class="flagship-row"><strong>3. Then Methods.</strong> Does the design (2.2) actually support a claim that strong? This is where the 2.4 critique checklists do their work.</div>
+    <div class="flagship-row"><strong>4. Only then, Results and the full Introduction.</strong> Now you're reading to check the details, not to discover the story for the first time.</div>
+  </div>
+</section>
+
+<section class="topic" id="argument-anatomy">
+  <h2>The Anatomy of a Research Argument</h2>
+  <p>Every research argument &mdash; the author's, or the one you're about to write &mdash; has three parts, whether or not it says so explicitly.</p>
+  <div class="method-compare">
+    <div class="method-panel">
+      <div class="method-panel-title">Claim</div>
+      <div class="method-item">What the author wants you to believe. Usually the conclusion (6.2).</div>
+    </div>
+    <div class="method-panel">
+      <div class="method-panel-title">Evidence</div>
+      <div class="method-item">The data that supports it &mdash; the actual results (6.2), not a restatement of the claim in different words.</div>
+    </div>
+    <div class="method-panel">
+      <div class="method-panel-title">Warrant</div>
+      <div class="method-item">The unstated logical bridge connecting evidence to claim &mdash; often the design (2.2) and the assumption that no rival explanation (2.3) fits better.</div>
+    </div>
+  </div>
+  <div class="note-box">Most weak arguments aren't wrong about the evidence &mdash; they're weak in the <strong>warrant</strong>. "Screen time correlates with anxiety, therefore screen time causes anxiety" has real evidence and a real claim; the warrant &mdash; that no confounder or reverse-causation story fits better &mdash; is exactly what a cross-sectional design (2.2) can't support. That's 1.1's Correlation &ne; Causation fallacy, showing up again in argument form.</div>
+</section>
+
+<section class="topic" id="spot-the-gap">
+  <h2>Spot the Weak Link</h2>
+  <p>Read each short research claim and identify what's actually wrong with the argument &mdash; the evidence, or the warrant connecting it to the claim.</p>
+  <div class="level-game-status" id="argStatus">Case 1 of 5 &middot; 0 correct</div>
+  <div class="level-game-card">
+    <div class="level-game-var" id="argScenario" style="font-size:1.02rem; font-weight:normal; line-height:1.5;"></div>
+    <div class="level-game-options" id="argOptions">
+      <button type="button" data-arg="weak-evidence">Evidence Is Weak</button>
+      <button type="button" data-arg="weak-warrant">Warrant Is Weak</button>
+    </div>
+    <div class="level-game-feedback" id="argFeedback" style="display:none;"></div>
+  </div>
+  <div class="duel-controls">
+    <button type="button" id="argNextBtn" style="display:none;">Next case &rarr;</button>
+    <button type="button" id="argRestartBtn" class="secondary">Shuffle &amp; Restart</button>
+  </div>
+</section>
+
+<section class="topic" id="constructing-your-own">
+  <h2>Building Your Own Argument on Purpose</h2>
+  <div class="flagship-box">
+    <div class="flagship-row"><strong>State the claim you can actually defend</strong> &mdash; not the one you wish your data supported. If the design only supports "associated with," don't write "causes."</div>
+    <div class="flagship-row"><strong>Show the evidence before the interpretation.</strong> Let the reader see the result, then explain what you think it means &mdash; not the reverse.</div>
+    <div class="flagship-row"><strong>Make the warrant explicit when it's not obvious.</strong> If your design rules out a specific rival explanation, say so directly rather than assuming the reader will infer it.</div>
+    <div class="flagship-row"><strong>Address the obvious counterargument yourself.</strong> A reviewer will think of the rival explanation whether you mention it or not (6.5) &mdash; naming and addressing it first is stronger than hoping no one asks.</div>
+  </div>
+</section>
+
+<div class="page-references">
+  <div class="page-references-title">References &amp; Further Reading</div>
+  <ul>
+    <li>Toulmin, S. E. (1958). <em>The uses of argument</em>. Cambridge University Press.</li>
+  </ul>
+</div>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+function shuffleArray(arr){
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+const ARG_LABELS = { "weak-evidence":"Evidence Is Weak", "weak-warrant":"Warrant Is Weak" };
+const ARG_BANK = [
+  { scenario: "“Only 4 of the 200 people we approached agreed to participate, but nearly all of them reported high satisfaction with the clinic — so we conclude patients are highly satisfied with this clinic.”", answer: "weak-evidence", reason: "A 2% participation rate is barely any evidence at all — the tiny, likely self-selected sample can't support a claim about patients in general (3.1.5's participation-rate logic)." },
+  { scenario: "“Cities that built more bike lanes over the last decade also saw obesity rates fall, so building bike lanes reduces obesity.”", answer: "weak-warrant", reason: "The evidence (a real correlation) may be solid, but the warrant assumes bike lanes caused the drop — ignoring every other city-level change (2.3's History threat, or reverse causation) that happened over the same decade." },
+  { scenario: "“In our RCT, participants randomly assigned to the new counseling program reported significantly lower stress at 3 months than the waitlist control group, so the program reduced stress.”", answer: "weak-warrant", reason: "Trick question in reverse — this one holds up. Random assignment (2.2) is exactly what makes this warrant strong: it rules out the usual rival explanations, so the causal claim is earned." },
+  { scenario: "“A single case report described one patient whose symptoms improved after starting the supplement, so the supplement is an effective treatment.”", answer: "weak-evidence", reason: "One case, with no comparison group and no way to rule out coincidence or natural recovery, is far too thin a base for an effectiveness claim (2.2's case-report design is meant for hypothesis generation, not confirmation)." },
+  { scenario: "“Survey respondents who exercise more also report better mood, and the survey had a strong 85% response rate with a large, representative sample — therefore exercise improves mood.”", answer: "weak-warrant", reason: "The evidence is genuinely strong — good sample, good response rate. The warrant is the problem: a cross-sectional design (2.2) can show the two are related but can't establish which came first, or rule out a third factor explaining both." },
+];
+let argOrder = [], argIndex = 0, argCorrect = 0, argAnswered = false;
+function renderArgRound(){
+  argAnswered = false;
+  const item = argOrder[argIndex];
+  document.getElementById("argStatus").textContent = `Case ${argIndex + 1} of ${argOrder.length} · ${argCorrect} correct`;
+  document.getElementById("argScenario").textContent = item.scenario;
+  document.getElementById("argFeedback").style.display = "none";
+  document.getElementById("argNextBtn").style.display = "none";
+  document.querySelectorAll("#argOptions button").forEach(b => { b.disabled = false; b.className = ""; });
+}
+function shuffleArgGame(){
+  argOrder = shuffleArray(ARG_BANK);
+  argIndex = 0;
+  argCorrect = 0;
+  renderArgRound();
+}
+document.getElementById("argOptions").addEventListener("click", (e) => {
+  const btn = e.target.closest("button");
+  if (!btn || argAnswered) return;
+  argAnswered = true;
+  const item = argOrder[argIndex];
+  const picked = btn.dataset.arg;
+  const correct = picked === item.answer;
+  if (correct) argCorrect++;
+  document.querySelectorAll("#argOptions button").forEach(b => {
+    b.disabled = true;
+    if (b.dataset.arg === item.answer) b.classList.add("reveal-correct");
+    else if (b.dataset.arg === picked) b.classList.add("picked-wrong");
+  });
+  const fb = document.getElementById("argFeedback");
+  fb.className = "level-game-feedback " + (correct ? "correct" : "wrong");
+  fb.innerHTML = "<strong>" + (correct ? "Correct!" : "Not quite — it's the " + ARG_LABELS[item.answer] + ".") + "</strong>" + item.reason;
+  fb.style.display = "block";
+  document.getElementById("argStatus").textContent = `Case ${argIndex + 1} of ${argOrder.length} · ${argCorrect} correct`;
+  const isLast = argIndex === argOrder.length - 1;
+  document.getElementById("argNextBtn").style.display = isLast ? "none" : "inline-block";
+});
+document.getElementById("argNextBtn").addEventListener("click", () => {
+  argIndex++;
+  renderArgRound();
+});
+document.getElementById("argRestartBtn").addEventListener("click", shuffleArgGame);
+shuffleArgGame();
+</script>
+</body>
+</html>

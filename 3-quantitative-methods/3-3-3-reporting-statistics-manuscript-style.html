@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Reporting Statistics in Manuscript Style &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="3-3-3">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+
+<section class="topic topic-first" id="why-format-matters">
+  <h2>The Numbers Are Right. Now Write Them Correctly.</h2>
+  <div class="recall-prompt">
+    6.2 covers where results go in a manuscript. This page covers how the numbers themselves get written once they're there &mdash; the small, precise formatting conventions that signal a careful analyst to a reviewer.
+  </div>
+  <p>Statistical results follow a compact, standardized notation &mdash; test name, degrees of freedom, the statistic itself, and a p-value, almost always in that order. Once you know the pattern, reading (and writing) results sections gets dramatically faster.</p>
+</section>
+
+<section class="topic" id="the-notation">
+  <h2>Reading the Notation</h2>
+  <table class="compare">
+    <tr><th>Test</th><th>Reported As</th><th>Example</th></tr>
+    <tr><td>Independent t-test</td><td><em>t</em>(df) = value, <em>p</em> = value</td><td><em>t</em>(48) = 2.31, <em>p</em> = .025</td></tr>
+    <tr><td>One-way ANOVA</td><td><em>F</em>(df1, df2) = value, <em>p</em> = value</td><td><em>F</em>(2, 87) = 5.40, <em>p</em> = .006</td></tr>
+    <tr><td>Correlation</td><td><em>r</em>(df) = value, <em>p</em> = value</td><td><em>r</em>(118) = .34, <em>p</em> &lt; .001</td></tr>
+    <tr><td>Chi-square</td><td>&chi;&sup2;(df, <em>N</em> = n) = value, <em>p</em> = value</td><td>&chi;&sup2;(1, <em>N</em> = 214) = 6.72, <em>p</em> = .010</td></tr>
+    <tr><td>Regression coefficient</td><td><em>b</em> = value (or &beta;), <em>p</em> = value</td><td><em>b</em> = 0.42, <em>p</em> = .003</td></tr>
+  </table>
+  <div class="note-box">Degrees of freedom go in parentheses immediately after the test statistic's letter, with no space &mdash; <em>t</em>(48), not <em>t</em> (48) or <em>t</em>48. It's a small detail, but it's one of the fastest ways a careful reader clocks an unpolished draft.</div>
+</section>
+
+<section class="topic" id="formatting-rules">
+  <h2>The Small Rules That Add Up</h2>
+  <details class="content-accordion">
+    <summary>Rounding and leading zeros<span class="accordion-progress" style="visibility:hidden;">&nbsp;</span></summary>
+    <div class="accordion-body">
+      <p>Most statistics are reported to <strong>two decimal places</strong>. Values that can never exceed 1 &mdash; p-values, correlations, proportions &mdash; drop the leading zero: write <em>p</em> = .04, not <em>p</em> = 0.04. Values that can exceed 1 &mdash; means, standard deviations, most test statistics &mdash; keep it: M = 0.42, not M = .42.</p>
+    </div>
+  </details>
+  <details class="content-accordion">
+    <summary>Reporting p-values<span class="accordion-progress" style="visibility:hidden;">&nbsp;</span></summary>
+    <div class="accordion-body">
+      <p>Report the exact value to two or three decimal places (<em>p</em> = .032), rather than just "<em>p</em> &lt; .05" &mdash; exact values let a reader judge how close a result was to the threshold. The one common exception: very small p-values are reported as <em>p</em> &lt; .001 rather than a string of leading zeros.</p>
+    </div>
+  </details>
+  <details class="content-accordion">
+    <summary>Non-significant results still get reported in full<span class="accordion-progress" style="visibility:hidden;">&nbsp;</span></summary>
+    <div class="accordion-body">
+      <p>A non-significant finding is not "no result" &mdash; it's still a result, and it still needs the full notation: <em>t</em>(48) = 1.12, <em>p</em> = .268. Omitting the statistics for a null finding (or reporting only "not significant") hides information a reader needs to judge whether the study had adequate power to detect an effect at all.</p>
+    </div>
+  </details>
+  <details class="content-accordion">
+    <summary>Effect size belongs next to the p-value, not instead of it<span class="accordion-progress" style="visibility:hidden;">&nbsp;</span></summary>
+    <div class="accordion-body">
+      <p>A p-value says whether an effect is unlikely to be chance; an effect size (Cohen's <em>d</em>, <em>r</em>, odds ratio, &eta;&sup2;) says how big it actually is. Report both: "the intervention group showed significantly lower stress, <em>t</em>(112) = 3.05, <em>p</em> = .003, <em>d</em> = 0.58." A large sample can make a trivial effect statistically significant &mdash; the effect size is what tells a reader whether it's practically significant too.</p>
+    </div>
+  </details>
+  <details class="content-accordion">
+    <summary>Confidence intervals: report the interval, not just the point estimate<span class="accordion-progress" style="visibility:hidden;">&nbsp;</span></summary>
+    <div class="accordion-body">
+      <p>Wherever possible, give the interval alongside the estimate: "the mean difference was 4.2 points, 95% CI [1.1, 7.3]." This does double duty as a plausible-range statement and an implicit significance test &mdash; a 95% CI that excludes zero (for a difference) or 1 (for a ratio) corresponds to <em>p</em> &lt; .05.</p>
+    </div>
+  </details>
+</section>
+
+<section class="topic" id="worked-example">
+  <h2>A Worked Results Sentence</h2>
+  <div class="flagship-box">
+    <div class="flagship-row">"Adherence scores were significantly higher in the intervention group (<em>M</em> = 7.8, <em>SD</em> = 1.4) than the control group (<em>M</em> = 6.5, <em>SD</em> = 1.6), <em>t</em>(112) = 4.62, <em>p</em> &lt; .001, <em>d</em> = 0.87, 95% CI for the mean difference [0.75, 1.85]."</div>
+  </div>
+  <p class="worksheet-note">Notice everything a reader needs is here in one sentence: group means and spread, the test used, its degrees of freedom, the exact statistic, statistical significance, effect size, and a confidence interval &mdash; no separate paragraph required to reconstruct any of it.</p>
+</section>
+
+<div class="page-references">
+  <div class="page-references-title">References &amp; Further Reading</div>
+  <ul>
+    <li>American Psychological Association. (2020). <em>Publication manual of the American Psychological Association</em> (7th ed.).</li>
+  </ul>
+</div>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+</body>
+</html>

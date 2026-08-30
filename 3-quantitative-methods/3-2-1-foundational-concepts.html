@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Foundational Concepts — Effect Size, Confidence Intervals, P-values &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="3-2-1">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic" id="deductive">
+  <h2>Deductive / Hypothesis-Driven Reasoning</h2>
+
+  <div class="statement-box">
+    <strong>Problem statement:</strong> Our exploratory analysis suggested that higher card ranks have a stronger chance of winning.<br>
+    <strong>Research question:</strong> <span id="deductiveRQ">Does holding a Queen give you better odds than a coin flip?</span>
+  </div>
+
+  <h3>Prior knowledge (from the Inductive section)</h3>
+  <div class="bar-chart" id="priorChart"></div>
+
+  <div class="hyp-box">
+    <div class="h0"><strong>Null hypothesis (H0):</strong> <span id="h0Text">Holding a Queen wins no more often than a coin flip (50/50).</span></div>
+    <div class="h1"><strong>Alternative hypothesis (H1):</strong> <span id="h1Text">Holding a Queen wins more often than a coin flip (50/50).</span></div>
+  </div>
+
+  <div class="section-block">
+    <h3>Effect Size</h3>
+    <div class="numberline" id="card-effectLine"></div>
+    <p class="caption">Effect size answers: how big is the advantage?</p>
+    <p id="card-effectReadout" style="text-align:center; font-weight:bold; color:var(--maroon-dark);"></p>
+    <div class="mnemonic-box">
+      <div class="race-row"><span class="race-tag">Small effect</span><div class="race-track"><div class="race-gap" style="left:45%; width:8%"></div></div></div>
+      <div class="race-row"><span class="race-tag">Large effect</span><div class="race-track"><div class="race-gap" style="left:45%; width:40%"></div></div></div>
+      <p class="mnemonic-caption">Easy way to remember it: effect size measures the size of the gap, not just whether there is one. Winning by an inch and winning by a mile are both "wins" — but they don't mean the same thing.</p>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <h3>Confidence Interval</h3>
+    <div class="ci-controls">
+      <label for="card-ciSlider">CI width (&plusmn; percentage points):</label>
+      <input type="range" id="card-ciSlider" min="1" max="20" value="5" step="1">
+      <span id="card-ciSliderVal">5</span>
+    </div>
+    <div class="ci-bar-wrap" id="card-ciBar"></div>
+    <p class="ci-readout" id="card-ciReadout"></p>
+    <p class="caption">Confidence intervals answer: how precise is our estimate?</p>
+    <div class="mnemonic-box">
+      <div class="archer-row">
+        <div class="archer">
+          <svg class="archer-target" viewBox="0 0 140 140">
+            <circle cx="70" cy="70" r="60" fill="var(--tint-gold)" stroke="var(--line)" stroke-width="2"/>
+            <circle cx="70" cy="70" r="42" fill="none" stroke="var(--line)" stroke-width="2"/>
+            <circle cx="70" cy="70" r="24" fill="none" stroke="var(--line)" stroke-width="2"/>
+            <circle cx="70" cy="70" r="7" fill="var(--maroon)"/>
+            <circle cx="68" cy="72" r="4" fill="var(--navy)"/><circle cx="72" cy="68" r="4" fill="var(--navy)"/>
+            <circle cx="82" cy="70" r="4" fill="var(--navy)"/><circle cx="58" cy="70" r="4" fill="var(--navy)"/>
+            <circle cx="70" cy="84" r="4" fill="var(--navy)"/><circle cx="70" cy="56" r="4" fill="var(--navy)"/>
+          </svg>
+          <div class="archer-label">Archer A &mdash; narrow interval</div>
+        </div>
+        <div class="archer">
+          <svg class="archer-target" viewBox="0 0 140 140">
+            <circle cx="70" cy="70" r="60" fill="var(--tint-gold)" stroke="var(--line)" stroke-width="2"/>
+            <circle cx="70" cy="70" r="42" fill="none" stroke="var(--line)" stroke-width="2"/>
+            <circle cx="70" cy="70" r="24" fill="none" stroke="var(--line)" stroke-width="2"/>
+            <circle cx="70" cy="70" r="7" fill="var(--maroon)"/>
+            <circle cx="68" cy="72" r="4" fill="var(--navy)"/><circle cx="72" cy="68" r="4" fill="var(--navy)"/>
+            <circle cx="38" cy="46" r="4" fill="var(--navy)"/><circle cx="91" cy="86" r="4" fill="var(--navy)"/>
+            <circle cx="56" cy="108" r="4" fill="var(--navy)"/><circle cx="95" cy="40" r="4" fill="var(--navy)"/>
+          </svg>
+          <div class="archer-label">Archer B &mdash; wide interval</div>
+        </div>
+      </div>
+      <p class="mnemonic-caption">Both archers average out near the same score, but Archer A's shots cluster tightly (narrow confidence interval) while Archer B's scatter widely (wide confidence interval). Same average, different confidence.</p>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <h3>P-value and Significance</h3>
+    <svg id="card-bellCurve" width="100%" height="220" viewBox="0 0 700 220"></svg>
+    <p class="tail-note" id="card-tailNote"></p>
+    <p>The p-value asks: if this really were just a coin flip, how surprising would it be to see an advantage this large or larger?</p>
+    <div class="pval-readout">
+      <div class="pval-box"><div>Observed estimate</div><div class="big" id="card-pvalEstimate">--%</div></div>
+      <div class="pval-box"><div>p-value</div><div class="big" id="card-pvalNumber">--</div><div class="sig-badge" id="card-sigBadge">--</div></div>
+    </div>
+    <div class="note-box">A small p-value does not prove certainty. It suggests the observed result would be unlikely if the null hypothesis were true.</div>
+    <div class="mnemonic-box">
+      <div class="coin-row">
+        <span class="coin">H</span><span class="coin">H</span><span class="coin">H</span><span class="coin">H</span><span class="coin">H</span>
+        <span class="coin">H</span><span class="coin">H</span><span class="coin">H</span><span class="coin">H</span><span class="coin">H</span>
+      </div>
+      <p class="mnemonic-caption">Easy way to remember it: if a fair coin landed heads 10 times in a row, you'd start to suspect the coin isn't fair. The p-value measures exactly that kind of suspicion — assuming the coin-flip baseline is true, how surprising is what we actually observed?</p>
+    </div>
+  </div>
+</section>
+<section class="topic" id="health">
+  <h2>From Cards to Clinical Data</h2>
+  <p>Let's carry the exact same logic into real health research: <strong>"Drug A reduces symptoms in 85% of patients."</strong></p>
+
+  <h3>Inductive angle</h3>
+  <div class="statement-box">
+    <strong>Problem statement:</strong> We want to understand how well Drug A performs in the patients who take it.<br>
+    <strong>Research question:</strong> What proportion of patients experience symptom improvement on Drug A?
+  </div>
+  <div class="bar-chart">
+    <div class="bar-row selected"><div class="bar-label wide">Improved</div><div class="bar-track"><div class="bar-fill" style="width:85%"></div></div><div class="bar-pct">85.0%</div></div>
+    <div class="bar-row"><div class="bar-label wide">Not improved</div><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><div class="bar-pct">15.0%</div></div>
+  </div>
+  <div class="interpretation-box">This is exploratory. We're describing what happened in the data, not yet testing a claim.</div>
+
+  <h3 style="margin-top:30px;">Deductive angle</h3>
+  <div class="statement-box">
+    <strong>Problem statement:</strong> A prior exploratory look suggests Drug A has a high response rate &mdash; but is that meaningfully better than what we'd expect without treatment?<br>
+    <strong>Research question:</strong> Does Drug A work better than a placebo (a sugar pill with no active medicine)?
+  </div>
+  <div class="hyp-box">
+    <div class="h0"><strong>Null hypothesis (H0):</strong> Drug A works no better than a placebo &mdash; patients would improve about as often even without the real drug.</div>
+    <div class="h1"><strong>Alternative hypothesis (H1):</strong> Drug A works better than a placebo &mdash; it improves symptoms more often than an inactive pill would.</div>
+  </div>
+  <p class="caption">The yardstick here is the placebo response rate, not "no treatment at all" or "another drug." For this illustration we assume that placebo yardstick is 50%.</p>
+
+  <div class="section-block">
+    <h3>Effect Size</h3>
+    <div class="numberline" id="drug-effectLine"></div>
+    <p class="caption">Effect size answers: how big is the advantage?</p>
+    <p id="drug-effectReadout" style="text-align:center; font-weight:bold; color:var(--maroon-dark);"></p>
+  </div>
+
+  <div class="section-block">
+    <h3>Confidence Interval</h3>
+    <div class="ci-controls">
+      <label for="drug-ciSlider">CI width (&plusmn; percentage points):</label>
+      <input type="range" id="drug-ciSlider" min="1" max="20" value="5" step="1">
+      <span id="drug-ciSliderVal">5</span>
+    </div>
+    <div class="ci-bar-wrap" id="drug-ciBar"></div>
+    <p class="ci-readout" id="drug-ciReadout"></p>
+  </div>
+
+  <div class="section-block">
+    <h3>P-value and Significance</h3>
+    <svg id="drug-bellCurve" width="100%" height="220" viewBox="0 0 700 220"></svg>
+    <p class="tail-note" id="drug-tailNote"></p>
+    <div class="pval-readout">
+      <div class="pval-box"><div>Observed estimate</div><div class="big" id="drug-pvalEstimate">--%</div></div>
+      <div class="pval-box"><div>p-value</div><div class="big" id="drug-pvalNumber">--</div><div class="sig-badge" id="drug-sigBadge">--</div></div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <h3>Looking Ahead</h3>
+    <div class="reflect-card">
+      <p>Every p-value you saw today was quietly built from two ingredients we haven't unpacked yet. Before our next session, think about:</p>
+      <ul>
+        <li>What is a test statistic?</li>
+        <li>What are degrees of freedom?</li>
+      </ul>
+      <p style="font-weight:normal; color:var(--ink-soft); margin-top:14px;">We'll open the next session by answering both &mdash; and use them to move from these illustrative examples into real statistical tests.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script src="../assets/stats-utils.js"></script>
+<script>
+function renderEffectLine(elId, observedPct, obsLabel, baseLabel){
+  const el = document.getElementById(elId);
+  const toX = pct => 6 + (pct / 100) * 88 + '%';
+  const lo = Math.min(BASELINE, observedPct), hi = Math.max(BASELINE, observedPct);
+  el.innerHTML = `
+    <div class="nl-track"></div>
+    <div class="effect-arrow" style="left:${toX(lo)}; width:calc(${toX(hi)} - ${toX(lo)});"></div>
+    <div class="nl-marker baseline" style="left:${toX(BASELINE)}"><div class="dot"></div><div class="lbl">${baseLabel}<br>${BASELINE}%</div></div>
+    <div class="nl-marker queen" style="left:${toX(observedPct)}"><div class="dot"></div><div class="lbl">${obsLabel}<br>${observedPct.toFixed(1)}%</div></div>
+    <div class="nl-scale"><span>0%</span><span>50%</span><span>100%</span></div>
+  `;
+}
+
+function renderCI(prefix, observedPct, baseLabel){
+  const slider = document.getElementById(prefix + '-ciSlider');
+  const width = parseInt(slider.value, 10);
+  document.getElementById(prefix + '-ciSliderVal').textContent = width;
+  const lower = Math.max(0, observedPct - width);
+  const upper = Math.min(100, observedPct + width);
+  const toX = pct => 6 + (pct / 100) * 88 + '%';
+
+  document.getElementById(prefix + '-ciBar').innerHTML = `
+    <div class="ci-track"></div>
+    <div class="ci-baseline" style="left:${toX(BASELINE)}"></div>
+    <div class="ci-range" style="left:${toX(lower)}; width:calc(${toX(upper)} - ${toX(lower)});"></div>
+    <div class="ci-point" style="left:${toX(observedPct)}"></div>
+    <div class="ci-scale"><span>0%</span><span>50% (${baseLabel})</span><span>100%</span></div>
+  `;
+  document.getElementById(prefix + '-ciReadout').textContent =
+    `Estimate: ${observedPct.toFixed(1)}% ± ${width} pts  →  interval: [${lower.toFixed(1)}%, ${upper.toFixed(1)}%]`;
+}
+
+function renderBellCurve(prefix, observedPct, baseLabel){
+  const svg = document.getElementById(prefix + '-bellCurve');
+  const W = 700, H = 220, padL = 30, padR = 30, padB = 30, padT = 10;
+  const plotW = W - padL - padR, plotH = H - padT - padB;
+  const xMin = 10, xMax = 100;
+
+  const xToPx = x => padL + ((x - xMin) / (xMax - xMin)) * plotW;
+  const maxDensity = normalPDF(BASELINE, BASELINE, VISUAL_SD);
+  const yToPx = y => padT + plotH - (y / maxDensity) * plotH;
+
+  let curvePts = [];
+  for (let x = xMin; x <= xMax; x += 1){
+    curvePts.push([xToPx(x), yToPx(normalPDF(x, BASELINE, VISUAL_SD))]);
+  }
+  const curvePath = 'M ' + curvePts.map(p => p.join(',')).join(' L ');
+
+  const tailStartX = Math.min(Math.max(observedPct, xMin), xMax);
+  let tailPts = curvePts.filter(p => p[0] >= xToPx(tailStartX));
+  let tailPath = '';
+  if (tailPts.length > 1){
+    tailPath = 'M ' + xToPx(tailStartX) + ',' + yToPx(0) +
+               ' L ' + tailPts.map(p => p.join(',')).join(' L ') +
+               ' L ' + xToPx(xMax) + ',' + yToPx(0) + ' Z';
+  }
+
+  const baseX = xToPx(BASELINE);
+  const obsX = xToPx(Math.min(observedPct, xMax));
+  const clamped = observedPct > xMax;
+
+  svg.innerHTML = `
+    <path d="${tailPath}" fill="var(--maroon)" opacity="0.28"></path>
+    <path d="${curvePath}" fill="none" stroke="var(--navy)" stroke-width="2.5"></path>
+    <line x1="${padL}" y1="${yToPx(0)}" x2="${W-padR}" y2="${yToPx(0)}" stroke="var(--line)" stroke-width="1.5"></line>
+    <line x1="${baseX}" y1="${padT}" x2="${baseX}" y2="${yToPx(0)}" stroke="var(--navy)" stroke-width="1.5" stroke-dasharray="4,3"></line>
+    <text x="${baseX}" y="${H-6}" text-anchor="middle" font-size="12" fill="var(--navy)" font-family="var(--sans)">${baseLabel}: 50%</text>
+    <line x1="${obsX}" y1="${padT}" x2="${obsX}" y2="${yToPx(0)}" stroke="var(--maroon)" stroke-width="2"></line>
+    <text x="${obsX}" y="${padT+12}" text-anchor="middle" font-size="12" fill="var(--maroon)" font-weight="bold" font-family="var(--sans)">${observedPct.toFixed(1)}%</text>
+  `;
+
+  const noteEl = document.getElementById(prefix + '-tailNote');
+  if (noteEl){
+    noteEl.textContent = clamped
+      ? 'The observed estimate falls further right than this axis shows — the shaded tail is effectively zero, which is why the p-value is so small.'
+      : '';
+  }
+}
+
+function renderPValue(prefix, observedPct){
+  const p = 1 - normalCDF(observedPct, BASELINE, VISUAL_SD);
+  document.getElementById(prefix + '-pvalEstimate').textContent = observedPct.toFixed(1) + '%';
+  document.getElementById(prefix + '-pvalNumber').textContent = p < 0.0001 ? '< .0001' : p.toFixed(4);
+  const badge = document.getElementById(prefix + '-sigBadge');
+  if (p < 0.05){ badge.textContent = 'Statistically significant'; badge.className = 'sig-badge sig'; }
+  else { badge.textContent = 'Not statistically significant'; badge.className = 'sig-badge notsig'; }
+}
+
+function refreshHypothesisModule(prefix, observedPct, obsLabel, baseLabel){
+  renderEffectLine(prefix + '-effectLine', observedPct, obsLabel, baseLabel);
+  document.getElementById(prefix + '-effectReadout').textContent =
+    `Effect size = ${observedPct.toFixed(1)}% - ${BASELINE}% = ${(observedPct - BASELINE).toFixed(1)} percentage points`;
+  renderCI(prefix, observedPct, baseLabel);
+  renderBellCurve(prefix, observedPct, baseLabel);
+  renderPValue(prefix, observedPct);
+}
+
+document.getElementById('card-ciSlider').addEventListener('input', () => renderCI('card', currentHypothesisPct(), 'coin flip'));
+document.getElementById('drug-ciSlider').addEventListener('input', () => renderCI('drug', 85, 'placebo'));
+
+/* ================================================================
+   DEDUCTIVE SECTION: illustrates the same workflow using a
+   fixed card (Queen) — self-contained, independent of any other
+   page's demos.
+   ================================================================ */
+function currentHypothesisPct(){
+  return ALL_STATS[QUEEN_INDEX].winProb * 100;
+}
+
+function updateCardDeductiveSection(rankIndex){
+  const s = ALL_STATS[rankIndex];
+  renderBarChart('priorChart', rankIndex);
+  document.getElementById('deductiveRQ').textContent = `Does holding a ${s.rank} give you better odds than a coin flip?`;
+  document.getElementById('h0Text').textContent = `Holding a ${s.rank} wins no more often than a coin flip (50/50).`;
+  document.getElementById('h1Text').textContent = `Holding a ${s.rank} wins more often than a coin flip (50/50).`;
+  refreshHypothesisModule('card', s.winProb * 100, s.rank, 'coin flip');
+}
+
+// initial render — fixed to the Queen as the illustrative card
+updateCardDeductiveSection(QUEEN_INDEX);
+
+/* ================================================================
+   DRUG A MODULE (static illustration, same template as the cards)
+   ================================================================ */
+refreshHypothesisModule('drug', 85, 'Drug A', 'placebo');
+</script>
+</body>
+</html>

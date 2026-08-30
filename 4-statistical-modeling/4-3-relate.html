@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Relate &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="4-3">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic" id="relate">
+  <h2>Relate</h2>
+  <div class="statement-box"><strong>The question:</strong> When one thing goes up, does the other go up too, go down, or do nothing?</div>
+  <p>This is about noticing a pattern between two things you measured on the same people &mdash; without claiming one causes the other.</p>
+
+  <div class="flagship-box">
+    <div class="flagship-title">Flagship tool: Correlation</div>
+    <div class="flagship-row"><strong>Why we do this:</strong> You have two numbers per person (like height and weight) and want to know if they move together.</div>
+    <div class="flagship-row"><strong>The logic:</strong> Plot every person as a dot, one variable on each side. Correlation is a single number from -1 to 1 that summarizes how tightly those dots line up.</div>
+    <div class="flagship-row"><strong>What to look for:</strong> Do the dots form a clear line, or a shapeless cloud? Does the line tilt up or down?</div>
+    <div class="flagship-row"><strong>What it means:</strong> Close to +1 means "both go up together." Close to -1 means "one goes up while the other goes down." Close to 0 means "no pattern at all." Correlation never tells you which one caused the other.</div>
+  </div>
+
+  <div class="duel-controls" style="justify-content:flex-start;">
+    <button id="relatePosBtn">Positive</button>
+    <button id="relateNegBtn" class="secondary">Negative</button>
+    <button id="relateNoneBtn" class="secondary">None</button>
+  </div>
+  <svg id="scatterDemo" width="100%" height="220" viewBox="0 0 300 220"></svg>
+  <p class="caption" id="relateCaption"></p>
+
+  <h3 style="margin-top:26px;">Choosing the right version</h3>
+  <table class="compare">
+    <tr><th>Situation</th><th>Test</th></tr>
+    <tr><td>Two smooth numeric variables, roughly straight-line pattern</td><td>Pearson correlation</td></tr>
+    <tr><td>Ranked or not-quite-normal data</td><td>Spearman correlation</td></tr>
+    <tr><td>Small samples or lots of tied ranks</td><td>Kendall's Tau</td></tr>
+    <tr><td>Two categories vs. two categories</td><td>Chi-square test</td></tr>
+    <tr><td>Same, but very small samples</td><td>Fisher's Exact Test</td></tr>
+    <tr><td>Same people, categories measured twice</td><td>McNemar's Test</td></tr>
+    <tr><td>Same people, categories measured 3+ times</td><td>Cochran's Q</td></tr>
+    <tr><td>How strong is a category-to-category link?</td><td>Cramer's V, Phi, Odds Ratio, Relative Risk</td></tr>
+  </table>
+
+  <a class="back-link" href="../3-quantitative-methods/3-2-2-statistical-framework.html#framework">&uarr; Back to the Framework</a>
+</section>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+/* ---- 3.4 Relate: scatter patterns ---- */
+function generateScatterPoints(type){
+  const pts = [];
+  for (let i=0; i<25; i++){
+    const x = 20 + Math.random()*260;
+    let y;
+    if (type==='positive') y = 20 + (x-20)*0.6 + (Math.random()-0.5)*60;
+    else if (type==='negative') y = 200 - (x-20)*0.6 + (Math.random()-0.5)*60;
+    else y = 20 + Math.random()*180;
+    y = Math.max(15, Math.min(205, y));
+    pts.push([x,y]);
+  }
+  return pts;
+}
+function renderScatter(type, caption){
+  const pts = generateScatterPoints(type);
+  document.getElementById('scatterDemo').innerHTML = pts.map(p => `<circle cx="${p[0]}" cy="${220-p[1]}" r="4" fill="var(--maroon)" opacity="0.65"/>`).join('');
+  document.getElementById('relateCaption').textContent = caption;
+}
+document.getElementById('relatePosBtn').addEventListener('click', () => renderScatter('positive', 'As one goes up, the other goes up too — a positive correlation.'));
+document.getElementById('relateNegBtn').addEventListener('click', () => renderScatter('negative', 'As one goes up, the other goes down — a negative correlation.'));
+document.getElementById('relateNoneBtn').addEventListener('click', () => renderScatter('none', "No pattern — knowing one tells you nothing about the other."));
+renderScatter('positive', 'As one goes up, the other goes up too — a positive correlation.');
+</script>
+</body>
+</html>

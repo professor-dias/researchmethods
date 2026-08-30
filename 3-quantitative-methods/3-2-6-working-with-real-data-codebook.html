@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Working With Real Data — Codebook Reading &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="3-2-6">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic" id="data-demo">
+  <h2>Data Analysis Demonstration</h2>
+  <div class="reflect-card">
+    <p>Everything we've covered so far &mdash; problem statements, hypotheses, effect sizes, variable types, survey design &mdash; exists to serve one goal: doing real secondary data analysis.</p>
+    <p>Our next project uses the <strong>National Health Interview Survey (NHIS)</strong>, a real, publicly available U.S. health survey. Before next session, take a look at the official documentation:</p>
+    <ul>
+      <li><a href="https://www.cdc.gov/nchs/nhis/documentation/2024-nhis.html" target="_blank" rel="noopener">2024 NHIS Survey Documentation (CDC / NCHS)</a></li>
+    </ul>
+    <p style="font-weight:normal; color:var(--ink-soft); margin-top:14px;">We'll download this dataset together, identify each variable's type using exactly what we practiced today, and start asking our own research questions &mdash; inductively and deductively.</p>
+  </div>
+
+  <h3 style="margin-top:30px;">Understanding Your Data Before Analysis</h3>
+  <p>Before running a single line of code, spend time getting to know your dataset. Time invested here prevents errors downstream and forces you to engage with your data as a researcher, not just an operator.</p>
+
+  <div class="flagship-box">
+    <div class="flagship-title">Reading the Codebook</div>
+    <div class="flagship-row">Understand what each variable represents before looking at its values.</div>
+    <div class="flagship-row">Note all missing value codes (e.g., 555 = not applicable, 999 = refused to answer).</div>
+    <div class="flagship-row">Identify pre-existing composite variables and understand how they were scored.</div>
+  </div>
+
+  <div class="flagship-box">
+    <div class="flagship-title">Variable Audit</div>
+    <div class="flagship-row">List all variables and their intended measurement level &mdash; cross-reference with <a href="3-1-6-variable-types-levels-of-measurement.html#variable-types">Variable Types</a>.</div>
+    <div class="flagship-row">Check actual data types against expected types (e.g., is a numeric-looking variable stored as text?).</div>
+    <div class="flagship-row">Identify variables you will not use &mdash; working with a focused subset reduces errors.</div>
+  </div>
+
+  <div class="flagship-box">
+    <div class="flagship-title">Sitting with Your Data</div>
+    <div class="flagship-row">Run simple counts, summaries, and spot-checks before any analysis. Look at raw values. Does the range make sense? Are there impossible values? Are distributions roughly as expected?</div>
+  </div>
+
+  <div class="flagship-box">
+    <div class="flagship-title">Missing Data Patterns</div>
+    <div class="flagship-row">Distinguish between missing completely at random (MCAR), missing at random (MAR), and missing not at random (MNAR) &mdash; the distinction has direct implications for how you handle missingness. See <a href="../4-statistical-modeling/4-13-missing-data.html#missing">Missing Data</a> in Topic 4 for the handling methods themselves.</div>
+    <div class="flagship-row">Quantify missingness per variable.</div>
+    <div class="flagship-row">Assess whether missing patterns are systematic.</div>
+  </div>
+
+  <div class="flagship-box">
+    <div class="flagship-title">Data Quality Checks</div>
+    <div class="flagship-row">Check for duplicates &mdash; e.g., duplicate participant IDs.</div>
+    <div class="flagship-row">Check for impossible or out-of-range values.</div>
+    <div class="flagship-row">Check distributions for extreme skew or multimodality that may indicate data collection issues.</div>
+    <div class="flagship-row">Cross-check derived variables against their source variables.</div>
+  </div>
+
+  <div class="note-box">Treat this checklist as your guardrail before every analysis: Codebook &rarr; Variable Audit &rarr; Sit With It &rarr; Missing Data &rarr; Quality Checks. Skipping steps here is where most analysis errors actually start.</div>
+</section>
+
+<div class="page-references">
+  <div class="page-references-title">References &amp; Further Reading</div>
+  <ul>
+    <li>National Center for Health Statistics. (2024). <a href="https://www.cdc.gov/nchs/nhis/documentation/2024-nhis.html" target="_blank" rel="noopener">2024 National Health Interview Survey documentation</a>. CDC.</li>
+  </ul>
+</div>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+</body>
+</html>

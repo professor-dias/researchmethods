@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Longitudinal &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="4-8">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic" id="longitudinal">
+  <h2>Longitudinal</h2>
+  <div class="statement-box"><strong>The question:</strong> How does this change as time passes, and does it change differently for different groups?</div>
+  <p>Instead of one snapshot, you measure the same people again and again, and watch the story unfold.</p>
+
+  <div class="flagship-box">
+    <div class="flagship-title">Flagship tool: Growth Curve / Mixed Models</div>
+    <div class="flagship-row"><strong>Why we do this:</strong> You measured the same people at several time points and want to know if they're changing, and whether two groups change at different speeds.</div>
+    <div class="flagship-row"><strong>The logic:</strong> Draw each person's trend line over time, then average those trend lines within each group.</div>
+    <div class="flagship-row"><strong>What to look for:</strong> Are the lines flat or sloped? Do the two group lines run parallel, or spread apart over time?</div>
+    <div class="flagship-row"><strong>What it means:</strong> Parallel lines mean both groups change at the same rate. Lines that spread apart mean one group is changing faster &mdash; time itself is interacting with the group.</div>
+  </div>
+
+  <svg id="longitudinalDemo" width="100%" height="220" viewBox="0 0 320 220"></svg>
+  <p class="caption">Group A (navy) and Group B (maroon), measured at four time points. Notice the lines pull apart &mdash; that spreading gap is the story.</p>
+
+  <h3 style="margin-top:26px;">Related tools</h3>
+  <table class="compare">
+    <tr><th>Tool</th><th>In plain words</th></tr>
+    <tr><td>Repeated Measures ANOVA</td><td>The simplest version: compares averages across a few fixed time points</td></tr>
+    <tr><td>Linear / Generalized Linear Mixed Models</td><td>Handles messy real-world data: missing visits, uneven timing, multiple people per group</td></tr>
+    <tr><td>GEE</td><td>Similar to mixed models, focused on the average group trend rather than each individual</td></tr>
+    <tr><td>Growth Curve / Latent Growth Modeling</td><td>Models each person's own personal trend line, then studies how those trends differ</td></tr>
+    <tr><td>Time Series Analysis / ARIMA</td><td>Built for one long running sequence of measurements, like daily hospital admissions</td></tr>
+  </table>
+
+  <a class="back-link" href="../3-quantitative-methods/3-2-2-statistical-framework.html#framework">&uarr; Back to the Framework</a>
+</section>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+/* ---- 3.9 Longitudinal: two lines over time (static) ---- */
+function renderLongitudinalDemo(){
+  const xs = [30,120,210,300];
+  const groupA = [150,140,130,120];
+  const groupB = [150,110,70,40];
+  const pathFor = ys => 'M ' + xs.map((x,i)=>`${x},${ys[i]}`).join(' L ');
+  const dotsFor = (ys,color) => xs.map((x,i)=>`<circle cx="${x}" cy="${ys[i]}" r="4" fill="${color}"/>`).join('');
+  document.getElementById('longitudinalDemo').innerHTML = `
+    <line x1="30" y1="200" x2="300" y2="200" stroke="var(--line)" stroke-width="1.5"/>
+    <path d="${pathFor(groupA)}" fill="none" stroke="var(--navy)" stroke-width="2.5"/>${dotsFor(groupA,'var(--navy)')}
+    <path d="${pathFor(groupB)}" fill="none" stroke="var(--maroon)" stroke-width="2.5"/>${dotsFor(groupB,'var(--maroon)')}
+    <text x="304" y="${groupA[3]+4}" font-size="12" fill="var(--navy)" font-weight="bold">A</text>
+    <text x="304" y="${groupB[3]+4}" font-size="12" fill="var(--maroon)" font-weight="bold">B</text>
+    <text x="30" y="215" font-size="11" fill="var(--ink-soft)">Time 1</text>
+    <text x="280" y="215" font-size="11" fill="var(--ink-soft)">Time 4</text>
+  `;
+}
+renderLongitudinalDemo();
+</script>
+</body>
+</html>

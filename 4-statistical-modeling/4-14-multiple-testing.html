@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Multiple Testing &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="4-14">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic" id="multiple-testing">
+  <h2>Multiple Testing</h2>
+  <div class="statement-box"><strong>The question:</strong> If I run lots of tests, how many "discoveries" are just false alarms?</div>
+  <p>Remember the coin-flip logic from Chapter 1: even with no real effect, a 5% false-alarm rate means 1 test in 20 will look "significant" purely by luck. Run enough tests, and false alarms are guaranteed.</p>
+
+  <div class="flagship-box">
+    <div class="flagship-title">Flagship idea: The more you test, the more false alarms pile up</div>
+    <div class="flagship-row"><strong>Why we do this:</strong> Researchers rarely run just one test &mdash; they often check dozens of variables at once.</div>
+    <div class="flagship-row"><strong>The logic:</strong> Each individual test keeps its own 5% false-alarm rate. But run 20 of them on data with zero real effects, and on average one will still come back "significant," purely by chance.</div>
+    <div class="flagship-row"><strong>What to look for:</strong> How many tests you ran in total, not just how many came back significant.</div>
+    <div class="flagship-row"><strong>What it means:</strong> Correction methods make each individual test stricter, so the whole batch together still only has a 5% false-alarm rate.</div>
+  </div>
+
+  <div class="duel-controls" style="justify-content:flex-start;">
+    <button id="runTestsBtn">Run 20 Tests (No Real Effect)</button>
+  </div>
+  <div id="multiTestGrid" class="sample-dotgrid" style="grid-template-columns:repeat(10,1fr); max-width:280px;"></div>
+  <p class="caption" id="multiTestCaption">Click the button &mdash; every tile is a test on data with no real effect. Watch how many still turn up "significant" by chance alone.</p>
+
+  <h3 style="margin-top:26px;">Correction methods</h3>
+  <table class="compare">
+    <tr><th>Method</th><th>In plain words</th></tr>
+    <tr><td>Bonferroni</td><td>Divide your significance threshold by the number of tests &mdash; simple, but very strict</td></tr>
+    <tr><td>Holm</td><td>A step-by-step version of Bonferroni that's a little less strict</td></tr>
+    <tr><td>Hochberg</td><td>Similar to Holm, worked from the opposite end of the list</td></tr>
+    <tr><td>Benjamini-Hochberg (FDR)</td><td>Instead of guarding against any false alarm, controls the overall share of discoveries that turn out to be false</td></tr>
+    <tr><td>Benjamini-Yekutieli</td><td>A stricter version of FDR control for when tests are related to each other</td></tr>
+    <tr><td>&Scaron;id&aacute;k</td><td>A small mathematical refinement of Bonferroni for independent tests</td></tr>
+  </table>
+
+  <a class="back-link" href="../3-quantitative-methods/3-2-2-statistical-framework.html#framework">&uarr; Back to the Framework</a>
+</section>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+/* ---- 3.15 Multiple Testing: false alarms pile up (reuses .sample-dot) ---- */
+function renderMultiTestGrid(){
+  const grid = document.getElementById('multiTestGrid');
+  grid.innerHTML = '';
+  for (let i=0; i<20; i++){
+    const dot = document.createElement('div');
+    dot.className = 'sample-dot';
+    dot.dataset.index = i;
+    grid.appendChild(dot);
+  }
+}
+document.getElementById('runTestsBtn').addEventListener('click', () => {
+  const dots = document.querySelectorAll('#multiTestGrid .sample-dot');
+  dots.forEach(d => d.classList.remove('highlighted'));
+  let falseAlarms = 0;
+  dots.forEach(d => { if (Math.random() < 0.05){ d.classList.add('highlighted'); falseAlarms++; } });
+  document.getElementById('multiTestCaption').textContent = falseAlarms === 0
+    ? 'This run: 0 false alarms out of 20 — but run it again, and luck might not be so kind.'
+    : `This run: ${falseAlarms} test${falseAlarms>1?'s':''} out of 20 falsely flagged as "significant" — purely by chance, even though nothing real is happening.`;
+});
+renderMultiTestGrid();
+</script>
+</body>
+</html>

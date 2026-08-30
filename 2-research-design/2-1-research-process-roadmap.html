@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>The Research Process — Big-Picture Roadmap &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="2-1">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+
+<section class="topic topic-first" id="one-pixel">
+  <h2>Every Study Is One Pixel</h2>
+  <div class="recall-prompt">
+    Zoom into any photo far enough and you stop seeing a picture &mdash; you see one square of solid color, with its own private RGB value, that looks like it means nothing on its own. That square is what a single research study looks like from the outside.
+  </div>
+
+  <p>Click below to "publish" studies one at a time. Watch what a single pixel tells you &mdash; and what only shows up once enough of them exist.</p>
+
+  <div class="pixel-game">
+    <div class="pixel-grid-wrap">
+      <svg viewBox="0 0 240 200" class="pixel-svg" id="pixelSvg" role="img" aria-label="A grid of squares that reveals a pixel-art picture as studies are published"></svg>
+    </div>
+    <div class="pixel-controls">
+      <button type="button" id="pixelBtn">Publish One More Study</button>
+      <div class="wheel-status" id="pixelStatus">0 of 120 studies published</div>
+    </div>
+    <div class="flagship-box" id="pixelSpotlight" style="display:none; width:100%; max-width:420px;">
+      <div class="flagship-title">This One Study, Zoomed In</div>
+      <div class="flagship-row" id="pixelSpotlightText"></div>
+    </div>
+    <div class="interpretation-box" id="pixelPayoff" style="display:none; max-width:520px;"></div>
+  </div>
+</section>
+
+<section class="topic" id="nine-step-roadmap">
+  <h2>The Nine-Step Journey Down the Research Highway</h2>
+  <p>So how do you actually produce one of those pixels? Researchers Crosby, Salazar, and DiClemente describe it as a road trip &mdash; a straightforward-looking path that can still take turns, hit detours, and occasionally dead-end. Nine steps, in order, get you there.</p>
+
+  <div class="roadmap-grid">
+    <div class="roadmap-step">
+      <div class="roadmap-num">1</div>
+      <div class="roadmap-fun">Choosing Your Destination</div>
+      <div class="roadmap-desc">Define exactly who your research population is &mdash; not "teenagers," but "adolescents aged 13&ndash;19 in areas with dense tobacco sales."</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="roadmap-num">2</div>
+      <div class="roadmap-fun">Mapping Your Route</div>
+      <div class="roadmap-desc">Turn a broad goal into a precise, narrow research question. Narrow questions are what make rigorous designs possible.</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="roadmap-num">3</div>
+      <div class="roadmap-fun">Choosing Your Ride</div>
+      <div class="roadmap-desc">Decide: will you <em>observe</em> people as they naturally are, or <em>intervene</em> and measure what changes? (More in 2.2.)</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="roadmap-num">4</div>
+      <div class="roadmap-fun">Which Lane Are You In?</div>
+      <div class="roadmap-desc">Pick the specific design that answers your question rigorously without wasting time or resources you don't need.</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="roadmap-num">5</div>
+      <div class="roadmap-fun">Stopping for Snacks</div>
+      <div class="roadmap-desc">Decide exactly which variables you need to measure to answer the question &mdash; no more, no fewer.</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="roadmap-num">6</div>
+      <div class="roadmap-fun">Do You Take the Bypass?</div>
+      <div class="roadmap-desc">Choose how you'll actually recruit and sample participants from that population.</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="roadmap-num">7</div>
+      <div class="roadmap-fun">Is Autopilot a Good Idea?</div>
+      <div class="roadmap-desc">Implement the plan &mdash; with fidelity. This is where careful planning either pays off or quietly falls apart.</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="roadmap-num">8</div>
+      <div class="roadmap-fun">Arriving at Your Destination</div>
+      <div class="roadmap-desc">Analyze the data you collected &mdash; the whole point of the trip.</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="roadmap-num">9</div>
+      <div class="roadmap-fun">Sharing Your Vacation Photos</div>
+      <div class="roadmap-desc">Disseminate the findings &mdash; publish, present, share back with the community you studied. An unshared study never becomes a pixel anyone else can use.</div>
+    </div>
+  </div>
+
+  <details class="content-accordion">
+    <summary>Two planning frameworks you'll see referenced in the literature<span class="accordion-progress" style="visibility:hidden;">&nbsp;</span></summary>
+    <div class="accordion-body">
+      <p><strong>RE-AIM</strong> evaluates a health program across five dimensions: <strong>R</strong>each (who actually participates), <strong>E</strong>ffectiveness (does it work in the real world, not just in theory), <strong>A</strong>doption (do practitioners and settings take it up), <strong>I</strong>mplementation (is it delivered as designed), and <strong>M</strong>aintenance (does it stick around). It's often used to plan and evaluate Step 9's real-world impact.</p>
+      <p><strong>PRECEDE-PROCEED</strong> is a broader planning model that works backward from a health outcome, through behavioral and environmental factors, to the specific educational and policy strategies that could change them &mdash; useful for framing Step 1 and Step 2 before the nine-step model even begins.</p>
+    </div>
+  </details>
+</section>
+
+<section class="topic" id="semester-checklist">
+  <h2>Your Semester Checklist</h2>
+  <p>Here's the same nine steps, translated out of the road-trip metaphor and into exactly what you'll do, in order, every time you plan a study this semester. Come back to this page and check items off as you go.</p>
+
+  <div class="flagship-box">
+    <div class="checklist-item"><input type="checkbox" id="rs1"><label for="rs1"><strong>1. Define your population.</strong> Write a one-sentence definition of exactly who you're studying (age range, condition, location, or setting). If it could describe more than one obvious group, it's still too vague.</label></div>
+    <div class="checklist-item"><input type="checkbox" id="rs2"><label for="rs2"><strong>2. Write your goal, then your question.</strong> State your research goal in one sentence. Then narrow it into one specific, answerable research question that names your variables.</label></div>
+    <div class="checklist-item"><input type="checkbox" id="rs3"><label for="rs3"><strong>3. Decide observational or experimental.</strong> Write down which one, and one sentence on why &mdash; are you measuring the world as it is, or introducing something and testing what changes?</label></div>
+    <div class="checklist-item"><input type="checkbox" id="rs4"><label for="rs4"><strong>4. Name your exact design.</strong> Pick the specific design (2.2) &mdash; cross-sectional, cohort, RCT, and so on &mdash; and write one sentence justifying why it fits your question better than the alternatives.</label></div>
+    <div class="checklist-item"><input type="checkbox" id="rs5"><label for="rs5"><strong>5. List every variable you'll measure.</strong> Next to each one, name the exact tool, scale, or question you'll use to measure it.</label></div>
+    <div class="checklist-item"><input type="checkbox" id="rs6"><label for="rs6"><strong>6. Write your sampling plan.</strong> Target sample size, recruitment method, and inclusion/exclusion criteria &mdash; decided before you start recruiting, not adjusted afterward.</label></div>
+    <div class="checklist-item"><input type="checkbox" id="rs7"><label for="rs7"><strong>7. Write a step-by-step protocol, then follow it exactly.</strong> Use the identical procedure for every single participant &mdash; no shortcuts, no improvising.</label></div>
+    <div class="checklist-item"><input type="checkbox" id="rs8"><label for="rs8"><strong>8. Decide your analysis plan in advance.</strong> Choose which statistical test or analytic approach matches your design and variable types &mdash; before you see your results, not after.</label></div>
+    <div class="checklist-item"><input type="checkbox" id="rs9"><label for="rs9"><strong>9. Plan how you'll share it.</strong> Decide where (conference, journal, community report) and who, besides other researchers, should hear what you found.</label></div>
+  </div>
+
+  <div class="interpretation-box">One nine-step journey produces one pixel: one specific finding, about one specific population, answering one specific question. That can feel small. It isn't &mdash; it's exactly how every body of scientific knowledge has ever been built. 2.3 is about the traps that can quietly ruin a well-planned study; 2.4 is how to find and assemble the pixels that already exist before you publish one of your own.</div>
+</section>
+
+<div class="page-references">
+  <div class="page-references-title">References &amp; Further Reading</div>
+  <ul>
+    <li>Salazar, L. F., Crosby, R. A., &amp; DiClemente, R. J. (2015). <em>Research methods in health promotion</em> (2nd ed.), Ch. 1. Jossey-Bass.</li>
+  </ul>
+</div>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+/* ================================================================
+   ONE PIXEL AT A TIME — a 12x10 pixel-art picture (a cat) hidden
+   behind grey "unpublished" tiles. Each click either reveals one
+   random tile with a fake-but-plausible RGB readout (first 15
+   clicks) or fast-forwards the rest of the grid at once (payoff).
+   ================================================================ */
+const CAT_BITMAP = [
+  [0,0,1,0,0,0,0,0,0,1,0,0],
+  [0,1,1,1,0,0,0,0,1,1,1,0],
+  [0,1,1,1,1,0,0,1,1,1,1,0],
+  [1,1,1,1,1,1,1,1,1,1,1,1],
+  [1,1,2,1,1,1,1,1,1,2,1,1],
+  [1,1,1,1,1,1,1,1,1,1,1,1],
+  [1,1,1,1,3,3,3,3,1,1,1,1],
+  [1,1,1,1,1,1,1,1,1,1,1,1],
+  [0,1,1,1,1,1,1,1,1,1,1,0],
+  [0,0,1,1,1,1,1,1,1,1,0,0],
+];
+const PIXEL_COLORS = { 0:"var(--track)", 1:"var(--clay)", 2:"var(--ink)", 3:"var(--rose)" };
+const PIXEL_RGB_RANGE = {
+  0: [[225,245],[215,235],[195,215]],
+  1: [[175,215],[95,135],[35,75]],
+  2: [[20,45],[20,45],[20,45]],
+  3: [[205,230],[115,150],[125,155]],
+};
+function randRgbFor(type){
+  const ranges = PIXEL_RGB_RANGE[type];
+  const pick = (range) => Math.floor(range[0] + Math.random() * (range[1] - range[0]));
+  return [pick(ranges[0]), pick(ranges[1]), pick(ranges[2])];
+}
+function shuffleArray(arr){
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+const CELL = 20, COLS = 12, ROWS = 10;
+const svgNS = "http://www.w3.org/2000/svg";
+const svg = document.getElementById("pixelSvg");
+const cells = [];
+for (let row = 0; row < ROWS; row++){
+  for (let col = 0; col < COLS; col++){
+    const rect = document.createElementNS(svgNS, "rect");
+    rect.setAttribute("x", col * CELL);
+    rect.setAttribute("y", row * CELL);
+    rect.setAttribute("width", CELL - 1);
+    rect.setAttribute("height", CELL - 1);
+    rect.setAttribute("class", "pixel-cell");
+    rect.style.fill = "var(--line)";
+    svg.appendChild(rect);
+    cells.push({ row, col, type: CAT_BITMAP[row][col], rect });
+  }
+}
+
+const pixelOrder = shuffleArray(cells);
+const TOTAL_PIXELS = cells.length;
+const PIXEL_THRESHOLD = 15;
+let pixelRevealed = 0;
+
+function revealOne(){
+  const cell = pixelOrder[pixelRevealed];
+  cell.rect.style.fill = PIXEL_COLORS[cell.type];
+  pixelRevealed++;
+  const [r, g, b] = randRgbFor(cell.type);
+  document.getElementById("pixelSpotlight").style.display = "block";
+  document.getElementById("pixelSpotlightText").innerHTML =
+    `Row ${cell.row + 1}, Column ${cell.col + 1} &mdash; <strong>RGB(${r}, ${g}, ${b})</strong>. On its own, this is one small measurement. It doesn't tell you what the picture is.`;
+  document.getElementById("pixelStatus").textContent = `${pixelRevealed} of ${TOTAL_PIXELS} studies published`;
+}
+function revealRest(){
+  while (pixelRevealed < TOTAL_PIXELS){
+    const cell = pixelOrder[pixelRevealed];
+    cell.rect.style.fill = PIXEL_COLORS[cell.type];
+    pixelRevealed++;
+  }
+  document.getElementById("pixelStatus").textContent = `${TOTAL_PIXELS} of ${TOTAL_PIXELS} studies published`;
+  document.getElementById("pixelSpotlight").style.display = "none";
+  const payoff = document.getElementById("pixelPayoff");
+  payoff.style.display = "block";
+  payoff.innerHTML = "It's a cat! &#128049; No single study showed you that &mdash; each one was just a pixel, a specific finding about a specific slice of a specific population. The picture only exists once enough studies are published, replicated, and put together. That accumulation <em>is</em> the body of scientific knowledge &mdash; and it's exactly what a literature review (2.4) tries to assemble on purpose.";
+  const btn = document.getElementById("pixelBtn");
+  btn.textContent = "The Full Picture";
+  btn.disabled = true;
+}
+document.getElementById("pixelBtn").addEventListener("click", () => {
+  if (pixelRevealed < PIXEL_THRESHOLD){
+    revealOne();
+    if (pixelRevealed >= PIXEL_THRESHOLD){
+      document.getElementById("pixelBtn").textContent = "Fast-Forward the Rest of the Field →";
+    }
+  } else {
+    revealRest();
+  }
+});
+
+document.querySelectorAll(".checklist-item input[type=\"checkbox\"]").forEach(cb => {
+  cb.addEventListener("change", () => cb.closest(".checklist-item").classList.toggle("checked", cb.checked));
+});
+</script>
+</body>
+</html>

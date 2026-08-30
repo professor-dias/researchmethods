@@ -192,7 +192,7 @@ function buildTopbar(){
   const homeLink = document.createElement('a');
   homeLink.className = 'topbar-home';
   homeLink.href = root() + 'index.html';
-  homeLink.textContent = 'Stats101 Home';
+  homeLink.textContent = 'Research Methods in Public Health';
   bar.appendChild(homeLink);
 
   const list = document.createElement('div');

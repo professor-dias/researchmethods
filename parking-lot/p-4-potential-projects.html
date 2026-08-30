@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Potential Projects &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="p-4">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic" id="potential-projects">
+  <h2>Potential Projects</h2>
+  <p>Every row below is a complete, testable research question built from real NHIS variables &mdash; pick one as a starting point for your own project, or use it as a template for a question of your own.</p>
+
+  <h3 style="margin-top:26px;">Core Projects</h3>
+  <div style="overflow-x:auto;">
+  <table class="compare">
+    <thead><tr><th>Theme</th><th>Research Question</th><th>Predictor Variable(s)</th><th>Outcome Variable</th><th>Suggested Analysis</th></tr></thead>
+    <tbody>
+      <tr><td>&#129504; Mental Health</td><td>Does social support predict depression?</td><td><code>SUPPORT_A</code></td><td><code>DEPFREQ_A</code></td><td>Ordinal Logistic Regression</td></tr>
+      <tr><td>&#129504; Mental Health</td><td>Does loneliness predict anxiety?</td><td><code>LONELY_A</code></td><td><code>ANXFREQ_A</code></td><td>Ordinal Logistic Regression</td></tr>
+      <tr><td>&#129504; Mental Health</td><td>Does food insecurity predict serious psychological distress?</td><td><code>FDSCAT4_A</code></td><td><code>K6SPD_A</code></td><td>Logistic Regression</td></tr>
+      <tr><td>&#10084;&#65039; Chronic Disease</td><td>Does obesity predict diabetes?</td><td><code>BMICAT_A</code></td><td><code>DIBEV_A</code></td><td>Logistic Regression</td></tr>
+      <tr><td>&#10084;&#65039; Chronic Disease</td><td>Does smoking predict hypertension?</td><td><code>SMKCIGST_A</code></td><td><code>HYPEV_A</code></td><td>Logistic Regression</td></tr>
+      <tr><td>&#10084;&#65039; Chronic Disease</td><td>Does physical activity predict self-rated health?</td><td><code>PA18_05R_A</code></td><td><code>PHSTAT_A</code></td><td>Ordinal Logistic Regression</td></tr>
+      <tr><td>&#127973; Health Care Access</td><td>Does health insurance status predict delayed medical care due to cost?</td><td><code>NOTCOV_A</code> (or <code>COVER_A</code>)</td><td><code>MEDDL12M_A</code></td><td>Logistic Regression</td></tr>
+      <tr><td>&#127973; Health Care Access</td><td>Does internet access predict telehealth use?</td><td><code>ACCSSINT_A</code></td><td><code>VIRAPP12M_A</code></td><td>Logistic Regression</td></tr>
+      <tr><td>&#127973; Health Care Access</td><td>Do problems paying medical bills predict delaying prescription medications?</td><td><code>PAYBLL12M_A</code></td><td><code>RXDL12M_A</code></td><td>Logistic Regression</td></tr>
+      <tr><td>&#127757; Social Determinants</td><td>Does education predict meeting physical activity guidelines?</td><td><code>EDUCP_A</code></td><td><code>PA18_05R_A</code></td><td>Logistic Regression</td></tr>
+      <tr><td>&#127757; Social Determinants</td><td>Does poverty predict poor self-rated health?</td><td><code>RATCAT_A</code></td><td><code>PHSTAT_A</code></td><td>Ordinal Logistic Regression</td></tr>
+      <tr><td>&#127757; Social Determinants</td><td>Does housing affordability predict delaying medical care?</td><td><code>HOUSECOST_A</code></td><td><code>MEDDL12M_A</code></td><td>Logistic Regression</td></tr>
+      <tr><td>&#128564; Lifestyle</td><td>Does sleep duration predict psychological distress?</td><td><code>SLPHOURS_A</code></td><td><code>K6SPD_A</code></td><td>Logistic Regression</td></tr>
+      <tr><td>&#128564; Lifestyle</td><td>Does heavy alcohol use predict depression?</td><td><code>DRKHVY12M_A</code></td><td><code>DEPFREQ_A</code></td><td>Ordinal Logistic Regression</td></tr>
+      <tr><td>&#128694; Environment</td><td>Does perceived neighborhood walkability predict meeting physical activity guidelines?</td><td><code>SIDEWLK_A</code> (or <code>FUNWLK_A</code>)</td><td><code>PA18_05R_A</code></td><td>Logistic Regression</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="margin-top:30px;">Advanced Projects</h3>
+  <p>These extend the same NHIS variables into multi-predictor and mediation models &mdash; a natural next step once you're comfortable with a single predictor and outcome.</p>
+  <div style="overflow-x:auto;">
+  <table class="compare">
+    <thead><tr><th>Theme</th><th>Research Question</th><th>Analysis</th></tr></thead>
+    <tbody>
+      <tr><td>&#129504; Mental Health</td><td>Does sleep mediate the relationship between loneliness and depression?</td><td>Mediation</td></tr>
+      <tr><td>&#10084;&#65039; Chronic Disease</td><td>What factors best predict diabetes? (BMI + Age + Physical Activity + Smoking)</td><td>Multiple Logistic Regression</td></tr>
+      <tr><td>&#127757; Social Determinants</td><td>Which socioeconomic factors best predict poor health?</td><td>Multiple Ordinal Logistic Regression</td></tr>
+      <tr><td>&#127973; Health Care</td><td>Which factors predict delayed care due to cost?</td><td>Multiple Logistic Regression</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<div class="page-references">
+  <div class="page-references-title">References &amp; Further Reading</div>
+  <ul>
+    <li>National Center for Health Statistics. (2024). <em>National Health Interview Survey (NHIS)</em>. CDC.</li>
+  </ul>
+</div>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+</body>
+</html>

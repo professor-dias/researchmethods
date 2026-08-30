@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Discover &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="4-7">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic" id="discover">
+  <h2>Discover</h2>
+  <div class="statement-box"><strong>The question:</strong> Are there hidden groups or patterns in my data that I didn't know to look for?</div>
+  <p>Every method so far assumed you already knew what groups to test. Discover flips that: let the data show you the groups.</p>
+
+  <div class="flagship-box">
+    <div class="flagship-title">Flagship tool: Clustering</div>
+    <div class="flagship-row"><strong>Why we do this:</strong> You suspect your people naturally split into different types, but you don't know how many types or who belongs where.</div>
+    <div class="flagship-row"><strong>The logic:</strong> Plot everyone as a dot based on their answers. Group together the dots that sit close to each other. Each tight little cloud of dots becomes one "type."</div>
+    <div class="flagship-row"><strong>What to look for:</strong> Do clear, separate clumps of dots appear, or does everything blend into one blob?</div>
+    <div class="flagship-row"><strong>What it means:</strong> Clear clumps suggest real, distinct subgroups worth naming and studying separately. A blob means everyone is more alike than different.</div>
+  </div>
+
+  <div class="duel-controls" style="justify-content:flex-start;">
+    <button id="cluster1Btn">1 Group</button>
+    <button id="cluster2Btn" class="secondary">2 Groups</button>
+    <button id="cluster3Btn" class="secondary">3 Groups</button>
+  </div>
+  <svg id="clusterDemo" width="100%" height="220" viewBox="0 0 300 220"></svg>
+  <p class="caption" id="clusterCaption"></p>
+
+  <h3 style="margin-top:26px;">Related tools</h3>
+  <table class="compare">
+    <tr><th>Tool</th><th>In plain words</th></tr>
+    <tr><td>Hierarchical Clustering</td><td>Groups things step by step, showing which pairs merge first, like a family tree</td></tr>
+    <tr><td>DBSCAN</td><td>Finds clumps of any shape and flags lonely outliers instead of forcing them into a group</td></tr>
+    <tr><td>Gaussian Mixture Models</td><td>Groups things while allowing for "maybe partly in both groups"</td></tr>
+    <tr><td>Latent Class / Profile Analysis</td><td>Finding hidden categories of people based on survey answer patterns</td></tr>
+    <tr><td>Latent Transition Analysis</td><td>Watching people move between hidden groups over time</td></tr>
+    <tr><td>PCA / Factor Analysis / t-SNE / UMAP</td><td>Squeezing many questions down into a few key dimensions you can actually plot and see</td></tr>
+  </table>
+
+  <a class="back-link" href="../3-quantitative-methods/3-2-2-statistical-framework.html#framework">&uarr; Back to the Framework</a>
+</section>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+/* ---- 3.8 Discover: cluster toggle ---- */
+function generateClusterPoints(centers){
+  const colors = ['var(--maroon)','var(--navy)','var(--green)'];
+  let html = '';
+  centers.forEach((c, idx) => {
+    for (let i=0; i<15; i++){
+      const x = Math.max(10, Math.min(290, c[0] + (Math.random()-0.5)*50));
+      const y = Math.max(10, Math.min(210, c[1] + (Math.random()-0.5)*50));
+      html += `<circle cx="${x}" cy="${y}" r="4" fill="${colors[idx]}" opacity="0.7"/>`;
+    }
+  });
+  return html;
+}
+function renderClusters(centers, caption){
+  document.getElementById('clusterDemo').innerHTML = generateClusterPoints(centers);
+  document.getElementById('clusterCaption').textContent = caption;
+}
+document.getElementById('cluster1Btn').addEventListener('click', () => renderClusters([[150,110]], 'One big blob — no evidence of separate subgroups.'));
+document.getElementById('cluster2Btn').addEventListener('click', () => renderClusters([[90,110],[210,110]], 'Two distinct clumps — this looks like two real subgroups.'));
+document.getElementById('cluster3Btn').addEventListener('click', () => renderClusters([[80,70],[220,70],[150,170]], 'Three distinct clumps — three subgroups worth naming separately.'));
+renderClusters([[90,110],[210,110]], 'Two distinct clumps — this looks like two real subgroups.');
+</script>
+</body>
+</html>

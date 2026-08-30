@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Compare &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="4-2">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic" id="compare">
+  <h2>Compare</h2>
+  <div class="statement-box"><strong>The question:</strong> Are these groups actually different, or could that gap just be luck?</div>
+  <p>Any two groups will almost never have the exact same average. The real question is whether the gap you see is bigger than random luck alone would produce.</p>
+
+  <div class="flagship-box">
+    <div class="flagship-title">Flagship tool: The t-test</div>
+    <div class="flagship-row"><strong>Why we do this:</strong> You have two groups (like Drug A vs. Placebo) and want to know if their averages are really different.</div>
+    <div class="flagship-row"><strong>The logic:</strong> Look at the gap between the two group averages and compare it to how much each group naturally wobbles on its own. A gap that's big next to the natural wobble is convincing. A gap that's small next to the wobble could just be noise.</div>
+    <div class="flagship-row"><strong>What to look for:</strong> A p-value, and how far apart the two curves below are.</div>
+    <div class="flagship-row"><strong>What it means:</strong> A small p-value (below 0.05) means this gap would be surprising if there were truly no difference &mdash; so the groups are probably really different. Same coin-flip logic from Chapter 1, just with two groups instead of one.</div>
+  </div>
+
+  <div class="ci-controls">
+    <label for="compareSlider">How far apart are the two groups?</label>
+    <input type="range" id="compareSlider" min="0" max="30" step="1" value="0">
+    <span id="compareSliderVal">0</span>
+  </div>
+  <svg id="compareCurves" width="100%" height="200" viewBox="0 0 700 200"></svg>
+  <p class="caption" id="compareCaption"></p>
+
+  <h3 style="margin-top:26px;">Choosing the right version</h3>
+  <table class="compare">
+    <tr><th>Situation</th><th>Test</th></tr>
+    <tr><td>Two independent groups</td><td>Independent t-test</td></tr>
+    <tr><td>Same people, measured twice</td><td>Paired t-test</td></tr>
+    <tr><td>Three or more groups</td><td>One-way ANOVA</td></tr>
+    <tr><td>Groups split by two factors at once (e.g., Drug &times; Gender)</td><td>Two-way ANOVA</td></tr>
+    <tr><td>Same people measured several times</td><td>Repeated Measures ANOVA</td></tr>
+    <tr><td>Comparing groups while controlling for another number (like age)</td><td>ANCOVA</td></tr>
+    <tr><td>Comparing groups on several outcomes at once</td><td>MANOVA / MANCOVA</td></tr>
+    <tr><td>Data isn't shaped like a bell curve</td><td>Mann-Whitney U, Wilcoxon, Kruskal-Wallis, Friedman, Mood's Median (the non-parametric versions)</td></tr>
+    <tr><td>After finding a difference among 3+ groups, which pairs differ?</td><td>Post-hoc: Tukey, Bonferroni, Holm, Games-Howell, Dunnett</td></tr>
+  </table>
+
+  <a class="back-link" href="../3-quantitative-methods/3-2-2-statistical-framework.html#framework">&uarr; Back to the Framework</a>
+</section>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script src="../assets/stats-utils.js"></script>
+<script>
+/* ---- 3.3 Compare: two curves separating ---- */
+function renderCompareCurves(){
+  const sep = parseInt(document.getElementById('compareSlider').value, 10);
+  document.getElementById('compareSliderVal').textContent = sep;
+  const svg = document.getElementById('compareCurves');
+  const W=700, H=200, padL=30, padR=30, padT=10, padB=30;
+  const plotW=W-padL-padR, plotH=H-padT-padB;
+  const xToPx = x => padL + (x/100)*plotW;
+  const sd = 8;
+  const maxDensity = normalPDF(50,50,sd);
+  const yToPx = y => padT + plotH - (y/maxDensity)*plotH;
+  function curvePath(mean){
+    let pts = [];
+    for (let x=0; x<=100; x++) pts.push([xToPx(x), yToPx(normalPDF(x,mean,sd))]);
+    return 'M ' + pts.map(p=>p.join(',')).join(' L ');
+  }
+  const mean1=50, mean2=Math.min(100,50+sep);
+  svg.innerHTML = `
+    <path d="${curvePath(mean1)}" fill="none" stroke="var(--navy)" stroke-width="2.5"/>
+    <path d="${curvePath(mean2)}" fill="none" stroke="var(--maroon)" stroke-width="2.5"/>
+    <line x1="${padL}" y1="${yToPx(0)}" x2="${W-padR}" y2="${yToPx(0)}" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="${xToPx(mean1)}" y="${H-6}" text-anchor="middle" font-size="12" fill="var(--navy)" font-weight="bold">Group A</text>
+    <text x="${xToPx(mean2)}" y="${padT+12}" text-anchor="middle" font-size="12" fill="var(--maroon)" font-weight="bold">Group B</text>
+  `;
+  const z = sep/sd;
+  const p = 2*(1-normalCDF(Math.abs(z),0,1));
+  document.getElementById('compareCaption').textContent = sep===0
+    ? 'The two curves sit right on top of each other — no gap to detect.'
+    : `p ${p<0.001?'< .001':'≈ '+p.toFixed(3)} — ${p<0.05 ? 'small enough to call this a real difference.' : 'too big to be confident — this could just be noise.'}`;
+}
+document.getElementById('compareSlider').addEventListener('input', renderCompareCurves);
+renderCompareCurves();
+</script>
+</body>
+</html>

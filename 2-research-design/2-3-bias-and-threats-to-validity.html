@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Bias &amp; Threats to Validity &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="2-3">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+
+<section class="topic topic-first" id="why-this-page">
+  <h2>The Study Was Well Designed. The Answer Was Still Wrong.</h2>
+  <div class="recall-prompt">
+    A design from 2.2 tells you <em>what shape</em> a study has &mdash; cross-sectional, cohort, RCT. It doesn't guarantee the study got the right answer. Every design has its own specific weak points, and this page is the field guide to them.
+  </div>
+  <p>You can pick the perfect design, recruit real people, run the whole study exactly on paper &mdash; and still land on a conclusion that's quietly wrong. Something other than your treatment or exposure explains the result.</p>
+  <p>That "something else" almost always falls into one of two buckets: <strong>bias</strong> (a systematic pull in one direction) or a <strong>threat to internal validity</strong> (a specific, well-documented way that pull sneaks in). This page is about learning to spot both.</p>
+  <p class="worksheet-note">It's worth slowing down for &mdash; this is one of the ideas in this course that's easiest to forget and most important to keep.</p>
+</section>
+
+<section class="topic" id="accuracy-precision">
+  <h2>Bias, Visualized</h2>
+  <p>Before naming individual threats, it helps to see what "bias" actually looks like &mdash; and how it's different from the random noise you already met in the confidence-interval archers back in Topic 3. Picture four archers, each shooting six arrows at the same target.</p>
+
+  <div class="validity-2x2">
+    <div></div>
+    <div class="v2x2-col-label">High Precision<br><span style="font-weight:normal;">(shots land close together)</span></div>
+    <div class="v2x2-col-label">Low Precision<br><span style="font-weight:normal;">(shots scattered)</span></div>
+
+    <div class="v2x2-row-label">High Accuracy<br>(centered on target)</div>
+    <div class="v2x2-cell">
+      <svg class="archer-target" viewBox="0 0 140 140">
+        <circle cx="70" cy="70" r="60" fill="var(--tint-gold)" stroke="var(--line)" stroke-width="2"/>
+        <circle cx="70" cy="70" r="42" fill="none" stroke="var(--line)" stroke-width="2"/>
+        <circle cx="70" cy="70" r="24" fill="none" stroke="var(--line)" stroke-width="2"/>
+        <circle cx="70" cy="70" r="7" fill="var(--maroon)"/>
+        <circle cx="68" cy="72" r="4" fill="var(--navy)"/><circle cx="72" cy="68" r="4" fill="var(--navy)"/>
+        <circle cx="82" cy="70" r="4" fill="var(--navy)"/><circle cx="58" cy="70" r="4" fill="var(--navy)"/>
+        <circle cx="70" cy="84" r="4" fill="var(--navy)"/><circle cx="70" cy="56" r="4" fill="var(--navy)"/>
+      </svg>
+      <div class="archer-label">No bias, low noise &mdash; the goal</div>
+    </div>
+    <div class="v2x2-cell">
+      <svg class="archer-target" viewBox="0 0 140 140">
+        <circle cx="70" cy="70" r="60" fill="var(--tint-gold)" stroke="var(--line)" stroke-width="2"/>
+        <circle cx="70" cy="70" r="42" fill="none" stroke="var(--line)" stroke-width="2"/>
+        <circle cx="70" cy="70" r="24" fill="none" stroke="var(--line)" stroke-width="2"/>
+        <circle cx="70" cy="70" r="7" fill="var(--maroon)"/>
+        <circle cx="68" cy="72" r="4" fill="var(--navy)"/><circle cx="72" cy="68" r="4" fill="var(--navy)"/>
+        <circle cx="38" cy="46" r="4" fill="var(--navy)"/><circle cx="91" cy="86" r="4" fill="var(--navy)"/>
+        <circle cx="56" cy="108" r="4" fill="var(--navy)"/><circle cx="95" cy="40" r="4" fill="var(--navy)"/>
+      </svg>
+      <div class="archer-label">No bias, but noisy &mdash; a small-sample or measurement-error problem</div>
+    </div>
+
+    <div class="v2x2-row-label">Low Accuracy<br>(off-center)</div>
+    <div class="v2x2-cell">
+      <svg class="archer-target" viewBox="0 0 140 140">
+        <circle cx="70" cy="70" r="60" fill="var(--tint-gold)" stroke="var(--line)" stroke-width="2"/>
+        <circle cx="70" cy="70" r="42" fill="none" stroke="var(--line)" stroke-width="2"/>
+        <circle cx="70" cy="70" r="24" fill="none" stroke="var(--line)" stroke-width="2"/>
+        <circle cx="70" cy="70" r="7" fill="var(--maroon)"/>
+        <circle cx="93" cy="47" r="4" fill="var(--navy)"/><circle cx="97" cy="43" r="4" fill="var(--navy)"/>
+        <circle cx="99" cy="47" r="4" fill="var(--navy)"/><circle cx="91" cy="43" r="4" fill="var(--navy)"/>
+        <circle cx="95" cy="51" r="4" fill="var(--navy)"/><circle cx="95" cy="39" r="4" fill="var(--navy)"/>
+      </svg>
+      <div class="archer-label"><strong>Biased, but consistent</strong> &mdash; this is what confounding and the threats below create</div>
+    </div>
+    <div class="v2x2-cell">
+      <svg class="archer-target" viewBox="0 0 140 140">
+        <circle cx="70" cy="70" r="60" fill="var(--tint-gold)" stroke="var(--line)" stroke-width="2"/>
+        <circle cx="70" cy="70" r="42" fill="none" stroke="var(--line)" stroke-width="2"/>
+        <circle cx="70" cy="70" r="24" fill="none" stroke="var(--line)" stroke-width="2"/>
+        <circle cx="70" cy="70" r="7" fill="var(--maroon)"/>
+        <circle cx="98" cy="42" r="4" fill="var(--navy)"/><circle cx="102" cy="38" r="4" fill="var(--navy)"/>
+        <circle cx="75" cy="20" r="4" fill="var(--navy)"/><circle cx="120" cy="60" r="4" fill="var(--navy)"/>
+        <circle cx="85" cy="65" r="4" fill="var(--navy)"/><circle cx="115" cy="15" r="4" fill="var(--navy)"/>
+      </svg>
+      <div class="archer-label">Biased <em>and</em> noisy &mdash; the worst case</div>
+    </div>
+  </div>
+
+  <div class="interpretation-box">A bigger sample fixes the top-right archer &mdash; more arrows tighten the scatter around the same, correct center. No sample size on earth fixes the bottom-left archer. Every additional arrow just confirms, more confidently, that you're aiming at the wrong spot. <strong>That's what bias is: a systematic pull toward the wrong answer that more data cannot undo.</strong> The nine threats below are the specific, well-documented ways that pull gets introduced into a study.</div>
+</section>
+
+<section class="topic" id="internal-external">
+  <h2>Internal vs. External Validity</h2>
+  <p>Bias threatens one specific kind of validity. It helps to separate it from a second, easily-confused kind.</p>
+  <div class="method-compare">
+    <div class="method-panel">
+      <div class="method-panel-title">Internal Validity</div>
+      <div class="method-item">"Within this study, did the treatment or exposure actually cause the outcome?"</div>
+      <div class="method-item">Threatened by confounders and the nine threats on this page &mdash; anything that offers a rival explanation for your result.</div>
+      <div class="method-item">Strongest in tightly controlled designs: true experiments &gt; quasi-experiments &gt; observational.</div>
+    </div>
+    <div class="method-panel">
+      <div class="method-panel-title">External Validity</div>
+      <div class="method-item">"Outside this study, does the result hold up &mdash; for other people, places, and times?"</div>
+      <div class="method-item">Threatened by narrow samples, artificial settings, and unusually motivated participants.</div>
+      <div class="method-item">Often <em>traded off</em> against internal validity: the tighter the control, the less the setting resembles real life.</div>
+    </div>
+  </div>
+  <div class="note-box">Example: a lab RCT recruits only healthy psychology undergraduates, runs them through a stress-reduction app in a quiet, controlled room for one week, and finds a clear effect. Internal validity is strong &mdash; random assignment, a controlled setting, a real effect within this sample. External validity is a separate, open question &mdash; will the same effect show up in an exhausted night-shift nurse using the app on a commute, over a full semester? This study alone can't say. Neither kind of validity is "better" &mdash; they're just different questions, and a strong study is honest about which one it answers.</div>
+</section>
+
+<section class="topic" id="nine-threats">
+  <h2>The Nine Threats to Internal Validity</h2>
+  <p>These are the specific, named ways a rival explanation can sneak into a study and get mistaken for a real effect. You don't need to memorize definitions word-for-word &mdash; you need to recognize the pattern when you see it, which is exactly what the case clinic below is for.</p>
+
+  <div class="threat-grid">
+    <div class="threat-card">
+      <div class="threat-icon">&#128294;</div>
+      <div class="threat-name">Hawthorne Effect</div>
+      <div class="threat-desc">People behave differently simply because they know they're being watched or are part of a study &mdash; the observation itself changes the outcome.</div>
+      <div class="threat-risk">Watch for: any study where participants know their status</div>
+    </div>
+    <div class="threat-card">
+      <div class="threat-icon">&#128167;</div>
+      <div class="threat-name">Diffusion / Contamination</div>
+      <div class="threat-desc">The control group picks up some part of the treatment anyway, usually through contact with treated participants &mdash; shrinking the real gap between groups.</div>
+      <div class="threat-risk">Watch for: groups that share a building, staff, or social network</div>
+    </div>
+    <div class="threat-card">
+      <div class="threat-icon">&#128240;</div>
+      <div class="threat-name">History</div>
+      <div class="threat-desc">Some outside event happens during the study &mdash; unrelated to your treatment &mdash; and it affects everyone's outcome anyway.</div>
+      <div class="threat-risk">Watch for: long-running studies, especially interrupted time series</div>
+    </div>
+    <div class="threat-card">
+      <div class="threat-icon">&#127793;</div>
+      <div class="threat-name">Maturation</div>
+      <div class="threat-desc">Participants change naturally over time &mdash; aging, healing, learning &mdash; and that natural change gets mistaken for a treatment effect.</div>
+      <div class="threat-risk">Watch for: children, adolescents, or any condition that changes on its own</div>
+    </div>
+    <div class="threat-card">
+      <div class="threat-icon">&#128257;</div>
+      <div class="threat-name">Testing Effect</div>
+      <div class="threat-desc">Simply taking a pretest changes posttest performance &mdash; practice, familiarity, remembered answers &mdash; apart from any real change.</div>
+      <div class="threat-risk">Watch for: the same instrument used twice, pretest &amp; posttest</div>
+    </div>
+    <div class="threat-card">
+      <div class="threat-icon">&#128207;</div>
+      <div class="threat-name">Instrumentation</div>
+      <div class="threat-desc">The measurement tool, criteria, or observer changes partway through the study, so a "change" in the data is partly just a change in how it was measured.</div>
+      <div class="threat-risk">Watch for: long studies, human raters, a swapped or "improved" survey</div>
+    </div>
+    <div class="threat-card">
+      <div class="threat-icon">&#8617;&#65039;</div>
+      <div class="threat-name">Statistical Regression</div>
+      <div class="threat-desc">Participants selected <em>because</em> they scored unusually high or low will naturally drift back toward average next time &mdash; treatment or not.</div>
+      <div class="threat-risk">Watch for: recruitment based on an extreme score</div>
+    </div>
+    <div class="threat-card">
+      <div class="threat-icon">&#9878;&#65039;</div>
+      <div class="threat-name">Differential Selection</div>
+      <div class="threat-desc">The comparison groups were already different before the study started, so an "effect" may just be the pre-existing difference.</div>
+      <div class="threat-risk">Watch for: any design without random assignment (2.2's nonequivalent control group)</div>
+    </div>
+    <div class="threat-card">
+      <div class="threat-icon">&#128682;</div>
+      <div class="threat-name">Differential Attrition</div>
+      <div class="threat-desc">Dropout isn't random &mdash; a specific kind of person leaves one group more than the other &mdash; so who's left no longer represents who you started with.</div>
+      <div class="threat-risk">Watch for: long or demanding studies, especially the treatment arm</div>
+    </div>
+  </div>
+</section>
+
+<section class="topic" id="threat-clinic">
+  <h2>Case Clinic: Name the Threat</h2>
+  <p>Read each short case and diagnose which of the nine threats explains it. This is the part worth returning to more than once &mdash; recognizing the pattern in a new scenario is the skill that actually sticks.</p>
+
+  <div class="level-game-status" id="threatStatus">Case 1 of 9 &middot; 0 correct</div>
+  <div class="level-game-card">
+    <div class="level-game-var" id="threatScenario" style="font-size:1.02rem; font-weight:normal; line-height:1.5;"></div>
+    <div class="level-game-options wide" id="threatOptions">
+      <button type="button" data-threat="hawthorne">Hawthorne Effect</button>
+      <button type="button" data-threat="diffusion">Diffusion</button>
+      <button type="button" data-threat="history">History</button>
+      <button type="button" data-threat="maturation">Maturation</button>
+      <button type="button" data-threat="testing">Testing Effect</button>
+      <button type="button" data-threat="instrumentation">Instrumentation</button>
+      <button type="button" data-threat="regression">Statistical Regression</button>
+      <button type="button" data-threat="selection">Differential Selection</button>
+      <button type="button" data-threat="attrition">Differential Attrition</button>
+    </div>
+    <div class="level-game-feedback" id="threatFeedback" style="display:none;"></div>
+  </div>
+  <div class="duel-controls">
+    <button type="button" id="threatNextBtn" style="display:none;">Next case &rarr;</button>
+    <button type="button" id="threatRestartBtn" class="secondary">Shuffle &amp; Restart</button>
+  </div>
+</section>
+
+<div class="page-references">
+  <div class="page-references-title">References &amp; Further Reading</div>
+  <ul>
+    <li>Salazar, L. F., Crosby, R. A., &amp; DiClemente, R. J. (2015). <em>Research methods in health promotion</em> (2nd ed.), Ch. 4 &amp; 5. Jossey-Bass.</li>
+  </ul>
+</div>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+function shuffleArray(arr){
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+const THREAT_LABELS = {
+  hawthorne:"Hawthorne Effect", diffusion:"Diffusion", history:"History", maturation:"Maturation",
+  testing:"Testing Effect", instrumentation:"Instrumentation", regression:"Statistical Regression",
+  selection:"Differential Selection", attrition:"Differential Attrition"
+};
+const THREAT_BANK = [
+  { scenario: "A factory's productivity rises the week researchers install cameras to study the assembly line — even though nothing about the line itself changed.", answer: "hawthorne", reason: "Workers changed their behavior simply because they knew they were being observed — the observation itself, not any real change, produced the result." },
+  { scenario: "A school district rolls out a new reading curriculum in half its classrooms. By spring, control-group teachers are using several of the new techniques too, after hearing about them from colleagues in the treatment classrooms.", answer: "diffusion", reason: "The “untreated” group picked up part of the treatment through contact with the treated group, narrowing the real difference between them." },
+  { scenario: "A city's smoking-cessation program shows falling smoking rates over its two-year run — the same two years a new national cigarette tax took effect.", answer: "history", reason: "An outside event unrelated to the program — the tax — happened during the study and could explain the drop on its own." },
+  { scenario: "A year-long tutoring program for eight-year-olds shows reading scores improving from fall to spring — but eight-year-olds' reading skills improve substantially over any given year, tutored or not.", answer: "maturation", reason: "The natural developmental change happening anyway got tangled up with any real effect of the tutoring." },
+  { scenario: "Students take the same 50-question exam as both a pretest and a posttest. Scores rise — partly because several students remembered specific questions from the first time around.", answer: "testing", reason: "Simply having taken the test once changed performance the second time, apart from any real learning." },
+  { scenario: "A clinic tracks patient depression scores for a year using one questionnaire, then switches to an “improved,” differently-scored questionnaire halfway through — and the average score shifts right around the switch.", answer: "instrumentation", reason: "The measurement tool itself changed mid-study, so part of the “change” in scores is really a change in how depression was being measured." },
+  { scenario: "Employees are enrolled in a coaching program specifically because they scored unusually low on last quarter's review. Next quarter, their scores rise close to the company average — with or without the coaching, this was likely.", answer: "regression", reason: "Extreme scores tend to drift back toward the average on their own — that's statistical regression to the mean, not necessarily the coaching working." },
+  { scenario: "A district can't randomize which school gets a new after-school program, so the school that volunteers — already the higher-performing school — gets it. At the end, that school still outperforms the other.", answer: "selection", reason: "The groups differed before the program even started, so the gap at the end may just be the gap that was already there." },
+  { scenario: "In a demanding 6-month weight-loss trial, participants who aren't losing weight quietly stop showing up to the treatment group's sessions, while the control group's dropout rate stays low and even across the board.", answer: "attrition", reason: "Dropout wasn't random — the treatment “failures” left disproportionately — so the people remaining in that group no longer represent who started it." }
+];
+let threatOrder = [], threatIndex = 0, threatCorrect = 0, threatAnswered = false;
+function renderThreatRound(){
+  threatAnswered = false;
+  const item = threatOrder[threatIndex];
+  document.getElementById("threatStatus").textContent = `Case ${threatIndex + 1} of ${threatOrder.length} · ${threatCorrect} correct`;
+  document.getElementById("threatScenario").textContent = item.scenario;
+  document.getElementById("threatFeedback").style.display = "none";
+  document.getElementById("threatNextBtn").style.display = "none";
+  document.querySelectorAll("#threatOptions button").forEach(b => { b.disabled = false; b.className = ""; });
+}
+function shuffleThreatGame(){
+  threatOrder = shuffleArray(THREAT_BANK);
+  threatIndex = 0;
+  threatCorrect = 0;
+  renderThreatRound();
+}
+document.getElementById("threatOptions").addEventListener("click", (e) => {
+  const btn = e.target.closest("button");
+  if (!btn || threatAnswered) return;
+  threatAnswered = true;
+  const item = threatOrder[threatIndex];
+  const picked = btn.dataset.threat;
+  const correct = picked === item.answer;
+  if (correct) threatCorrect++;
+  document.querySelectorAll("#threatOptions button").forEach(b => {
+    b.disabled = true;
+    if (b.dataset.threat === item.answer) b.classList.add("reveal-correct");
+    else if (b.dataset.threat === picked) b.classList.add("picked-wrong");
+  });
+  const fb = document.getElementById("threatFeedback");
+  fb.className = "level-game-feedback " + (correct ? "correct" : "wrong");
+  fb.innerHTML = "<strong>" + (correct ? "Correct!" : "Not quite — it's " + THREAT_LABELS[item.answer] + ".") + "</strong>" + item.reason;
+  fb.style.display = "block";
+  document.getElementById("threatStatus").textContent = `Case ${threatIndex + 1} of ${threatOrder.length} · ${threatCorrect} correct`;
+  const isLast = threatIndex === threatOrder.length - 1;
+  document.getElementById("threatNextBtn").style.display = isLast ? "none" : "inline-block";
+});
+document.getElementById("threatNextBtn").addEventListener("click", () => {
+  threatIndex++;
+  renderThreatRound();
+});
+document.getElementById("threatRestartBtn").addEventListener("click", shuffleThreatGame);
+shuffleThreatGame();
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Data Cleaning &amp; Preparation &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="3-2-7">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic" id="data-cleaning">
+  <h2>Data Cleaning &amp; Preparation</h2>
+  <p>This is where most analysis errors are born &mdash; and where most of them are prevented. Work through each accordion below; check items off as you go.</p>
+
+  <details class="content-accordion" open>
+    <summary>a. Missing Values<span class="accordion-progress" data-group="clean-a"></span></summary>
+    <div class="accordion-body" data-group="clean-a">
+      <div class="checklist-item"><input type="checkbox"><label>Recognize sentinel codes: 555, 777, 888, 999 often encode specific types of non-response</label></div>
+      <div class="checklist-item"><input type="checkbox"><label>Know the difference between NA (not available) and NaN (not a number)</label></div>
+      <div class="checklist-item"><input type="checkbox"><label>Recode sentinel values to proper missing before analysis</label></div>
+    </div>
+  </details>
+
+  <details class="content-accordion" open>
+    <summary>b. Data Cleaning<span class="accordion-progress" data-group="clean-b"></span></summary>
+    <div class="accordion-body" data-group="clean-b">
+      <div class="checklist-item"><input type="checkbox"><label>Fix dates &mdash; use a consistent format (ISO 8601: YYYY-MM-DD is recommended)</label></div>
+      <div class="checklist-item"><input type="checkbox"><label>Fix variable types &mdash; convert strings to numeric where appropriate</label></div>
+      <div class="checklist-item"><input type="checkbox"><label>Remove leading and trailing whitespace from text fields</label></div>
+      <div class="checklist-item"><input type="checkbox"><label>Standardize formats &mdash; capitalization, spelling, units</label></div>
+    </div>
+  </details>
+
+  <details class="content-accordion" open>
+    <summary>c. Recode &amp; Combine<span class="accordion-progress" data-group="clean-c"></span></summary>
+    <div class="accordion-body" data-group="clean-c">
+      <div class="checklist-item"><input type="checkbox"><label>Rename variables to meaningful, consistent names</label></div>
+      <div class="checklist-item"><input type="checkbox"><label>Relabel values to human-readable labels</label></div>
+      <div class="checklist-item"><input type="checkbox"><label>Collapse sparse categories where cell counts are too small for reliable analysis</label></div>
+    </div>
+  </details>
+
+  <details class="content-accordion" open>
+    <summary>d. Create New Variables<span class="accordion-progress" data-group="clean-d"></span></summary>
+    <div class="accordion-body" data-group="clean-d">
+      <div class="checklist-item"><input type="checkbox"><label>Scale scores &mdash; sum or mean of multiple items</label></div>
+      <div class="checklist-item"><input type="checkbox"><label>Means and totals</label></div>
+      <div class="checklist-item"><input type="checkbox"><label>Reverse scoring &mdash; apply before aggregating negatively worded items</label></div>
+      <div class="checklist-item"><input type="checkbox"><label>Derived indicators &mdash; e.g., BMI from height and weight, quartile groups from continuous variables</label></div>
+    </div>
+  </details>
+
+  <details class="content-accordion" open>
+    <summary>e. Reshape Data<span class="accordion-progress" data-group="clean-e"></span></summary>
+    <div class="accordion-body" data-group="clean-e">
+      <div class="checklist-item"><input type="checkbox"><label>Wide format &mdash; one row per participant, one column per measurement occasion</label></div>
+      <div class="checklist-item"><input type="checkbox"><label>Long format &mdash; one row per observation (required for repeated measures and mixed models)</label></div>
+      <div class="checklist-item"><input type="checkbox"><label>Pivot between formats as your analysis requires</label></div>
+    </div>
+  </details>
+
+  <details class="content-accordion" open>
+    <summary>f. Merge Data<span class="accordion-progress" data-group="clean-f"></span></summary>
+    <div class="accordion-body" data-group="clean-f">
+      <div class="checklist-item"><input type="checkbox"><label>Join datasets on a unique participant identifier</label></div>
+      <div class="checklist-item"><input type="checkbox"><label>Check for mismatches and unmatched cases before and after merging</label></div>
+    </div>
+  </details>
+
+  <p style="margin-top:18px;">
+    <strong style="color:var(--navy);">Python (pandas)</strong> &mdash;
+    <span class="pkg-tag">pd.read_csv()</span><span class="pkg-tag">pd.merge()</span><span class="pkg-tag">df.pivot()</span><span class="pkg-tag">df.melt()</span>
+  </p>
+  <p>
+    <strong style="color:var(--navy);">R (dplyr / tidyr)</strong> &mdash;
+    <span class="pkg-tag">left_join()</span><span class="pkg-tag">pivot_longer()</span><span class="pkg-tag">pivot_wider()</span><span class="pkg-tag">mutate()</span><span class="pkg-tag">rename()</span>
+  </p>
+
+  <div class="note-box">
+    <strong>Guardrail checklist &mdash; before you trust any AI-cleaned data:</strong>
+    <div class="checklist-item"><input type="checkbox"><label>Read the code line by line, even the parts you don't fully understand</label></div>
+    <div class="checklist-item"><input type="checkbox"><label>Ask the AI to explain each code chunk in plain language</label></div>
+    <div class="checklist-item"><input type="checkbox"><label>Make sure every code chunk has a text explanation next to it</label></div>
+    <div class="checklist-item"><input type="checkbox"><label>Verify every variable against the codebook</label></div>
+    <div class="checklist-item"><input type="checkbox"><label>Verify scoring against the codebook</label></div>
+    <div class="checklist-item"><input type="checkbox"><label>Note which variables are reverse-scored and which are composites</label></div>
+  </div>
+</section>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+</body>
+</html>

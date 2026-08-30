@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Test Selector Tool &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="3-2-4">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic" id="test-selector">
+  <h2>Test Selector Tool</h2>
+  <p>Answer a few questions about your study. This tool suggests a statistical method and links you to the full explanation in Topic 4.</p>
+
+  <div class="wizard" id="testWizard">
+    <div class="wizard-progress" id="wizardProgress">Step 1 of 5</div>
+
+    <div class="wizard-step" data-step="1">
+      <h3>Step 1 &mdash; What are you trying to do?</h3>
+      <div class="wizard-options">
+        <label class="wizard-option"><input type="radio" name="goal" value="explore"> <strong>&#128269; Explore</strong> &mdash; describe, summarize, visualize</label>
+        <label class="wizard-option"><input type="radio" name="goal" value="compare"> <strong>&#9878; Compare</strong> &mdash; are groups different?</label>
+        <label class="wizard-option"><input type="radio" name="goal" value="relate"> <strong>&#128279; Relate</strong> &mdash; are variables associated?</label>
+        <label class="wizard-option"><input type="radio" name="goal" value="predict"> <strong>&#127919; Predict</strong> &mdash; which variables explain an outcome?</label>
+      </div>
+    </div>
+
+    <div class="wizard-step" data-step="2">
+      <h3>Step 2 &mdash; What type of outcome are you analyzing?</h3>
+      <div class="wizard-options">
+        <label class="wizard-option"><input type="radio" name="outcome" value="continuous"> <strong>Continuous</strong> &mdash; blood pressure, BMI, income</label>
+        <label class="wizard-option"><input type="radio" name="outcome" value="binary"> <strong>Binary</strong> &mdash; Smoker/Non-smoker, Vaccinated/Unvaccinated</label>
+        <label class="wizard-option"><input type="radio" name="outcome" value="ordinal"> <strong>Ordinal</strong> &mdash; Likert scale</label>
+        <label class="wizard-option"><input type="radio" name="outcome" value="nominal"> <strong>Nominal</strong> &mdash; race, blood type</label>
+        <label class="wizard-option"><input type="radio" name="outcome" value="count"> <strong>Count</strong> &mdash; ER visits</label>
+        <label class="wizard-option"><input type="radio" name="outcome" value="time"> <strong>Time-to-event</strong> &mdash; survival time</label>
+      </div>
+      <div class="wizard-field">
+        <label for="wizardRatingScale">What does the actual response option look like? <span class="calc-hint">e.g., "1=Strongly Disagree...5=Strongly Agree", "Yes/No", "0, 1, 2, 3+ visits" &mdash; verify this against your codebook</span></label>
+        <input type="text" id="wizardRatingScale" placeholder="Describe the response options...">
+      </div>
+      <div class="wizard-field">
+        <label for="wizardConfounders">Any confounders you plan to control for? <span class="calc-hint">optional &mdash; e.g., age, sex, baseline severity</span></label>
+        <input type="text" id="wizardConfounders" placeholder="List any confounders...">
+      </div>
+    </div>
+
+    <div class="wizard-step" data-step="3">
+      <h3>Step 3 &mdash; Study Design</h3>
+      <p class="caption">Independent or paired?</p>
+      <div class="wizard-options">
+        <label class="wizard-option"><input type="radio" name="pairing" value="independent"> Independent &mdash; different people in each group</label>
+        <label class="wizard-option"><input type="radio" name="pairing" value="paired"> Paired / repeated &mdash; same people, measured more than once</label>
+      </div>
+      <p class="caption" style="margin-top:16px;">Two groups or multiple groups?</p>
+      <div class="wizard-options">
+        <label class="wizard-option"><input type="radio" name="groups" value="2"> Two groups</label>
+        <label class="wizard-option"><input type="radio" name="groups" value="3plus"> Three or more groups</label>
+      </div>
+      <p class="caption" style="margin-top:16px;">Cross-sectional or longitudinal?</p>
+      <div class="wizard-options">
+        <label class="wizard-option"><input type="radio" name="timing" value="cross"> Cross-sectional &mdash; one point in time</label>
+        <label class="wizard-option"><input type="radio" name="timing" value="longitudinal"> Longitudinal &mdash; followed over time</label>
+      </div>
+    </div>
+
+    <div class="wizard-step" data-step="4">
+      <h3>Step 4 &mdash; Are your assumptions satisfied?</h3>
+      <p>Check these using the tools from <a href="../4-statistical-modeling/4-1-describe.html#describe">Describe</a> and <a href="../4-statistical-modeling/4-12-diagnostics.html#diagnostics">Diagnostics</a> in Topic 4: normality, equal variance, independence.</p>
+      <div class="wizard-options">
+        <label class="wizard-option"><input type="radio" name="assumptions" value="yes"> &#10003; Yes &mdash; normality, equal variance, and independence all look reasonable</label>
+        <label class="wizard-option"><input type="radio" name="assumptions" value="no"> &#10007; No &mdash; one or more assumptions are violated</label>
+      </div>
+      <div class="note-box">If not, choose the robust or non-parametric alternative &mdash; the tool accounts for this automatically.</div>
+    </div>
+
+    <div class="wizard-step" data-step="5">
+      <h3>Step 5 &mdash; Your Recommended Analysis</h3>
+      <div class="wizard-result" id="wizardResult"></div>
+    </div>
+
+    <p class="wizard-warning" id="wizardWarning" style="display:none;">Please make a selection before continuing.</p>
+    <div class="duel-controls">
+      <button id="wizardBackBtn" class="secondary" disabled>&larr; Back</button>
+      <button id="wizardNextBtn">Next &rarr;</button>
+      <button id="wizardRestartBtn" class="secondary" style="display:none;">Start Over</button>
+    </div>
+  </div>
+</section>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+/* ================================================================
+   TOPIC 4.6 — TEST SELECTOR TOOL
+   A working decision tree: the step order adapts to the Step-1
+   goal (Explore/Predict skip the design & assumptions steps that
+   only matter for Compare/Relate), and the final recommendation
+   is computed from the full combination of answers.
+   ================================================================ */
+let wizardStepOrder = [1,2,3,4,5];
+let wizardCurrentIndex = 0;
+const wizardAnswers = {};
+
+function computeStepOrder(){
+  const goal = wizardAnswers.goal;
+  if (goal === 'explore' || goal === 'predict') return [1,2,5];
+  if (goal === 'relate') return [1,2,4,5];
+  return [1,2,3,4,5]; // compare (default)
+}
+
+function currentStepPrimaryFieldSelected(step){
+  if (step === 1) return !!document.querySelector('input[name="goal"]:checked');
+  if (step === 2) return !!document.querySelector('input[name="outcome"]:checked');
+  if (step === 3) return !!document.querySelector('input[name="pairing"]:checked') && !!document.querySelector('input[name="groups"]:checked');
+  if (step === 4) return !!document.querySelector('input[name="assumptions"]:checked');
+  return true;
+}
+
+function saveWizardStepAnswers(step){
+  if (step === 1) wizardAnswers.goal = document.querySelector('input[name="goal"]:checked')?.value;
+  if (step === 2){
+    wizardAnswers.outcome = document.querySelector('input[name="outcome"]:checked')?.value;
+    wizardAnswers.ratingScale = document.getElementById('wizardRatingScale').value;
+    wizardAnswers.confounders = document.getElementById('wizardConfounders').value;
+  }
+  if (step === 3){
+    wizardAnswers.pairing = document.querySelector('input[name="pairing"]:checked')?.value;
+    wizardAnswers.groups = document.querySelector('input[name="groups"]:checked')?.value;
+    wizardAnswers.timing = document.querySelector('input[name="timing"]:checked')?.value;
+  }
+  if (step === 4) wizardAnswers.assumptions = document.querySelector('input[name="assumptions"]:checked')?.value;
+}
+
+function showWizardStep(stepNum){
+  document.querySelectorAll('.wizard-step').forEach(s => s.classList.remove('active'));
+  document.querySelector(`.wizard-step[data-step="${stepNum}"]`).classList.add('active');
+  document.getElementById('wizardWarning').style.display = 'none';
+  document.getElementById('wizardBackBtn').disabled = wizardCurrentIndex === 0;
+  const isLast = wizardCurrentIndex === wizardStepOrder.length - 1;
+  document.getElementById('wizardNextBtn').style.display = isLast ? 'none' : 'inline-block';
+  document.getElementById('wizardRestartBtn').style.display = isLast ? 'inline-block' : 'none';
+  document.getElementById('wizardProgress').textContent = `Step ${wizardCurrentIndex + 1} of ${wizardStepOrder.length}`;
+}
+
+function recommendTest(){
+  const { goal, outcome, pairing, groups, assumptions } = wizardAnswers;
+  const parametric = assumptions !== 'no';
+  let test = '', why = '', link = '../4-statistical-modeling/4-1-describe.html';
+
+  if (goal === 'explore'){
+    link = '../4-statistical-modeling/4-1-describe.html';
+    if (outcome === 'continuous'){ test = 'Descriptive statistics + histogram/boxplot'; why = 'Continuous data is best summarized with a mean, a standard deviation, and a picture of its shape.'; }
+    else { test = 'Frequencies, percentages, and a bar chart'; why = 'Categorical or count data is best summarized as counts and proportions.'; }
+  } else if (goal === 'predict'){
+    link = '../4-statistical-modeling/4-4-predict.html';
+    const map = { continuous:'Linear Regression', binary:'Logistic Regression', ordinal:'Ordinal Logistic Regression', nominal:'Multinomial Logistic Regression', count:'Poisson Regression (or Negative Binomial if overdispersed)', time:'Cox Regression' };
+    test = map[outcome] || 'Generalized Linear Model';
+    why = `Predicting a ${outcome} outcome calls for this regression family.`;
+  } else if (goal === 'relate'){
+    link = '../4-statistical-modeling/4-3-relate.html';
+    if (outcome === 'continuous'){ test = parametric ? 'Pearson correlation' : 'Spearman correlation'; why = parametric ? 'Both variables are roughly normal, so Pearson is appropriate.' : 'With assumptions violated, the rank-based Spearman correlation is safer.'; }
+    else if (outcome === 'ordinal'){ test = "Spearman correlation or Kendall's Tau"; why = 'Ordinal data is ranked, not measured on an equal-interval scale.'; }
+    else if (outcome === 'count'){ test = 'Spearman correlation'; why = 'Counts are rarely normally distributed, so a rank-based correlation is safer.'; }
+    else { test = "Chi-square test (Cramer's V for strength)"; why = 'Two categorical variables call for a chi-square test of association.'; }
+  } else { // compare
+    link = '../4-statistical-modeling/4-2-compare.html';
+    const paired = pairing === 'paired';
+    const multi = groups === '3plus';
+    if (outcome === 'continuous'){
+      if (!multi) test = paired ? (parametric ? 'Paired t-test' : 'Wilcoxon Signed-Rank test') : (parametric ? 'Independent t-test' : 'Mann-Whitney U test');
+      else test = paired ? (parametric ? 'Repeated Measures ANOVA' : 'Friedman test') : (parametric ? 'One-way ANOVA' : 'Kruskal-Wallis test');
+      why = parametric ? 'Assumptions look fine, so the classic parametric version is appropriate.' : 'Assumptions are violated, so the rank-based non-parametric version is safer.';
+    } else if (outcome === 'ordinal' || outcome === 'count'){
+      test = !multi ? (paired ? 'Wilcoxon Signed-Rank test' : 'Mann-Whitney U test') : (paired ? 'Friedman test' : 'Kruskal-Wallis test');
+      why = 'Ordinal and count data are usually compared with rank-based tests rather than assuming a bell curve.';
+    } else if (outcome === 'time'){
+      test = 'Log-rank test (comparing Kaplan-Meier curves)';
+      why = 'Comparing survival experience between groups calls for a log-rank test.';
+    } else { // binary/nominal
+      test = paired ? "McNemar's test (2 groups) or Cochran's Q (3+ groups)" : "Chi-square test (or Fisher's Exact for small samples)";
+      why = 'Comparing categorical outcomes across groups calls for a test of proportions.';
+    }
+  }
+  return { test, why, link };
+}
+
+function renderWizardResult(){
+  const r = recommendTest();
+  document.getElementById('wizardResult').innerHTML = `
+    <div class="wizard-result-test">${r.test}</div>
+    <div class="wizard-result-why">${r.why}</div>
+    ${wizardAnswers.confounders ? `<div class="wizard-result-note">You flagged confounders (${wizardAnswers.confounders}) &mdash; consider an adjusted model (e.g., ANCOVA or multiple regression) instead of the unadjusted version above.</div>` : ''}
+    ${wizardAnswers.ratingScale ? `<div class="wizard-result-note">Response options you described: "${wizardAnswers.ratingScale}" &mdash; double-check this matches your outcome type in the codebook before running the analysis.</div>` : ''}
+    <a class="back-link" href="${r.link}">&rarr; See the full explanation in Topic 4</a>
+  `;
+}
+
+document.getElementById('wizardNextBtn').addEventListener('click', () => {
+  const currentStep = wizardStepOrder[wizardCurrentIndex];
+  if (!currentStepPrimaryFieldSelected(currentStep)){
+    document.getElementById('wizardWarning').style.display = 'block';
+    return;
+  }
+  saveWizardStepAnswers(currentStep);
+  if (currentStep === 1) wizardStepOrder = computeStepOrder();
+  if (wizardCurrentIndex < wizardStepOrder.length - 1){
+    wizardCurrentIndex++;
+    const nextStep = wizardStepOrder[wizardCurrentIndex];
+    if (nextStep === 5) renderWizardResult();
+    showWizardStep(nextStep);
+  }
+});
+document.getElementById('wizardBackBtn').addEventListener('click', () => {
+  if (wizardCurrentIndex > 0){
+    wizardCurrentIndex--;
+    showWizardStep(wizardStepOrder[wizardCurrentIndex]);
+  }
+});
+document.getElementById('wizardRestartBtn').addEventListener('click', () => {
+  wizardCurrentIndex = 0;
+  wizardStepOrder = [1,2,3,4,5];
+  Object.keys(wizardAnswers).forEach(k => delete wizardAnswers[k]);
+  document.querySelectorAll('#testWizard input[type="radio"]').forEach(r => r.checked = false);
+  document.getElementById('wizardRatingScale').value = '';
+  document.getElementById('wizardConfounders').value = '';
+  showWizardStep(1);
+});
+showWizardStep(1);
+</script>
+</body>
+</html>

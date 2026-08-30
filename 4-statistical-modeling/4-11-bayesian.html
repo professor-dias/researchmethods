@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Bayesian &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="4-11">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+<section class="topic" id="bayesian">
+  <h2>Bayesian</h2>
+  <div class="statement-box"><strong>The question:</strong> I already had a belief &mdash; how should new evidence update it?</div>
+  <p>Instead of starting from scratch every time, Bayesian thinking starts with what you already believed and nudges it based on new data.</p>
+
+  <div class="flagship-box">
+    <div class="flagship-title">Flagship idea: Prior &rarr; Evidence &rarr; Posterior</div>
+    <div class="flagship-row"><strong>Why we do this:</strong> You rarely start with a truly blank mind &mdash; you usually have some reasonable expectation before collecting data.</div>
+    <div class="flagship-row"><strong>The logic:</strong> Start with your prior belief. Collect data. Blend the two together, giving more weight to whichever one is more certain, to get your updated belief.</div>
+    <div class="flagship-row"><strong>What to look for:</strong> How far the updated belief moved away from the starting belief, and how much evidence it took to move it.</div>
+    <div class="flagship-row"><strong>What it means:</strong> Strong new evidence shifts your belief a lot. Weak evidence barely moves it. This is how you naturally update your mind about anything &mdash; just made mathematically precise.</div>
+  </div>
+
+  <div class="ci-controls">
+    <label for="bayesSlider">Strength of new evidence</label>
+    <input type="range" id="bayesSlider" min="0" max="100" step="5" value="30">
+    <span id="bayesSliderVal">30</span>
+  </div>
+  <svg id="bayesDemo" width="100%" height="200" viewBox="0 0 700 200"></svg>
+  <p class="caption" id="bayesCaption"></p>
+
+  <h3 style="margin-top:26px;">Related tools</h3>
+  <table class="compare">
+    <tr><th>Tool</th><th>In plain words</th></tr>
+    <tr><td>Bayesian t-test / Regression / ANOVA / SEM</td><td>The same familiar tests from earlier, built around updating beliefs instead of only asking "significant or not"</td></tr>
+    <tr><td>MCMC</td><td>The computing trick that makes these belief calculations possible for complicated models</td></tr>
+    <tr><td>Bayes Factors</td><td>A number comparing how much better one belief explains the data than a rival belief</td></tr>
+    <tr><td>Hierarchical Bayesian Models</td><td>Letting different groups have their own beliefs, while still learning from each other</td></tr>
+  </table>
+
+  <a class="back-link" href="../3-quantitative-methods/3-2-2-statistical-framework.html#framework">&uarr; Back to the Framework</a>
+</section>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script src="../assets/stats-utils.js"></script>
+<script>
+/* ---- 3.12 Bayesian: prior → posterior ---- */
+function renderBayesDemo(){
+  const strength = parseInt(document.getElementById('bayesSlider').value, 10);
+  document.getElementById('bayesSliderVal').textContent = strength;
+  const priorMean = 40, evidenceMean = 80;
+  const w = strength/100;
+  const posteriorMean = priorMean*(1-w) + evidenceMean*w;
+  const W=700, H=200, padL=30, padR=30, padT=10, padB=30;
+  const plotW=W-padL-padR, plotH=H-padT-padB;
+  const xToPx = x => padL + (x/100)*plotW;
+  const sd = 10;
+  const maxDensity = normalPDF(50,50,sd);
+  const yToPx = y => padT + plotH - (y/maxDensity)*plotH;
+  function curvePath(mean){
+    let pts = [];
+    for (let x=0; x<=100; x++) pts.push([xToPx(x), yToPx(normalPDF(x,mean,sd))]);
+    return 'M ' + pts.map(p=>p.join(',')).join(' L ');
+  }
+  document.getElementById('bayesDemo').innerHTML = `
+    <path d="${curvePath(priorMean)}" fill="none" stroke="var(--navy)" stroke-width="2" stroke-dasharray="5,4" opacity="0.6"/>
+    <path d="${curvePath(posteriorMean)}" fill="none" stroke="var(--maroon)" stroke-width="2.5"/>
+    <line x1="${padL}" y1="${yToPx(0)}" x2="${W-padR}" y2="${yToPx(0)}" stroke="var(--line)" stroke-width="1.5"/>
+    <text x="${xToPx(priorMean)}" y="${H-6}" text-anchor="middle" font-size="12" fill="var(--navy)" font-weight="bold">Prior belief</text>
+    <text x="${xToPx(posteriorMean)}" y="${padT+12}" text-anchor="middle" font-size="12" fill="var(--maroon)" font-weight="bold">Updated belief</text>
+  `;
+  document.getElementById('bayesCaption').textContent = strength===0
+    ? 'No new evidence yet — the updated belief sits right on top of the prior.'
+    : `The evidence pulled your belief ${w<0.34?'a little':w<0.67?'moderately':'a lot'} toward the new data.`;
+}
+document.getElementById('bayesSlider').addEventListener('input', renderBayesDemo);
+renderBayesDemo();
+</script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Noel Dias">
+<title>Types of Research Designs &middot; Research Methods in Public Health</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-root="../" data-page-id="2-2">
+<div id="topbarMount"></div>
+<div id="breadcrumbMount"></div>
+<main class="content">
+
+<section class="topic topic-first" id="observational-vs-experimental">
+  <h2>Choosing Your Ride, Revisited</h2>
+  <div class="recall-prompt">
+    Step 3 of the roadmap in 2.1 asked one fork-in-the-road question: are you going to <strong>watch</strong>, or are you going to <strong>intervene</strong>? Everything in this page is just that one fork, worked out in detail.
+  </div>
+  <table class="compare">
+    <tr><th></th><th>Observational</th><th>Experimental</th></tr>
+    <tr><td><strong>What you do</strong></td><td>Measure variables exactly as they exist &mdash; no manipulation</td><td>Deliberately manipulate a variable (a program, policy, treatment) and measure the result</td></tr>
+    <tr><td><strong>Typical question</strong></td><td>"Why do people do what they do?"</td><td>"Can we help people change?"</td></tr>
+    <tr><td><strong>Speed &amp; cost</strong></td><td>Usually faster, cheaper, less demanding</td><td>Usually slower, more resource-intensive, more complex to run</td></tr>
+    <tr><td><strong>Can it prove cause and effect?</strong></td><td>Rarely on its own</td><td>Yes &mdash; this is what it's built for</td></tr>
+  </table>
+</section>
+
+<section class="topic" id="design-mindmap">
+  <h2>The Full Map</h2>
+  <p>Every named design you'll meet in this course fits somewhere on this map. Use it as a reference &mdash; the sections below walk through each branch.</p>
+
+  <div class="mindmap-wrap">
+    <svg viewBox="0 0 1000 470" class="mindmap-svg" role="img" aria-label="Tree diagram of research designs, branching from Research Designs into Observational and Experimental, then into Descriptive, Analytical, True Experimental, and Quasi-Experimental">
+      <line x1="500" y1="65" x2="500" y2="95" stroke="var(--line)" stroke-width="2"/>
+      <line x1="250" y1="95" x2="750" y2="95" stroke="var(--line)" stroke-width="2"/>
+      <line x1="250" y1="95" x2="250" y2="120" stroke="var(--line)" stroke-width="2"/>
+      <line x1="750" y1="95" x2="750" y2="120" stroke="var(--line)" stroke-width="2"/>
+
+      <line x1="250" y1="170" x2="250" y2="200" stroke="var(--line)" stroke-width="2"/>
+      <line x1="125" y1="200" x2="375" y2="200" stroke="var(--line)" stroke-width="2"/>
+      <line x1="125" y1="200" x2="125" y2="225" stroke="var(--line)" stroke-width="2"/>
+      <line x1="375" y1="200" x2="375" y2="225" stroke="var(--line)" stroke-width="2"/>
+
+      <line x1="750" y1="170" x2="750" y2="200" stroke="var(--line)" stroke-width="2"/>
+      <line x1="625" y1="200" x2="875" y2="200" stroke="var(--line)" stroke-width="2"/>
+      <line x1="625" y1="200" x2="625" y2="225" stroke="var(--line)" stroke-width="2"/>
+      <line x1="875" y1="200" x2="875" y2="225" stroke="var(--line)" stroke-width="2"/>
+
+      <rect x="390" y="15" width="220" height="50" rx="10" fill="var(--teal)"/>
+      <text x="500" y="45" text-anchor="middle" fill="var(--on-brand)" font-weight="bold" font-size="17" font-family="var(--sans)">Research Designs</text>
+
+      <rect x="140" y="120" width="220" height="50" rx="10" fill="var(--paper)" stroke="var(--navy)" stroke-width="2"/>
+      <text x="250" y="150" text-anchor="middle" fill="var(--navy)" font-weight="bold" font-size="16" font-family="var(--sans)">Observational</text>
+
+      <rect x="640" y="120" width="220" height="50" rx="10" fill="var(--paper)" stroke="var(--clay)" stroke-width="2"/>
+      <text x="750" y="150" text-anchor="middle" fill="var(--clay)" font-weight="bold" font-size="16" font-family="var(--sans)">Experimental</text>
+
+      <foreignObject x="15" y="225" width="220" height="225">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="tree-leaf navy">
+          <h4>Descriptive</h4>
+          <p class="tree-leaf-sub">"Who, what, where, when" &mdash; no cause-and-effect claim</p>
+          <ul>
+            <li>Case Report / Case Series</li>
+            <li>Cross-Sectional</li>
+            <li>Successive Independent Samples</li>
+            <li>Ecological</li>
+          </ul>
+        </div>
+      </foreignObject>
+
+      <foreignObject x="265" y="225" width="220" height="225">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="tree-leaf navy">
+          <h4>Analytical</h4>
+          <p class="tree-leaf-sub">Looks for a relationship between exposure and outcome</p>
+          <ul>
+            <li>Case-Control <em>(retrospective)</em></li>
+            <li>Cohort <em>(prospective or retrospective)</em></li>
+            <li>Case-Crossover</li>
+          </ul>
+        </div>
+      </foreignObject>
+
+      <foreignObject x="515" y="225" width="220" height="225">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="tree-leaf clay">
+          <h4>True Experimental</h4>
+          <p class="tree-leaf-sub">Random assignment to groups</p>
+          <ul>
+            <li>Posttest-Only Control Group</li>
+            <li>Pretest-Posttest Control Group</li>
+            <li>Multi-Arm RCT</li>
+            <li>Matched Pairs</li>
+            <li>Within-Subjects / Crossover</li>
+          </ul>
+        </div>
+      </foreignObject>
+
+      <foreignObject x="765" y="225" width="220" height="225">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="tree-leaf clay">
+          <h4>Quasi-Experimental</h4>
+          <p class="tree-leaf-sub">Comparison groups, but no random assignment</p>
+          <ul>
+            <li>Nonequivalent Control Group</li>
+            <li>Interrupted Time Series</li>
+          </ul>
+        </div>
+      </foreignObject>
+    </svg>
+  </div>
+</section>
+
+<section class="topic" id="observational-designs">
+  <h2>Observational Designs</h2>
+  <p>Three designs cover most observational health research &mdash; and the only real difference between them is <em>when</em> you're looking.</p>
+
+  <table class="compare">
+    <tr><th></th><th>Cross-Sectional</th><th>Case-Control</th><th>Cohort</th></tr>
+    <tr><td><strong>Snapshot or timeline?</strong></td><td>One single point in time</td><td>Looks backward from outcome to exposure</td><td>Follows a group forward through time</td></tr>
+    <tr><td><strong>Starting point</strong></td><td>A sample of the population</td><td>People who already have the outcome ("cases") vs. those who don't ("controls")</td><td>People who share an exposure (or don't), before any outcome exists yet</td></tr>
+    <tr><td><strong>Best for</strong></td><td>Prevalence, quick surveillance, generating hypotheses</td><td>Rare diseases &mdash; you don't have to wait for rare events to happen</td><td>Establishing that exposure came <em>before</em> outcome</td></tr>
+    <tr><td><strong>Can't do</strong></td><td>Show cause and effect, or which came first</td><td>Directly calculate incidence in the population</td><td>Move quickly or cheaply &mdash; these take time</td></tr>
+  </table>
+
+  <div class="interpretation-box">Notice the trade-off: cross-sectional is the "Ferrari" from 2.1 &mdash; fast, but it can only ever show you a correlation. Cohort studies are the "semitruck" &mdash; slow and resource-heavy, but strong enough to establish that the exposure happened first, which is a real step toward a causal claim.</div>
+
+  <details class="content-accordion">
+    <summary>A quick worked example of each<span class="accordion-progress" style="visibility:hidden;">&nbsp;</span></summary>
+    <div class="accordion-body">
+      <p><strong>Cross-sectional:</strong> Survey 1,000 adults this month about current exercise habits and current blood pressure. You get a snapshot &mdash; you can say the two are related, but not which caused which.</p>
+      <p><strong>Case-control:</strong> Identify 200 people with a rare cancer and 200 similar people without it, then look backward at both groups' exposure histories to find what differs.</p>
+      <p><strong>Cohort:</strong> Enroll 5,000 smokers and 5,000 non-smokers who are all currently disease-free, then follow both groups for ten years to see who develops the disease.</p>
+    </div>
+  </details>
+
+  <h3 style="margin-top:30px;">Prospective vs. Retrospective</h3>
+  <p>This is a second, separate timing question that applies mainly to cohort studies &mdash; and it's easy to confuse with the observational-design choice above.</p>
+  <div class="method-compare">
+    <div class="method-panel">
+      <div class="method-panel-title">Prospective</div>
+      <div class="method-item">You enroll people <strong>today</strong> and follow them into the future, collecting new data as it happens.</div>
+      <div class="method-item">Slower, but the data collected is exactly what you need &mdash; no gaps.</div>
+    </div>
+    <div class="method-panel">
+      <div class="method-panel-title">Retrospective</div>
+      <div class="method-item">You reconstruct a cohort <strong>from existing records</strong> &mdash; medical charts, registries &mdash; that already span the relevant time period.</div>
+      <div class="method-item">Much faster and cheaper, but you're stuck with whatever the records happened to capture.</div>
+    </div>
+  </div>
+  <div class="note-box">Case-control designs are always retrospective by nature &mdash; you already know who has the outcome, and you're looking backward at their exposure history. That's exactly why case-control studies carry a real risk of <strong>recall bias</strong>: people don't always remember their own past exposures accurately.</div>
+
+  <details class="content-accordion">
+    <summary>A few more observational variants you'll encounter<span class="accordion-progress" style="visibility:hidden;">&nbsp;</span></summary>
+    <div class="accordion-body">
+      <p><strong>Case report / case series:</strong> A detailed write-up of one patient (or a handful) with an unusual presentation. Not generalizable on its own &mdash; but historically how entirely new conditions get first noticed. This is exactly how the AIDS epidemic was first flagged in the early 1980s.</p>
+      <p><strong>Ecological:</strong> The unit of analysis is a <em>group</em> (a country, a school, a city), not an individual &mdash; e.g., comparing soda tax rates to obesity rates across states. Fast and cheap, but risks the <strong>ecological fallacy</strong>: a pattern true for groups isn't guaranteed to be true for the individuals inside them.</p>
+      <p><strong>Successive independent samples:</strong> A repeated cross-sectional design &mdash; a fresh, independently drawn sample from the same population at several points in time (e.g., a national survey repeated every year). Good for tracking trends; still can't establish individual-level cause and effect.</p>
+      <p><strong>Case-crossover:</strong> Cases serve as their own controls, comparing a person's exposure right before an event to their own exposure at other times. Useful for brief, transient exposures (e.g., using a cell phone right before a car crash).</p>
+    </div>
+  </details>
+</section>
+
+<section class="topic" id="experimental-designs">
+  <h2>Experimental &amp; Quasi-Experimental Designs</h2>
+  <p>Once you've decided to intervene, one more decision separates the two families of experimental design: <strong>does a coin flip decide who gets the intervention?</strong></p>
+
+  <div class="method-compare">
+    <div class="method-panel">
+      <div class="method-panel-title">True Experimental</div>
+      <div class="method-item">Participants are <strong>randomly assigned</strong> to treatment or control &mdash; this is what lets you rule out "the groups were just different to begin with."</div>
+      <div class="method-item"><strong>Posttest-only control group</strong> &mdash; simplest version, no pretest.</div>
+      <div class="method-item"><strong>Pretest-posttest control group</strong> &mdash; adds a baseline measure, so you can confirm the groups started out equivalent.</div>
+      <div class="method-item"><strong>Multi-arm RCT</strong> &mdash; more than one treatment condition compared against a shared control.</div>
+      <div class="method-item"><strong>Matched pairs</strong> &mdash; each participant (or site) is paired with a similar partner before randomizing each pair.</div>
+      <div class="method-item"><strong>Within-subjects / crossover</strong> &mdash; the same people experience every condition, in randomized order, acting as their own control.</div>
+    </div>
+    <div class="method-panel">
+      <div class="method-panel-title">Quasi-Experimental</div>
+      <div class="method-item">Groups are compared, but assignment is <strong>not random</strong> &mdash; often because randomizing isn't ethical or practical.</div>
+      <div class="method-item"><strong>Nonequivalent control group design</strong> &mdash; e.g., comparing two existing schools, one that adopted a new policy and one that didn't. Susceptible to differential selection (2.3), since the groups may have differed before the study began.</div>
+      <div class="method-item"><strong>Interrupted time series</strong> &mdash; many measurements taken before <em>and</em> after an intervention on the same group, watching for a break in the trend line. Considered the strongest quasi-experimental design.</div>
+    </div>
+  </div>
+
+  <div class="note-box">Researchers sometimes write a design out in shorthand: <strong>O<sub>1</sub> X O<sub>2</sub></strong> means "observe, then treat, then observe again" for one group. Adding a second, untreated row (<strong>O<sub>2</sub></strong> alone, no <strong>X</strong>) turns a weak "pre-experimental" one-group design into a real comparison.</div>
+</section>
+
+<section class="topic" id="implementing-observational">
+  <h2>Implementing an Observational Study in Practice</h2>
+  <p>This is Step 7 from 2.1 &mdash; "Is Autopilot a Good Idea?" &mdash; applied specifically to observational work. A good design on paper still has to survive contact with real people.</p>
+
+  <div class="flagship-box">
+    <div class="flagship-row"><strong>Gaining access:</strong> Wherever you recruit &mdash; clinics, schools, online panels &mdash; you need a realistic plan for reaching your defined population, not just the people who are easiest to find.</div>
+    <div class="flagship-row"><strong>Recruiting systematically:</strong> Use the same script, the same criteria, and the same pitch for every potential participant &mdash; inconsistent recruiting quietly introduces bias before data collection even starts.</div>
+    <div class="flagship-row"><strong>Minimizing attrition:</strong> People drop out of longer studies. Plan for it &mdash; and check whether the people who leave look different from the people who stay, since that difference itself can bias your results.</div>
+    <div class="flagship-row"><strong>Standardizing measurement:</strong> The same question, asked the same way, by every interviewer, every time &mdash; or your "data" partly measures your data collectors instead of your participants.</div>
+  </div>
+</section>
+
+<section class="topic" id="design-picker-game">
+  <h2>Which Design Fits?</h2>
+  <p>Read each short scenario and pick the design that fits best.</p>
+
+  <div class="level-game-status" id="designStatus">Round 1 of 7 &middot; 0 correct</div>
+  <div class="level-game-card">
+    <div class="level-game-var" id="designScenario" style="font-size:1.02rem; font-weight:normal; line-height:1.5;"></div>
+    <div class="level-game-options" id="designOptions">
+      <button type="button" data-design="cross">Cross-Sectional</button>
+      <button type="button" data-design="case">Case-Control</button>
+      <button type="button" data-design="cohort">Cohort</button>
+      <button type="button" data-design="true-exp">True Experimental</button>
+      <button type="button" data-design="quasi">Quasi-Experimental</button>
+    </div>
+    <div class="level-game-feedback" id="designFeedback" style="display:none;"></div>
+  </div>
+  <div class="duel-controls">
+    <button type="button" id="designNextBtn" style="display:none;">Next scenario &rarr;</button>
+    <button type="button" id="designRestartBtn" class="secondary">Shuffle &amp; Restart</button>
+  </div>
+</section>
+
+<div class="page-references">
+  <div class="page-references-title">References &amp; Further Reading</div>
+  <ul>
+    <li>Salazar, L. F., Crosby, R. A., &amp; DiClemente, R. J. (2015). <em>Research methods in health promotion</em> (2nd ed.), Ch. 4 &amp; 5. Jossey-Bass.</li>
+  </ul>
+</div>
+
+</main>
+<div id="stepper">
+  <button id="prevBtn" title="Previous section">&uarr;</button>
+  <button id="nextBtn" title="Next section">&darr;</button>
+</div>
+
+<footer>
+  <div class="footer-byline">Research Methods in Public Health &middot; Built by Noel Dias</div>
+  <div class="footer-links"><a href="mailto:nsinghdi@fiu.edu">nsinghdi@fiu.edu</a> &middot; <a href="https://www.linkedin.com/in/noeldias786" target="_blank" rel="noopener">linkedin.com/in/noeldias786</a></div>
+  <div class="footer-copyright">&copy; 2026 Noel Dias. All rights reserved. Built for classroom use.</div>
+</footer>
+
+<script src="../assets/nav.js"></script>
+<script>
+function shuffleArray(arr){
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+const DESIGN_LABELS = { cross:"Cross-Sectional", case:"Case-Control", cohort:"Cohort", "true-exp":"True Experimental", quasi:"Quasi-Experimental" };
+const DESIGN_BANK = [
+  { scenario: "Researchers survey 2,000 adults on one day to estimate what percentage currently meet physical activity guidelines.", answer: "cross", reason: "One measurement, one point in time, no follow-up — a classic cross-sectional snapshot." },
+  { scenario: "Investigators identify 150 people with a rare form of liver cancer and 150 similar people without it, then look backward at both groups' past exposures.", answer: "case", reason: "Starting from the outcome (has the disease / doesn't) and working backward is the signature of a case-control design." },
+  { scenario: "A team enrolls 3,000 disease-free adults, records their diets, and follows them for 15 years to see who later develops heart disease.", answer: "cohort", reason: "A disease-free group followed forward through time, exposure recorded before the outcome exists — a cohort design." },
+  { scenario: "Two similar high schools are compared — one already using a new anti-bullying policy, one that isn't — since the district would not allow random assignment of the policy.", answer: "quasi", reason: "A real comparison group, but no random assignment — that's what makes it quasi-experimental rather than a true experiment." },
+  { scenario: "Participants are randomly assigned by coin flip to either a new counseling program or a waitlist control group, then compared after 3 months.", answer: "true-exp", reason: "Random assignment to treatment vs. control is exactly what defines a true experimental design." },
+  { scenario: "A researcher pulls ten years of hospital records to reconstruct a group of patients who were and weren't prescribed a certain drug, then checks those same records for who later developed kidney damage.", answer: "cohort", reason: "Still a cohort — grouped by exposure, checked for outcome — just built from existing records instead of new enrollment. That makes it a retrospective cohort." },
+  { scenario: "A city tracks its monthly overdose death rate for two years before a needle-exchange program opens, and for two more years after — watching for a break in the trend line, with no separate comparison city.", answer: "quasi", reason: "Repeated measurements before and after an intervention on the same group, watching for a shift in trend — that's an interrupted time series, a quasi-experimental design." },
+];
+let designOrder = [], designIndex = 0, designCorrect = 0, designAnswered = false;
+function renderDesignRound(){
+  designAnswered = false;
+  const item = designOrder[designIndex];
+  document.getElementById("designStatus").textContent = `Round ${designIndex + 1} of ${designOrder.length} · ${designCorrect} correct`;
+  document.getElementById("designScenario").textContent = item.scenario;
+  document.getElementById("designFeedback").style.display = "none";
+  document.getElementById("designNextBtn").style.display = "none";
+  document.querySelectorAll("#designOptions button").forEach(b => { b.disabled = false; b.className = ""; });
+}
+function shuffleDesignGame(){
+  designOrder = shuffleArray(DESIGN_BANK);
+  designIndex = 0;
+  designCorrect = 0;
+  renderDesignRound();
+}
+document.getElementById("designOptions").addEventListener("click", (e) => {
+  const btn = e.target.closest("button");
+  if (!btn || designAnswered) return;
+  designAnswered = true;
+  const item = designOrder[designIndex];
+  const picked = btn.dataset.design;
+  const correct = picked === item.answer;
+  if (correct) designCorrect++;
+  document.querySelectorAll("#designOptions button").forEach(b => {
+    b.disabled = true;
+    if (b.dataset.design === item.answer) b.classList.add("reveal-correct");
+    else if (b.dataset.design === picked) b.classList.add("picked-wrong");
+  });
+  const fb = document.getElementById("designFeedback");
+  fb.className = "level-game-feedback " + (correct ? "correct" : "wrong");
+  fb.innerHTML = "<strong>" + (correct ? "Correct!" : "Not quite — it's " + DESIGN_LABELS[item.answer] + ".") + "</strong>" + item.reason;
+  fb.style.display = "block";
+  document.getElementById("designStatus").textContent = `Round ${designIndex + 1} of ${designOrder.length} · ${designCorrect} correct`;
+  const isLast = designIndex === designOrder.length - 1;
+  document.getElementById("designNextBtn").style.display = isLast ? "none" : "inline-block";
+});
+document.getElementById("designNextBtn").addEventListener("click", () => {
+  designIndex++;
+  renderDesignRound();
+});
+document.getElementById("designRestartBtn").addEventListener("click", shuffleDesignGame);
+shuffleDesignGame();
+</script>
+</body>
+</html>
