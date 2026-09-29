@@ -458,6 +458,31 @@
   .flow-row-options{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
   .flow-row-options span{ background:var(--gold-light); color:var(--maroon-dark); padding:6px 14px; border-radius:14px; font-weight:bold; font-size:0.85rem; }
 
+  /* ---- Numbered icon workflow (3.2.4): the big-picture, 7-step
+     analysis pipeline — a vertical timeline of number+icon markers
+     connected to content boxes, one step per row. ---- */
+  .workflow-steps{ display:flex; flex-direction:column; max-width:640px; margin:20px auto; }
+  .workflow-step{ display:flex; align-items:flex-start; gap:18px; }
+  .workflow-step-marker{ display:flex; flex-direction:column; align-items:center; width:56px; flex-shrink:0; }
+  .workflow-step-num{
+    width:32px; height:32px; border-radius:50%; border:2px solid var(--navy);
+    display:flex; align-items:center; justify-content:center; font-weight:bold;
+    color:var(--navy); font-family:var(--serif); margin-bottom:6px; flex-shrink:0;
+  }
+  .workflow-step-icon{ font-size:1.5rem; line-height:1; }
+  .workflow-step-connector{ width:2px; height:22px; background:var(--line); margin:4px 0 0; }
+  .workflow-step-box{
+    flex:1; background:var(--paper); border:2px solid var(--line); border-radius:14px;
+    padding:12px 20px; margin-bottom:14px;
+  }
+  .workflow-step-title{
+    font-family:var(--serif); font-weight:bold; font-size:1.02rem; color:var(--maroon-dark);
+    text-decoration:none;
+  }
+  .workflow-step-title:hover{ text-decoration:underline; }
+  .workflow-step-title.no-link{ cursor:default; }
+  .workflow-step-desc{ color:var(--ink-soft); font-size:0.88rem; margin-top:4px; line-height:1.4; }
+
   /* ---- Test Selector wizard ---- */
   .wizard{ background:var(--paper); border:2px solid var(--line); border-radius:14px; padding:24px 28px; margin:18px 0; }
   .wizard-progress{ font-size:0.82rem; font-weight:bold; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:16px; }
